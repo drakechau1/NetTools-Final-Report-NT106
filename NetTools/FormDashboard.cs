@@ -65,7 +65,7 @@ namespace NetTools
             if (userControl != null)
             {
                 panelDesktop.Controls.Clear();
-
+                userControl.Dock = DockStyle.Fill;
                 panelDesktop.Controls.Add((Control)userControl);
             }
         }

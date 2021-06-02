@@ -49,10 +49,10 @@ namespace NetTools
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.buttonExitWindow = new System.Windows.Forms.Button();
-            this.buttonMaximizeWindow = new System.Windows.Forms.Button();
-            this.buttonMinimizeWindow = new System.Windows.Forms.Button();
             this.panelWindowControl = new System.Windows.Forms.Panel();
+            this.buttonMinimizeWindow = new System.Windows.Forms.Button();
+            this.buttonMaximizeWindow = new System.Windows.Forms.Button();
+            this.buttonExitWindow = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelMisc.SuspendLayout();
             this.panelNetwork.SuspendLayout();
@@ -280,7 +280,7 @@ namespace NetTools
             this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
             this.pictureLogo.InitialImage = null;
             this.pictureLogo.Location = new System.Drawing.Point(19, 11);
-            this.pictureLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pictureLogo.Name = "pictureLogo";
             this.pictureLogo.Size = new System.Drawing.Size(184, 119);
             this.pictureLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -336,33 +336,17 @@ namespace NetTools
             this.panelTitle.TabIndex = 1;
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
             // 
-            // buttonExitWindow
+            // panelWindowControl
             // 
-            this.buttonExitWindow.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonExitWindow.FlatAppearance.BorderSize = 0;
-            this.buttonExitWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExitWindow.Image = ((System.Drawing.Image)(resources.GetObject("buttonExitWindow.Image")));
-            this.buttonExitWindow.Location = new System.Drawing.Point(71, 0);
-            this.buttonExitWindow.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonExitWindow.Name = "buttonExitWindow";
-            this.buttonExitWindow.Size = new System.Drawing.Size(36, 28);
-            this.buttonExitWindow.TabIndex = 0;
-            this.buttonExitWindow.UseVisualStyleBackColor = true;
-            this.buttonExitWindow.Click += new System.EventHandler(this.buttonExitWindow_Click);
-            // 
-            // buttonMaximizeWindow
-            // 
-            this.buttonMaximizeWindow.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonMaximizeWindow.FlatAppearance.BorderSize = 0;
-            this.buttonMaximizeWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMaximizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("buttonMaximizeWindow.Image")));
-            this.buttonMaximizeWindow.Location = new System.Drawing.Point(39, 0);
-            this.buttonMaximizeWindow.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonMaximizeWindow.Name = "buttonMaximizeWindow";
-            this.buttonMaximizeWindow.Size = new System.Drawing.Size(32, 28);
-            this.buttonMaximizeWindow.TabIndex = 1;
-            this.buttonMaximizeWindow.UseVisualStyleBackColor = true;
-            this.buttonMaximizeWindow.Click += new System.EventHandler(this.buttonMaximizeWindow_Click);
+            this.panelWindowControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelWindowControl.Controls.Add(this.buttonMinimizeWindow);
+            this.panelWindowControl.Controls.Add(this.buttonMaximizeWindow);
+            this.panelWindowControl.Controls.Add(this.buttonExitWindow);
+            this.panelWindowControl.Location = new System.Drawing.Point(863, 12);
+            this.panelWindowControl.Margin = new System.Windows.Forms.Padding(4);
+            this.panelWindowControl.Name = "panelWindowControl";
+            this.panelWindowControl.Size = new System.Drawing.Size(107, 28);
+            this.panelWindowControl.TabIndex = 1;
             // 
             // buttonMinimizeWindow
             // 
@@ -378,17 +362,33 @@ namespace NetTools
             this.buttonMinimizeWindow.UseVisualStyleBackColor = true;
             this.buttonMinimizeWindow.Click += new System.EventHandler(this.buttonMinimizeWindow_Click);
             // 
-            // panelWindowControl
+            // buttonMaximizeWindow
             // 
-            this.panelWindowControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelWindowControl.Controls.Add(this.buttonMinimizeWindow);
-            this.panelWindowControl.Controls.Add(this.buttonMaximizeWindow);
-            this.panelWindowControl.Controls.Add(this.buttonExitWindow);
-            this.panelWindowControl.Location = new System.Drawing.Point(863, 12);
-            this.panelWindowControl.Margin = new System.Windows.Forms.Padding(4);
-            this.panelWindowControl.Name = "panelWindowControl";
-            this.panelWindowControl.Size = new System.Drawing.Size(107, 28);
-            this.panelWindowControl.TabIndex = 1;
+            this.buttonMaximizeWindow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonMaximizeWindow.FlatAppearance.BorderSize = 0;
+            this.buttonMaximizeWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMaximizeWindow.Image = ((System.Drawing.Image)(resources.GetObject("buttonMaximizeWindow.Image")));
+            this.buttonMaximizeWindow.Location = new System.Drawing.Point(39, 0);
+            this.buttonMaximizeWindow.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonMaximizeWindow.Name = "buttonMaximizeWindow";
+            this.buttonMaximizeWindow.Size = new System.Drawing.Size(32, 28);
+            this.buttonMaximizeWindow.TabIndex = 1;
+            this.buttonMaximizeWindow.UseVisualStyleBackColor = true;
+            this.buttonMaximizeWindow.Click += new System.EventHandler(this.buttonMaximizeWindow_Click);
+            // 
+            // buttonExitWindow
+            // 
+            this.buttonExitWindow.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonExitWindow.FlatAppearance.BorderSize = 0;
+            this.buttonExitWindow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExitWindow.Image = ((System.Drawing.Image)(resources.GetObject("buttonExitWindow.Image")));
+            this.buttonExitWindow.Location = new System.Drawing.Point(71, 0);
+            this.buttonExitWindow.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonExitWindow.Name = "buttonExitWindow";
+            this.buttonExitWindow.Size = new System.Drawing.Size(36, 28);
+            this.buttonExitWindow.TabIndex = 0;
+            this.buttonExitWindow.UseVisualStyleBackColor = true;
+            this.buttonExitWindow.Click += new System.EventHandler(this.buttonExitWindow_Click);
             // 
             // FormDashboard
             // 
