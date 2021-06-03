@@ -50,7 +50,7 @@ namespace NetTools.UserControls.Network
 
         #region Events from user
         private void UCIPGeoLocation_Load(object sender, EventArgs e)
-        {
+        {   
             for (int i = 0; i < listViewGeoLocationInfo.Items.Count; i++)
             {
                 listViewGeoLocationInfo.Items[i].SubItems.Add(string.Empty);
@@ -76,6 +76,11 @@ namespace NetTools.UserControls.Network
             }
             else
             {
+                // Clear items
+                for (int i = 0; i < listViewGeoLocationInfo.Items.Count; i++)
+                {
+                    listViewGeoLocationInfo.Items[i].SubItems[1].Text = string.Empty;
+                }
                 listViewGeoLocationInfo.Items[0].SubItems[1].Text = "Country Unable to resolve IP address, test stopped.";
             }
         }
