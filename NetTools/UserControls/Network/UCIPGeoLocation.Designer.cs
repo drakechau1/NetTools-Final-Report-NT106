@@ -29,8 +29,34 @@ namespace NetTools.UserControls.Network
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem25 = new System.Windows.Forms.ListViewItem("Status");
+            System.Windows.Forms.ListViewItem listViewItem26 = new System.Windows.Forms.ListViewItem("Continent");
+            System.Windows.Forms.ListViewItem listViewItem27 = new System.Windows.Forms.ListViewItem("Continent Code");
+            System.Windows.Forms.ListViewItem listViewItem28 = new System.Windows.Forms.ListViewItem("Country");
+            System.Windows.Forms.ListViewItem listViewItem29 = new System.Windows.Forms.ListViewItem("Country Code");
+            System.Windows.Forms.ListViewItem listViewItem30 = new System.Windows.Forms.ListViewItem("Region Code");
+            System.Windows.Forms.ListViewItem listViewItem31 = new System.Windows.Forms.ListViewItem("Region Name");
+            System.Windows.Forms.ListViewItem listViewItem32 = new System.Windows.Forms.ListViewItem("City");
+            System.Windows.Forms.ListViewItem listViewItem33 = new System.Windows.Forms.ListViewItem("District");
+            System.Windows.Forms.ListViewItem listViewItem34 = new System.Windows.Forms.ListViewItem("Zip Code");
+            System.Windows.Forms.ListViewItem listViewItem35 = new System.Windows.Forms.ListViewItem("Latitude");
+            System.Windows.Forms.ListViewItem listViewItem36 = new System.Windows.Forms.ListViewItem("Longitude");
+            System.Windows.Forms.ListViewItem listViewItem37 = new System.Windows.Forms.ListViewItem("Time Zone");
+            System.Windows.Forms.ListViewItem listViewItem38 = new System.Windows.Forms.ListViewItem("Offset");
+            System.Windows.Forms.ListViewItem listViewItem39 = new System.Windows.Forms.ListViewItem("Currency");
+            System.Windows.Forms.ListViewItem listViewItem40 = new System.Windows.Forms.ListViewItem("ISP Name");
+            System.Windows.Forms.ListViewItem listViewItem41 = new System.Windows.Forms.ListViewItem("Organization Name");
+            System.Windows.Forms.ListViewItem listViewItem42 = new System.Windows.Forms.ListViewItem("AS Number");
+            System.Windows.Forms.ListViewItem listViewItem43 = new System.Windows.Forms.ListViewItem("AS Name");
+            System.Windows.Forms.ListViewItem listViewItem44 = new System.Windows.Forms.ListViewItem("Reverse DNS");
+            System.Windows.Forms.ListViewItem listViewItem45 = new System.Windows.Forms.ListViewItem("Mobile");
+            System.Windows.Forms.ListViewItem listViewItem46 = new System.Windows.Forms.ListViewItem("Proxy");
+            System.Windows.Forms.ListViewItem listViewItem47 = new System.Windows.Forms.ListViewItem("Hosting");
+            System.Windows.Forms.ListViewItem listViewItem48 = new System.Windows.Forms.ListViewItem("IP Address");
             this.panelInfo = new System.Windows.Forms.Panel();
             this.listViewGeoLocationInfo = new System.Windows.Forms.ListView();
+            this.columnField = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.labelIPAddress = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textIPAddress = new System.Windows.Forms.TextBox();
@@ -53,14 +79,57 @@ namespace NetTools.UserControls.Network
             // 
             // listViewGeoLocationInfo
             // 
+            this.listViewGeoLocationInfo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnField,
+            this.columnValue});
             this.listViewGeoLocationInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewGeoLocationInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewGeoLocationInfo.FullRowSelect = true;
+            this.listViewGeoLocationInfo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewGeoLocationInfo.HideSelection = false;
+            this.listViewGeoLocationInfo.HoverSelection = true;
+            this.listViewGeoLocationInfo.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem25,
+            listViewItem26,
+            listViewItem27,
+            listViewItem28,
+            listViewItem29,
+            listViewItem30,
+            listViewItem31,
+            listViewItem32,
+            listViewItem33,
+            listViewItem34,
+            listViewItem35,
+            listViewItem36,
+            listViewItem37,
+            listViewItem38,
+            listViewItem39,
+            listViewItem40,
+            listViewItem41,
+            listViewItem42,
+            listViewItem43,
+            listViewItem44,
+            listViewItem45,
+            listViewItem46,
+            listViewItem47,
+            listViewItem48});
             this.listViewGeoLocationInfo.Location = new System.Drawing.Point(10, 0);
             this.listViewGeoLocationInfo.Name = "listViewGeoLocationInfo";
             this.listViewGeoLocationInfo.Size = new System.Drawing.Size(960, 706);
             this.listViewGeoLocationInfo.TabIndex = 0;
+            this.listViewGeoLocationInfo.TileSize = new System.Drawing.Size(500, 44);
             this.listViewGeoLocationInfo.UseCompatibleStateImageBehavior = false;
+            this.listViewGeoLocationInfo.View = System.Windows.Forms.View.Details;
+            // 
+            // columnField
+            // 
+            this.columnField.Text = "Field";
+            this.columnField.Width = 234;
+            // 
+            // columnValue
+            // 
+            this.columnValue.Text = "Value";
+            this.columnValue.Width = 262;
             // 
             // labelIPAddress
             // 
@@ -109,6 +178,7 @@ namespace NetTools.UserControls.Network
             this.buttonGo.TabIndex = 2;
             this.buttonGo.Text = "Go";
             this.buttonGo.UseVisualStyleBackColor = false;
+            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
             // 
             // panelSearchIP
             // 
@@ -133,6 +203,7 @@ namespace NetTools.UserControls.Network
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UCIPGeoLocation";
             this.Size = new System.Drawing.Size(980, 829);
+            this.Load += new System.EventHandler(this.UCIPGeoLocation_Load);
             this.panelInfo.ResumeLayout(false);
             this.panelSearchIP.ResumeLayout(false);
             this.panelSearchIP.PerformLayout();
@@ -148,5 +219,7 @@ namespace NetTools.UserControls.Network
         private System.Windows.Forms.TextBox textIPAddress;
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.Panel panelSearchIP;
+        private System.Windows.Forms.ColumnHeader columnField;
+        private System.Windows.Forms.ColumnHeader columnValue;
     }
 }
