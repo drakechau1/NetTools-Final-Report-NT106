@@ -53,6 +53,7 @@ namespace NetTools
             this.buttonMinimizeWindow = new System.Windows.Forms.Button();
             this.buttonMaximizeWindow = new System.Windows.Forms.Button();
             this.buttonExitWindow = new System.Windows.Forms.Button();
+            this.buttonWhoIs = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelMisc.SuspendLayout();
             this.panelNetwork.SuspendLayout();
@@ -86,7 +87,7 @@ namespace NetTools
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetting.Image = ((System.Drawing.Image)(resources.GetObject("buttonSetting.Image")));
             this.buttonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSetting.Location = new System.Drawing.Point(0, 558);
+            this.buttonSetting.Location = new System.Drawing.Point(0, 598);
             this.buttonSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
@@ -103,7 +104,7 @@ namespace NetTools
             this.panelMisc.Controls.Add(this.buttonBinaryConverter);
             this.panelMisc.Controls.Add(this.buttonBase64);
             this.panelMisc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMisc.Location = new System.Drawing.Point(0, 437);
+            this.panelMisc.Location = new System.Drawing.Point(0, 477);
             this.panelMisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMisc.Name = "panelMisc";
             this.panelMisc.Size = new System.Drawing.Size(220, 121);
@@ -161,7 +162,7 @@ namespace NetTools
             this.buttonMisc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMisc.Image = ((System.Drawing.Image)(resources.GetObject("buttonMisc.Image")));
             this.buttonMisc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonMisc.Location = new System.Drawing.Point(0, 391);
+            this.buttonMisc.Location = new System.Drawing.Point(0, 431);
             this.buttonMisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMisc.Name = "buttonMisc";
             this.buttonMisc.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
@@ -174,6 +175,7 @@ namespace NetTools
             // panelNetwork
             // 
             this.panelNetwork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.panelNetwork.Controls.Add(this.buttonWhoIs);
             this.panelNetwork.Controls.Add(this.buttonTraceRoute);
             this.panelNetwork.Controls.Add(this.buttonPing);
             this.panelNetwork.Controls.Add(this.buttonIPGeoLocation);
@@ -182,7 +184,7 @@ namespace NetTools
             this.panelNetwork.Location = new System.Drawing.Point(0, 231);
             this.panelNetwork.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelNetwork.Name = "panelNetwork";
-            this.panelNetwork.Size = new System.Drawing.Size(220, 160);
+            this.panelNetwork.Size = new System.Drawing.Size(220, 200);
             this.panelNetwork.TabIndex = 3;
             // 
             // buttonTraceRoute
@@ -390,6 +392,21 @@ namespace NetTools
             this.buttonExitWindow.UseVisualStyleBackColor = true;
             this.buttonExitWindow.Click += new System.EventHandler(this.buttonExitWindow_Click);
             // 
+            // buttonWhoIs
+            // 
+            this.buttonWhoIs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonWhoIs.FlatAppearance.BorderSize = 0;
+            this.buttonWhoIs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWhoIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWhoIs.Location = new System.Drawing.Point(0, 156);
+            this.buttonWhoIs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonWhoIs.Name = "buttonWhoIs";
+            this.buttonWhoIs.Size = new System.Drawing.Size(220, 39);
+            this.buttonWhoIs.TabIndex = 4;
+            this.buttonWhoIs.Text = "WhoIs";
+            this.buttonWhoIs.UseVisualStyleBackColor = true;
+            this.buttonWhoIs.Click += new System.EventHandler(this.buttonWhoIs_Click);
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -442,6 +459,7 @@ namespace NetTools
         private System.Windows.Forms.Button buttonMinimizeWindow;
         private System.Windows.Forms.Button buttonMaximizeWindow;
         private System.Windows.Forms.Button buttonExitWindow;
+        private System.Windows.Forms.Button buttonWhoIs;
     }
 }
 

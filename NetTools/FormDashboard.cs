@@ -23,6 +23,7 @@ namespace NetTools
         UserControls.Misc.UCSIDConverter ucSIDConverter = new UserControls.Misc.UCSIDConverter();
         UserControls.UCHome ucHome = new UserControls.UCHome();
         UserControls.UCSetting ucSetting = new UserControls.UCSetting();
+        UserControls.Network.UCWhoIs ucWhoIs = new UserControls.Network.UCWhoIs();
         #endregion
 
         // Constructor
@@ -126,6 +127,11 @@ namespace NetTools
             labelTitle.Text = "Trace Route";
         }
 
+        private void buttonWhoIs_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucWhoIs);
+            labelTitle.Text = "WhoIs";
+        }
         #endregion End network
 
         #region Misc functions
