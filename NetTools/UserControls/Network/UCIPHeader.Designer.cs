@@ -47,48 +47,53 @@ namespace NetTools.UserControls.Network
             this.panelControl.Controls.Add(this.txtDomain);
             this.panelControl.Controls.Add(this.label1);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelControl.Location = new System.Drawing.Point(0, 0);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(980, 111);
+            this.panelControl.Size = new System.Drawing.Size(980, 113);
             this.panelControl.TabIndex = 0;
             // 
             // checkboxAllowRedirects
             // 
             this.checkboxAllowRedirects.AutoSize = true;
-            this.checkboxAllowRedirects.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxAllowRedirects.Location = new System.Drawing.Point(224, 62);
+            this.checkboxAllowRedirects.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkboxAllowRedirects.Location = new System.Drawing.Point(202, 64);
             this.checkboxAllowRedirects.Name = "checkboxAllowRedirects";
-            this.checkboxAllowRedirects.Size = new System.Drawing.Size(160, 29);
+            this.checkboxAllowRedirects.Size = new System.Drawing.Size(142, 24);
             this.checkboxAllowRedirects.TabIndex = 2;
             this.checkboxAllowRedirects.Text = "Allow redirects";
             this.checkboxAllowRedirects.UseVisualStyleBackColor = true;
             // 
             // buttonGo
             // 
-            this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGo.Location = new System.Drawing.Point(668, 22);
+            this.buttonGo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.buttonGo.FlatAppearance.BorderSize = 0;
+            this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGo.Location = new System.Drawing.Point(749, 26);
             this.buttonGo.Name = "buttonGo";
-            this.buttonGo.Size = new System.Drawing.Size(102, 38);
+            this.buttonGo.Size = new System.Drawing.Size(102, 37);
             this.buttonGo.TabIndex = 3;
             this.buttonGo.Text = "Go";
-            this.buttonGo.UseVisualStyleBackColor = true;
+            this.buttonGo.UseVisualStyleBackColor = false;
             this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
             // 
             // txtDomain
             // 
-            this.txtDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomain.Location = new System.Drawing.Point(224, 26);
+            this.txtDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDomain.Location = new System.Drawing.Point(202, 31);
+            this.txtDomain.MinimumSize = new System.Drawing.Size(541, 27);
             this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(415, 30);
+            this.txtDomain.Size = new System.Drawing.Size(541, 27);
             this.txtDomain.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(79, 29);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(90, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 25);
+            this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "URL/Domain";
             // 
@@ -96,20 +101,23 @@ namespace NetTools.UserControls.Network
             // 
             this.panelDesktop.Controls.Add(this.richtextHTTPHeaders);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(0, 111);
+            this.panelDesktop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDesktop.Location = new System.Drawing.Point(0, 113);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.panelDesktop.Size = new System.Drawing.Size(980, 718);
+            this.panelDesktop.Size = new System.Drawing.Size(980, 716);
             this.panelDesktop.TabIndex = 1;
             // 
             // richtextHTTPHeaders
             // 
             this.richtextHTTPHeaders.BackColor = System.Drawing.Color.White;
+            this.richtextHTTPHeaders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtextHTTPHeaders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richtextHTTPHeaders.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richtextHTTPHeaders.Location = new System.Drawing.Point(10, 0);
             this.richtextHTTPHeaders.Name = "richtextHTTPHeaders";
             this.richtextHTTPHeaders.ReadOnly = true;
-            this.richtextHTTPHeaders.Size = new System.Drawing.Size(960, 708);
+            this.richtextHTTPHeaders.Size = new System.Drawing.Size(960, 706);
             this.richtextHTTPHeaders.TabIndex = 0;
             this.richtextHTTPHeaders.Text = "";
             // 

@@ -33,12 +33,12 @@ namespace NetTools.UserControls.Network
             this.button1 = new System.Windows.Forms.Button();
             this.TraceRoute = new System.Windows.Forms.ListBox();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.txtHostname = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ClearAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtHostname = new System.Windows.Forms.TextBox();
             this.panelControl.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
@@ -46,22 +46,26 @@ namespace NetTools.UserControls.Network
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(717, 27);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(718, 31);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 38);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "TraceRoute";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Size = new System.Drawing.Size(75, 37);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Go";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TraceRoute
             // 
+            this.TraceRoute.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TraceRoute.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TraceRoute.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TraceRoute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TraceRoute.FormattingEnabled = true;
-            this.TraceRoute.ItemHeight = 25;
+            this.TraceRoute.ItemHeight = 20;
             this.TraceRoute.Location = new System.Drawing.Point(10, 0);
             this.TraceRoute.Margin = new System.Windows.Forms.Padding(4);
             this.TraceRoute.Name = "TraceRoute";
@@ -76,17 +80,26 @@ namespace NetTools.UserControls.Network
             this.panelControl.Controls.Add(this.label1);
             this.panelControl.Controls.Add(this.button1);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelControl.Location = new System.Drawing.Point(0, 0);
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(980, 113);
             this.panelControl.TabIndex = 0;
             // 
+            // txtHostname
+            // 
+            this.txtHostname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHostname.Location = new System.Drawing.Point(164, 36);
+            this.txtHostname.MinimumSize = new System.Drawing.Size(547, 27);
+            this.txtHostname.Name = "txtHostname";
+            this.txtHostname.Size = new System.Drawing.Size(547, 27);
+            this.txtHostname.TabIndex = 1;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(160, 65);
+            this.label2.Location = new System.Drawing.Point(161, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(189, 18);
             this.label2.TabIndex = 3;
@@ -95,9 +108,10 @@ namespace NetTools.UserControls.Network
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 34);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(91, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 25);
+            this.label1.Size = new System.Drawing.Size(67, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Domain";
             // 
@@ -105,7 +119,7 @@ namespace NetTools.UserControls.Network
             // 
             this.panelDesktop.Controls.Add(this.TraceRoute);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelDesktop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelDesktop.Location = new System.Drawing.Point(0, 113);
             this.panelDesktop.Name = "panelDesktop";
             this.panelDesktop.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
@@ -114,25 +128,20 @@ namespace NetTools.UserControls.Network
             // 
             // contextMenuStrip
             // 
+            this.contextMenuStrip.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextMenuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ClearAll});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(135, 28);
+            this.contextMenuStrip.Size = new System.Drawing.Size(143, 28);
             // 
             // ClearAll
             // 
+            this.ClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearAll.Name = "ClearAll";
-            this.ClearAll.Size = new System.Drawing.Size(134, 24);
+            this.ClearAll.Size = new System.Drawing.Size(142, 24);
             this.ClearAll.Text = "Clear All";
             this.ClearAll.Click += new System.EventHandler(this.ClearAll_Click);
-            // 
-            // txtHostname
-            // 
-            this.txtHostname.Location = new System.Drawing.Point(163, 31);
-            this.txtHostname.Name = "txtHostname";
-            this.txtHostname.Size = new System.Drawing.Size(547, 30);
-            this.txtHostname.TabIndex = 4;
             // 
             // UCTraceRoute
             // 

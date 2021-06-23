@@ -30,11 +30,11 @@ namespace NetTools.UserControls.Network
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.buttonGo = new System.Windows.Forms.Button();
             this.textIPAddress = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelIPAddress = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.richTextInfomation = new System.Windows.Forms.RichTextBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -47,48 +47,36 @@ namespace NetTools.UserControls.Network
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.labelIPAddress);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(980, 113);
             this.panel2.TabIndex = 1;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.richTextInfomation);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 113);
-            this.panel3.Name = "panel3";
-            this.panel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.panel3.Size = new System.Drawing.Size(980, 716);
-            this.panel3.TabIndex = 2;
-            // 
             // buttonGo
             // 
-            this.buttonGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonGo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonGo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
             this.buttonGo.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.buttonGo.FlatAppearance.BorderSize = 0;
             this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGo.Location = new System.Drawing.Point(773, 24);
+            this.buttonGo.Location = new System.Drawing.Point(763, 31);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(75, 37);
-            this.buttonGo.TabIndex = 6;
+            this.buttonGo.TabIndex = 2;
             this.buttonGo.Text = "Go";
             this.buttonGo.UseVisualStyleBackColor = false;
             this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
             // 
             // textIPAddress
             // 
-            this.textIPAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textIPAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textIPAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textIPAddress.Location = new System.Drawing.Point(261, 29);
-            this.textIPAddress.MinimumSize = new System.Drawing.Size(300, 27);
+            this.textIPAddress.Location = new System.Drawing.Point(248, 36);
+            this.textIPAddress.MinimumSize = new System.Drawing.Size(509, 27);
             this.textIPAddress.Name = "textIPAddress";
-            this.textIPAddress.Size = new System.Drawing.Size(481, 27);
-            this.textIPAddress.TabIndex = 5;
+            this.textIPAddress.Size = new System.Drawing.Size(509, 27);
+            this.textIPAddress.TabIndex = 1;
             // 
             // label2
             // 
@@ -96,10 +84,10 @@ namespace NetTools.UserControls.Network
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(257, 69);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(245, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(413, 20);
+            this.label2.Size = new System.Drawing.Size(370, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "WhoIs information provided by whois.whoisxmlapi.com";
             // 
@@ -107,16 +95,29 @@ namespace NetTools.UserControls.Network
             // 
             this.labelIPAddress.AutoSize = true;
             this.labelIPAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIPAddress.Location = new System.Drawing.Point(90, 32);
+            this.labelIPAddress.Location = new System.Drawing.Point(89, 39);
             this.labelIPAddress.Name = "labelIPAddress";
-            this.labelIPAddress.Size = new System.Drawing.Size(153, 20);
+            this.labelIPAddress.Size = new System.Drawing.Size(149, 20);
             this.labelIPAddress.TabIndex = 4;
-            this.labelIPAddress.Text = "Domain name or IP";
+            this.labelIPAddress.Text = "Domain/IPAddress";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.richTextInfomation);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Location = new System.Drawing.Point(0, 113);
+            this.panel3.Name = "panel3";
+            this.panel3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
+            this.panel3.Size = new System.Drawing.Size(980, 716);
+            this.panel3.TabIndex = 2;
             // 
             // richTextInfomation
             // 
-            this.richTextInfomation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextInfomation.BackColor = System.Drawing.Color.White;
+            this.richTextInfomation.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextInfomation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextInfomation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextInfomation.Location = new System.Drawing.Point(10, 0);
             this.richTextInfomation.Name = "richTextInfomation";
             this.richTextInfomation.ReadOnly = true;

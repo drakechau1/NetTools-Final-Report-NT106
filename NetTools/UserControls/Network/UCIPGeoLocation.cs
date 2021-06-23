@@ -16,9 +16,9 @@ namespace NetTools.UserControls.Network
         }
 
         #region Methods
-        private string GetHTTPRequest(string ipAddress)
+        private string GetHTTPRequest(string url)
         {
-            string URL = $"http://ip-api.com/xml/{ipAddress}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query";
+            string URL = $"http://ip-api.com/xml/{url}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query";
             WebRequest webRequest = WebRequest.Create(URL);
             webRequest.Credentials = CredentialCache.DefaultCredentials;
             WebResponse webResponse = webRequest.GetResponse();
@@ -32,6 +32,8 @@ namespace NetTools.UserControls.Network
 
         private bool CheckQueryReponse(XmlDocument xDoc)
         {
+            /* Check the message response from the xDoc */
+            /* If the xDoc has a message tag -> the webrequest was failed */
             if (xDoc.SelectSingleNode("//message") != null)
                 return false;
             return true;
@@ -39,18 +41,40 @@ namespace NetTools.UserControls.Network
 
         private List<string> GetIpGeoLocationInfo(XmlDocument xDoc)
         {
-            List<string> ipInfo = new List<string>();
+            List<string> listInfoOfIPGeoLocation = new List<string>();
             foreach (XmlNode node in xDoc.DocumentElement)
             {
-                ipInfo.Add(node.InnerText);
+                listInfoOfIPGeoLocation.Add(node.InnerText);
             }
-            return ipInfo;
+            return listInfoOfIPGeoLocation;
+        }
+        private void ActivateListView()
+        {
+
+        }
+        private string VerifyDomain(string domain)
+        {
+            /* Check url is valid? */
+            if (!domain.Contains("http"))
+                return domain;
+            /*check url false*/
+            try
+            {
+                Uri myUri = new Uri(domain);
+                string host = myUri.Host;
+                return host;
+            }
+            catch
+            {
+                return domain;
+            }
         }
         #endregion
 
         #region Events from user
         private void UCIPGeoLocation_Load(object sender, EventArgs e)
         {   
+            /* Initialize listview */
             for (int i = 0; i < listViewGeoLocationInfo.Items.Count; i++)
             {
                 listViewGeoLocationInfo.Items[i].SubItems.Add(string.Empty);
@@ -59,7 +83,7 @@ namespace NetTools.UserControls.Network
 
         private void buttonGo_Click(object sender, EventArgs e)
         {
-            string URL = textIPAddress.Text;
+            string URL = VerifyDomain(textIPAddress.Text);
             string xmlQuery = GetHTTPRequest(URL);
 
             XmlDocument xDoc = new XmlDocument();
