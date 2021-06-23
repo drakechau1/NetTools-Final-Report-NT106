@@ -38,6 +38,7 @@ namespace NetTools
             this.buttonBase64 = new System.Windows.Forms.Button();
             this.buttonMisc = new System.Windows.Forms.Button();
             this.panelNetwork = new System.Windows.Forms.Panel();
+            this.buttonWhoIs = new System.Windows.Forms.Button();
             this.buttonTraceRoute = new System.Windows.Forms.Button();
             this.buttonPing = new System.Windows.Forms.Button();
             this.buttonIPGeoLocation = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@ namespace NetTools
             this.buttonMinimizeWindow = new System.Windows.Forms.Button();
             this.buttonMaximizeWindow = new System.Windows.Forms.Button();
             this.buttonExitWindow = new System.Windows.Forms.Button();
-            this.buttonWhoIs = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelMisc.SuspendLayout();
             this.panelNetwork.SuspendLayout();
@@ -186,6 +186,21 @@ namespace NetTools
             this.panelNetwork.Name = "panelNetwork";
             this.panelNetwork.Size = new System.Drawing.Size(220, 200);
             this.panelNetwork.TabIndex = 3;
+            // 
+            // buttonWhoIs
+            // 
+            this.buttonWhoIs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonWhoIs.FlatAppearance.BorderSize = 0;
+            this.buttonWhoIs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWhoIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWhoIs.Location = new System.Drawing.Point(0, 156);
+            this.buttonWhoIs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonWhoIs.Name = "buttonWhoIs";
+            this.buttonWhoIs.Size = new System.Drawing.Size(220, 39);
+            this.buttonWhoIs.TabIndex = 4;
+            this.buttonWhoIs.Text = "WhoIs";
+            this.buttonWhoIs.UseVisualStyleBackColor = true;
+            this.buttonWhoIs.Click += new System.EventHandler(this.buttonWhoIs_Click);
             // 
             // buttonTraceRoute
             // 
@@ -392,21 +407,6 @@ namespace NetTools
             this.buttonExitWindow.UseVisualStyleBackColor = true;
             this.buttonExitWindow.Click += new System.EventHandler(this.buttonExitWindow_Click);
             // 
-            // buttonWhoIs
-            // 
-            this.buttonWhoIs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonWhoIs.FlatAppearance.BorderSize = 0;
-            this.buttonWhoIs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWhoIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonWhoIs.Location = new System.Drawing.Point(0, 156);
-            this.buttonWhoIs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonWhoIs.Name = "buttonWhoIs";
-            this.buttonWhoIs.Size = new System.Drawing.Size(220, 39);
-            this.buttonWhoIs.TabIndex = 4;
-            this.buttonWhoIs.Text = "WhoIs";
-            this.buttonWhoIs.UseVisualStyleBackColor = true;
-            this.buttonWhoIs.Click += new System.EventHandler(this.buttonWhoIs_Click);
-            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -422,6 +422,7 @@ namespace NetTools
             this.Name = "FormDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NetTools";
+            this.Load += new System.EventHandler(this.FormDashboard_Load);
             this.panelMenu.ResumeLayout(false);
             this.panelMisc.ResumeLayout(false);
             this.panelNetwork.ResumeLayout(false);
