@@ -41,7 +41,6 @@ namespace NetTools
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-
         }
 
         #region Drag and risize form
@@ -57,8 +56,30 @@ namespace NetTools
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        #region Control window
+        private void buttonExitWindow_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
 
+        private void buttonMaximizeWindow_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+        }
+
+        private void buttonMinimizeWindow_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
         #endregion
+        #endregion Drag and risize form
 
         #region Methods
         private void ActivateDesktopPanel(Control userControl)
@@ -84,7 +105,7 @@ namespace NetTools
                 }
             }
         }
-        #endregion
+        #endregion Methods
 
         #region User interaction
 
@@ -100,7 +121,7 @@ namespace NetTools
         {
             ActivateDesktopPanel(ucHome);
             HidePanel(panelNetwork);
-            labelTitle.Text = "Home";
+            labelTitle.Text = "Network";
         }
 
         private void buttonIPHeader_Click(object sender, EventArgs e)
@@ -139,7 +160,7 @@ namespace NetTools
         {
             ActivateDesktopPanel(ucHome);
             HidePanel(panelMisc);
-            labelTitle.Text = "Home";
+            labelTitle.Text = "Misc";
         }
 
         private void buttonBase64_Click(object sender, EventArgs e)
@@ -167,32 +188,6 @@ namespace NetTools
             ActivateDesktopPanel(ucSetting);
             labelTitle.Text = "Setting";
         }
-
         #endregion End user interaction
-
-        #region Control window
-        private void buttonExitWindow_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void buttonMaximizeWindow_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-        }
-
-        private void buttonMinimizeWindow_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-        #endregion
-
     }
 }
