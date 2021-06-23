@@ -108,12 +108,23 @@ namespace NetTools
         #endregion Methods
 
         #region User interaction
-
-        // Click logo
+        /* Load start form */
+        private void FormDashboard_Load(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucHome);
+            labelTitle.Text = "Home";
+        }
+        /* Click logo */
         private void pictureLogo_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucHome);
             labelTitle.Text = "Home";
+        }
+        /* Setting */
+        private void buttonSetting_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucSetting);
+            labelTitle.Text = "Setting";
         }
 
         #region Network functions
@@ -182,12 +193,6 @@ namespace NetTools
         }
         #endregion End misc
 
-        // Setting
-        private void buttonSetting_Click(object sender, EventArgs e)
-        {
-            ActivateDesktopPanel(ucSetting);
-            labelTitle.Text = "Setting";
-        }
         #endregion End user interaction
     }
 }
