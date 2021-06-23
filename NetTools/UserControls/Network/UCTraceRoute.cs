@@ -23,12 +23,46 @@ namespace NetTools.UserControls.Network
             InitializeComponent();
         }
 
+        #region Methods
+        private string GetIPAddress(string url)
+        {
+            /* Check url is valid? */
+            if (!url.Contains("http"))
+                return url;
+            try
+            {
+                Uri myUri = new Uri(url);
+                string host = myUri.Host;  
+                return host;
+            }
+            catch 
+            {
+                return url;
+            }
+        }
+
+        private void WriteListBox(string text)
+        {
+            //this will make adding things to the listbox easier
+            //Because I'll put the code in another thread/thing, aka using a task
+            //you need to use a dispatcher to edit things in the current thread
+            Invoke(new Action(() =>
+            {
+                TraceRoute.Items.Add(text);
+            }));
+        }
+        #endregion
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string hostname = addresslist.Text;//I'll use "google.com.uk" as an example
-            int timeout = 2000;//1000ms or 1 second
-            int max_ttl = 30;//max number of servers allowed to be found
-            int current_ttl = 0;//used for tracking how many servers have been found
+            /* Check empty text box */
+            if (txtHostname.Text == string.Empty)
+                return;
+
+            string hostname = GetIPAddress(txtHostname.Text);
+            int timeout = 3000;     /* 3000ms or 3 second */
+            int max_ttl = 30;       /* max number of servers allowed to be found */
+            int current_ttl = 0;    /* used for tracking how many servers have been found */
             const int bufferSize = 32;
             Stopwatch s1 = new Stopwatch();
             Stopwatch s2 = new Stopwatch();
@@ -37,8 +71,8 @@ namespace NetTools.UserControls.Network
             Ping pinger = new Ping();
             Task.Factory.StartNew(() =>
             {
-                WriteListBox($"Started ICMP TraceRoute on {hostname}");
-                for(int ttl = 1; ttl <= max_ttl; ttl++)
+                WriteListBox($">> Started ICMP TraceRoute on {hostname}");
+                for (int ttl = 1; ttl <= max_ttl; ttl++)
                 {
                     current_ttl++;
                     s1.Start();
@@ -52,29 +86,11 @@ namespace NetTools.UserControls.Network
                     catch
                     {
                         WriteListBox("Error");
-                        break;//the rest of the code relies on the reply not being so...
+                        break;  //the rest of the code relies on the reply not being so...
                     }
-                    if(reply != null)//don't need this but anyway...
+                    if (reply != null)//don't need this but anyway...
                     {
-                        //The traceroute bit:
-                        if(reply.Status == IPStatus.TtlExpired)
-                        {
-                            //address found after yours on the way to the destination
-                            WriteListBox($"[{ttl}] - Route: {reply.Address} - Time: {s1.ElapsedMilliseconds} ms - Total time: {s2.ElapsedMilliseconds} ms");
-                            continue;//continue to the other bits to find more servers
-                        }
-
-                        if(reply.Status == IPStatus.TimedOut)
-                        {
-                            /*this would occour if it takes too long for the server to reply or 
-                             if a server has the ICMP port closed (quite common for this).*/
-                            WriteListBox($"----------------------------------");
-                            WriteListBox($"Timeout on {hostname}. Continuing.");
-                            WriteListBox($"----------------------------------");
-                            continue;
-                        }
-
-                        if(reply.Status == IPStatus.Success)
+                        if (reply.Status == IPStatus.Success)
                         {
                             //the ICMP packet has reached the destination (the hostname)
                             WriteListBox($"---------------------------------------------------------------------------------------------------------------");
@@ -83,21 +99,38 @@ namespace NetTools.UserControls.Network
                             s1.Stop();
                             s2.Stop();
                         }
+                        else if (reply.Status == IPStatus.TtlExpired)
+                        {
+                            //address found after yours on the way to the destination
+                            WriteListBox($"[{ttl}] - Route: {reply.Address} - Time: {s1.ElapsedMilliseconds} ms - Total time: {s2.ElapsedMilliseconds} ms");
+                            continue;//continue to the other bits to find more servers
+                        }
+                        else if (reply.Status == IPStatus.TimedOut)
+                        {
+                            /*this would occour if it takes too long for the server to reply or 
+                             if a server has the ICMP port closed (quite common for this).*/
+                            WriteListBox($"----------------------------------");
+                            WriteListBox($"Timeout on {hostname}. Continuing.");
+                            WriteListBox($"----------------------------------");
+                            continue;
+                        }
                     }
                     break;
                 }
             });
-;        }
+        }
 
-        private void WriteListBox(string text)
+        private void TraceRoute_MouseDown(object sender, MouseEventArgs e)
         {
-            //this will make adding things to the listbox easier
-            //Because I'll put the code in another thread/thing, aka using a task
-            //you need to use a dispatcher to edit things in the current thread
-           Invoke(new Action(() =>
+            if (e.Button == MouseButtons.Right)
             {
-                TraceRoute.Items.Add(text);
-            }));
+                contextMenuStrip.Show(Cursor.Position);
+            }
+        }
+
+        private void ClearAll_Click(object sender, EventArgs e)
+        {
+            TraceRoute.Items.Clear();
         }
     }
 }
