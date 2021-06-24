@@ -35,9 +35,10 @@ namespace NetTools
             this.panelMisc = new System.Windows.Forms.Panel();
             this.buttonSIDConverter = new System.Windows.Forms.Button();
             this.buttonBinaryConverter = new System.Windows.Forms.Button();
-            this.buttonBase64 = new System.Windows.Forms.Button();
+            this.buttonTextConversion = new System.Windows.Forms.Button();
             this.buttonMisc = new System.Windows.Forms.Button();
             this.panelNetwork = new System.Windows.Forms.Panel();
+            this.buttonWhoIs = new System.Windows.Forms.Button();
             this.buttonTraceRoute = new System.Windows.Forms.Button();
             this.buttonPing = new System.Windows.Forms.Button();
             this.buttonIPGeoLocation = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@ namespace NetTools
             this.buttonMinimizeWindow = new System.Windows.Forms.Button();
             this.buttonMaximizeWindow = new System.Windows.Forms.Button();
             this.buttonExitWindow = new System.Windows.Forms.Button();
-            this.buttonWhoIs = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelMisc.SuspendLayout();
             this.panelNetwork.SuspendLayout();
@@ -102,7 +102,7 @@ namespace NetTools
             this.panelMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
             this.panelMisc.Controls.Add(this.buttonSIDConverter);
             this.panelMisc.Controls.Add(this.buttonBinaryConverter);
-            this.panelMisc.Controls.Add(this.buttonBase64);
+            this.panelMisc.Controls.Add(this.buttonTextConversion);
             this.panelMisc.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMisc.Location = new System.Drawing.Point(0, 477);
             this.panelMisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -140,20 +140,20 @@ namespace NetTools
             this.buttonBinaryConverter.UseVisualStyleBackColor = true;
             this.buttonBinaryConverter.Click += new System.EventHandler(this.buttonBinaryConverter_Click);
             // 
-            // buttonBase64
+            // buttonTextConversion
             // 
-            this.buttonBase64.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonBase64.FlatAppearance.BorderSize = 0;
-            this.buttonBase64.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBase64.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBase64.Location = new System.Drawing.Point(0, 0);
-            this.buttonBase64.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonBase64.Name = "buttonBase64";
-            this.buttonBase64.Size = new System.Drawing.Size(220, 39);
-            this.buttonBase64.TabIndex = 1;
-            this.buttonBase64.Text = "Base64";
-            this.buttonBase64.UseVisualStyleBackColor = true;
-            this.buttonBase64.Click += new System.EventHandler(this.buttonBase64_Click);
+            this.buttonTextConversion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonTextConversion.FlatAppearance.BorderSize = 0;
+            this.buttonTextConversion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTextConversion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTextConversion.Location = new System.Drawing.Point(0, 0);
+            this.buttonTextConversion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonTextConversion.Name = "buttonTextConversion";
+            this.buttonTextConversion.Size = new System.Drawing.Size(220, 39);
+            this.buttonTextConversion.TabIndex = 1;
+            this.buttonTextConversion.Text = "Text Conversion";
+            this.buttonTextConversion.UseVisualStyleBackColor = true;
+            this.buttonTextConversion.Click += new System.EventHandler(this.buttonTextConversion_Click);
             // 
             // buttonMisc
             // 
@@ -186,6 +186,21 @@ namespace NetTools
             this.panelNetwork.Name = "panelNetwork";
             this.panelNetwork.Size = new System.Drawing.Size(220, 200);
             this.panelNetwork.TabIndex = 3;
+            // 
+            // buttonWhoIs
+            // 
+            this.buttonWhoIs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonWhoIs.FlatAppearance.BorderSize = 0;
+            this.buttonWhoIs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWhoIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWhoIs.Location = new System.Drawing.Point(0, 156);
+            this.buttonWhoIs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonWhoIs.Name = "buttonWhoIs";
+            this.buttonWhoIs.Size = new System.Drawing.Size(220, 39);
+            this.buttonWhoIs.TabIndex = 4;
+            this.buttonWhoIs.Text = "WhoIs";
+            this.buttonWhoIs.UseVisualStyleBackColor = true;
+            this.buttonWhoIs.Click += new System.EventHandler(this.buttonWhoIs_Click);
             // 
             // buttonTraceRoute
             // 
@@ -392,21 +407,6 @@ namespace NetTools
             this.buttonExitWindow.UseVisualStyleBackColor = true;
             this.buttonExitWindow.Click += new System.EventHandler(this.buttonExitWindow_Click);
             // 
-            // buttonWhoIs
-            // 
-            this.buttonWhoIs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonWhoIs.FlatAppearance.BorderSize = 0;
-            this.buttonWhoIs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWhoIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonWhoIs.Location = new System.Drawing.Point(0, 156);
-            this.buttonWhoIs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonWhoIs.Name = "buttonWhoIs";
-            this.buttonWhoIs.Size = new System.Drawing.Size(220, 39);
-            this.buttonWhoIs.TabIndex = 4;
-            this.buttonWhoIs.Text = "WhoIs";
-            this.buttonWhoIs.UseVisualStyleBackColor = true;
-            this.buttonWhoIs.Click += new System.EventHandler(this.buttonWhoIs_Click);
-            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -448,7 +448,7 @@ namespace NetTools
         private System.Windows.Forms.Panel panelMisc;
         private System.Windows.Forms.Button buttonSIDConverter;
         private System.Windows.Forms.Button buttonBinaryConverter;
-        private System.Windows.Forms.Button buttonBase64;
+        private System.Windows.Forms.Button buttonTextConversion;
         private System.Windows.Forms.Button buttonMisc;
         private System.Windows.Forms.Button buttonSetting;
         private System.Windows.Forms.Label labelTitle;

@@ -1,7 +1,7 @@
 ﻿
 namespace NetTools.UserControls.Misc
 {
-    partial class UCBase64
+    partial class UCTextConversion
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace NetTools.UserControls.Misc
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBase64));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCTextConversion));
             this.panelInput = new System.Windows.Forms.Panel();
             this.panelOutput = new System.Windows.Forms.Panel();
             this.panelChecksum = new System.Windows.Forms.Panel();

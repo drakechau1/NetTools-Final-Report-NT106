@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NetTools.UserControls.Misc
 {
-    public partial class UCBase64 : UserControl
+    public partial class UCTextConversion : UserControl
     {
-        public UCBase64()
+        public UCTextConversion()
         {
             InitializeComponent();
         }
