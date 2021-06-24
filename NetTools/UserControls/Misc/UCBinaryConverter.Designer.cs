@@ -247,6 +247,7 @@ namespace NetTools.UserControls.Misc
             this.checkboxDigitGrouping.TabIndex = 5;
             this.checkboxDigitGrouping.Text = "Digit grouping";
             this.checkboxDigitGrouping.UseVisualStyleBackColor = true;
+            this.checkboxDigitGrouping.CheckedChanged += new System.EventHandler(this.checkboxDigitGrouping_CheckedChanged);
             // 
             // panelVisibal2
             // 
