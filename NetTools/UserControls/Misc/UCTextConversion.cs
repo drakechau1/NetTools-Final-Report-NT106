@@ -87,18 +87,34 @@ namespace NetTools.UserControls.Misc
         }
         #endregion
         #region Checksum
-        private string CalcMD5Checksum(string text)
+        private string GetHash(HashAlgorithm hashAlgorithm, string text)
         {
-            byte[] checksum = new MD5CryptoServiceProvider().ComputeHash(ToByteArray(text));
+            // Reference source: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashalgorithm.computehash?view=net-5.0#System_Security_Cryptography_HashAlgorithm_ComputeHash_System_Byte___
+            byte[] checksum = hashAlgorithm.ComputeHash(ToByteArray(text));
             var sBuilder = new StringBuilder();
 
-            // Reference source: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.hashalgorithm.computehash?view=net-5.0#System_Security_Cryptography_HashAlgorithm_ComputeHash_System_Byte___
             for (int i = 0; i < checksum.Length; i++)
             {
                 sBuilder.Append(checksum[i].ToString("X2"));
             }
             // Return the hexadecimal string.
             return sBuilder.ToString();
+        }
+        private string CalcMD5Checksum(string text)
+        {
+            return GetHash(MD5.Create(), text);
+        }
+        private string CalcSHA1(string text)
+        {
+            return GetHash(SHA1.Create(), text);
+        }
+        private string CalcSHA256(string text)
+        {
+            return GetHash(SHA256.Create(), text);
+        }
+        private string CalcSHA512(string text)
+        {
+            return GetHash(SHA512.Create(), text);
         }
         private string CalcXorChecksum(string text)
         {
@@ -130,6 +146,12 @@ namespace NetTools.UserControls.Misc
                 return CalcXorChecksum(text);
             if ((string)currentChecksumType == "2's complement")
                 return Calc2sComplementChecksum(text);
+            if ((string)currentChecksumType == "SHA-1")
+                return CalcSHA1(text);
+            if ((string)currentChecksumType == "SHA-256")
+                return CalcSHA256(text);
+            if ((string)currentChecksumType == "SHA-512")
+                return CalcSHA512(text);
             return null;
         }
         #endregion
@@ -163,7 +185,7 @@ namespace NetTools.UserControls.Misc
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error");
-                return null;   
+                return null;
             }
         }
         #endregion
@@ -176,7 +198,7 @@ namespace NetTools.UserControls.Misc
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             /* OpenFileDialog Result OK */
-            
+
             richtextInput.Text = ReadTextFile(openFileDialog.FileName);
         }
 
