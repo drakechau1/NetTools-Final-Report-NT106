@@ -18,7 +18,7 @@ namespace NetTools.UserControls.Misc
         private int dec = 10;
         private bool digitChecked = false;
         private string inputValue = null;
-        string currentComboxFrom, currentComboxTo;
+        private string currentComboxFrom, currentComboxTo;
         #endregion
 
         private void InitForm()
@@ -44,6 +44,7 @@ namespace NetTools.UserControls.Misc
             if (currentComboxFrom == currentComboxTo)
                 return;
 
+            /* Reset richtex boxs */
             richtextOutput1.Text = null;
             richtextOutput2.Text = null;
             richtextOutput3.Text = null;
@@ -51,46 +52,13 @@ namespace NetTools.UserControls.Misc
             switch (currentComboxTo)
             {
                 case "binary":
-                    labelOutput1.Text = "Binary number";
-                    if (currentComboxFrom == "hexadecimal")
-                    {
-                        labelOutput2.Text = "Decimal number";
-                        panelInvisibal.Visible = false;
-                    }
-                    else if (currentComboxFrom == "decimal")
-                    {
-                        labelOutput2.Text = "Binary signed 2's complement";
-                        panelInvisibal.Visible = true;
-                        labelOutput3.Text = "Hex number";
-                    }
+                    BinaryDesktop();
                     break;
                 case "decimal":
-                    panelInvisibal.Visible = true;
-                    labelOutput1.Text = "Decimal number";
-                    labelOutput2.Text = "Decimal from signed 2's complement";
-
-                    if (currentComboxFrom == "hexadecimal")
-                    {
-                        labelOutput3.Text = "Binary number";
-                    }
-                    else if (currentComboxFrom == "binary")
-                    {
-                        labelOutput3.Text = "Hex number";
-                    }
+                    DecimalDesktop();
                     break;
                 case "hexadecimal":
-                    labelOutput1.Text = "Hex number";
-                    if (currentComboxFrom == "binary")
-                    {
-                        labelOutput2.Text = "Decimal number";
-                        panelInvisibal.Visible = false;
-                    }
-                    else if (currentComboxFrom == "decimal")
-                    {
-                        labelOutput2.Text = "Hex signed 2's complement";
-                        panelInvisibal.Visible = true;
-                        labelOutput3.Text = "Binary number";
-                    }
+                    HexadecimalDesktop();
                     break;
                 default:
                     break;
@@ -111,76 +79,6 @@ namespace NetTools.UserControls.Misc
                 listString.Add(tempString.Substring(i * chunkSize, chunkSize));
             }
             return listString;
-        }
-        private string Signed2sComplement(string strValue, int fromBase, int toBase)
-        {
-            try
-            {
-                Int64 maxInt = 0;
-                if (fromBase == hex)
-                    maxInt = (Int64)Math.Pow(16.0, (double)strValue.Length);
-                else if (fromBase == bin)
-                    maxInt = (Int64)Math.Pow(2.0, (double)strValue.Length);
-                else
-                {
-                    string result = string.Empty;
-                    try
-                    {
-                        foreach (var item in SplitString(strValue, 16))
-                        {
-                            result += Convert.ToString(Convert.ToInt64(item, fromBase), toBase);
-                        }
-                        return FormatOutput(result, toBase);
-                    }
-                    catch (Exception ex)
-                    {
-                        return ex.Message;
-                    }
-                }
-                Int64 value = Convert.ToInt64(strValue, fromBase);
-                Int64 res = value - maxInt;
-                return FormatOutput(res.ToString(), toBase);
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
-        private string BinaryConvert(string value, int fromBase, int toBase)
-        {
-            List<string> listSplitValues = new List<string>();
-            try
-            {
-                Int64 n;
-                n = Convert.ToInt64(value, fromBase);   /* Convert string to the fromBase of Value */
-                if (fromBase == dec && toBase == bin && n < 0)
-                    return "N/A";
-                try
-                {
-                    return FormatOutput(Convert.ToString(n, toBase), toBase);
-                }
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
-            }
-            catch
-            {
-                listSplitValues = SplitString(value, 16);
-                string result = string.Empty;
-                try
-                {
-                    foreach (var item in listSplitValues)
-                    {
-                        result += Convert.ToString(Convert.ToInt64(item, fromBase), toBase);
-                    }
-                    return FormatOutput(result, toBase);
-                }
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
-            }
         }
         private string FormatOutput(string str, int baseFormat)
         {
@@ -246,7 +144,6 @@ namespace NetTools.UserControls.Misc
             try
             {
                 Int64 value = Convert.ToInt64(inputValue, bin);     /* bin: 2 */
-
                 if (signed)
                 {
                     int len = inputValue.Length;
@@ -305,6 +202,7 @@ namespace NetTools.UserControls.Misc
             }
         }
         #endregion
+
         #region Number Conversion
         private void BinConversion()
         {
@@ -369,6 +267,54 @@ namespace NetTools.UserControls.Misc
                 /* Decimal number */
                 richtextOutput2.Text = Hex2Dec();
                 return;
+            }
+        }
+        #endregion
+
+        #region Active Format Controls
+        private void BinaryDesktop()
+        {
+            labelOutput1.Text = "Binary number";
+            if (currentComboxFrom == "hexadecimal")
+            {
+                labelOutput2.Text = "Decimal number";
+                panelInvisibal.Visible = false;
+            }
+            else if (currentComboxFrom == "decimal")
+            {
+                labelOutput2.Text = "Binary signed 2's complement";
+                panelInvisibal.Visible = true;
+                labelOutput3.Text = "Hex number";
+            }
+        }
+        private void HexadecimalDesktop()
+        {
+            labelOutput1.Text = "Hex number";
+            if (currentComboxFrom == "binary")
+            {
+                labelOutput2.Text = "Decimal number";
+                panelInvisibal.Visible = false;
+            }
+            else if (currentComboxFrom == "decimal")
+            {
+                labelOutput2.Text = "Hex signed 2's complement";
+                panelInvisibal.Visible = true;
+                labelOutput3.Text = "Binary number";
+            }
+        }
+        private void DecimalDesktop()
+        {
+            panelInvisibal.Visible = true;
+            labelOutput1.Text = "Decimal number";
+            labelOutput2.Text = "Decimal from signed 2's complement";
+
+            if (currentComboxFrom == "hexadecimal")
+            {
+                labelOutput3.Text = "Binary number";
+            }
+            else if (currentComboxFrom == "binary")
+            {
+                labelOutput3.Text = "Hex number";
             }
         }
         #endregion
@@ -444,7 +390,6 @@ namespace NetTools.UserControls.Misc
             this.buttonConvert_Click(sender, e);
         }
         #endregion
-
         #endregion
     }
 }
