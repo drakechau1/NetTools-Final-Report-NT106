@@ -63,7 +63,7 @@ namespace NetTools.UserControls.Misc
             "Binary",
             "Decimal",
             "Hexadecimal"});
-            this.comboxFrom.Location = new System.Drawing.Point(47, 63);
+            this.comboxFrom.Location = new System.Drawing.Point(50, 53);
             this.comboxFrom.Name = "comboxFrom";
             this.comboxFrom.Size = new System.Drawing.Size(174, 28);
             this.comboxFrom.TabIndex = 0;
@@ -79,7 +79,7 @@ namespace NetTools.UserControls.Misc
             "Binary",
             "Decimal",
             "Hexadecimal"});
-            this.comboxTo.Location = new System.Drawing.Point(298, 63);
+            this.comboxTo.Location = new System.Drawing.Point(301, 53);
             this.comboxTo.Name = "comboxTo";
             this.comboxTo.Size = new System.Drawing.Size(174, 28);
             this.comboxTo.TabIndex = 0;
@@ -89,7 +89,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(43, 40);
+            this.label1.Location = new System.Drawing.Point(50, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 20);
             this.label1.TabIndex = 1;
@@ -99,7 +99,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(295, 40);
+            this.label2.Location = new System.Drawing.Point(301, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 20);
             this.label2.TabIndex = 1;
@@ -109,7 +109,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.labelEnterNumber.AutoSize = true;
             this.labelEnterNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEnterNumber.Location = new System.Drawing.Point(43, 101);
+            this.labelEnterNumber.Location = new System.Drawing.Point(50, 101);
             this.labelEnterNumber.Name = "labelEnterNumber";
             this.labelEnterNumber.Size = new System.Drawing.Size(173, 20);
             this.labelEnterNumber.TabIndex = 1;
@@ -122,7 +122,7 @@ namespace NetTools.UserControls.Misc
             this.buttonConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConvert.Image = ((System.Drawing.Image)(resources.GetObject("buttonConvert.Image")));
             this.buttonConvert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConvert.Location = new System.Drawing.Point(47, 247);
+            this.buttonConvert.Location = new System.Drawing.Point(50, 240);
             this.buttonConvert.Name = "buttonConvert";
             this.buttonConvert.Size = new System.Drawing.Size(117, 37);
             this.buttonConvert.TabIndex = 3;
@@ -137,7 +137,7 @@ namespace NetTools.UserControls.Misc
             this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReset.Image = ((System.Drawing.Image)(resources.GetObject("buttonReset.Image")));
             this.buttonReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReset.Location = new System.Drawing.Point(161, 247);
+            this.buttonReset.Location = new System.Drawing.Point(173, 240);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(108, 37);
             this.buttonReset.TabIndex = 3;
@@ -151,7 +151,7 @@ namespace NetTools.UserControls.Misc
             this.buttonSwap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSwap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSwap.Image = ((System.Drawing.Image)(resources.GetObject("buttonSwap.Image")));
-            this.buttonSwap.Location = new System.Drawing.Point(227, 54);
+            this.buttonSwap.Location = new System.Drawing.Point(230, 44);
             this.buttonSwap.Name = "buttonSwap";
             this.buttonSwap.Size = new System.Drawing.Size(65, 44);
             this.buttonSwap.TabIndex = 3;
@@ -162,7 +162,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.labelOutput1.AutoSize = true;
             this.labelOutput1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOutput1.Location = new System.Drawing.Point(43, 341);
+            this.labelOutput1.Location = new System.Drawing.Point(50, 334);
             this.labelOutput1.Name = "labelOutput1";
             this.labelOutput1.Size = new System.Drawing.Size(109, 20);
             this.labelOutput1.TabIndex = 1;
@@ -172,7 +172,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.labelOutput2.AutoSize = true;
             this.labelOutput2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOutput2.Location = new System.Drawing.Point(43, 492);
+            this.labelOutput2.Location = new System.Drawing.Point(50, 485);
             this.labelOutput2.Name = "labelOutput2";
             this.labelOutput2.Size = new System.Drawing.Size(109, 20);
             this.labelOutput2.TabIndex = 1;
@@ -192,7 +192,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.checkboxDigitGrouping.AutoSize = true;
             this.checkboxDigitGrouping.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxDigitGrouping.Location = new System.Drawing.Point(47, 306);
+            this.checkboxDigitGrouping.Location = new System.Drawing.Point(50, 293);
             this.checkboxDigitGrouping.Name = "checkboxDigitGrouping";
             this.checkboxDigitGrouping.Size = new System.Drawing.Size(135, 24);
             this.checkboxDigitGrouping.TabIndex = 5;
@@ -219,7 +219,7 @@ namespace NetTools.UserControls.Misc
             this.panelVisibal1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelVisibal1.Location = new System.Drawing.Point(0, 0);
             this.panelVisibal1.Name = "panelVisibal1";
-            this.panelVisibal1.Padding = new System.Windows.Forms.Padding(50, 40, 50, 0);
+            this.panelVisibal1.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.panelVisibal1.Size = new System.Drawing.Size(980, 644);
             this.panelVisibal1.TabIndex = 7;
             // 
@@ -229,7 +229,7 @@ namespace NetTools.UserControls.Misc
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richtextOutput2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richtextOutput2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextOutput2.Location = new System.Drawing.Point(47, 515);
+            this.richtextOutput2.Location = new System.Drawing.Point(50, 508);
             this.richtextOutput2.Name = "richtextOutput2";
             this.richtextOutput2.ReadOnly = true;
             this.richtextOutput2.Size = new System.Drawing.Size(880, 125);
@@ -242,7 +242,7 @@ namespace NetTools.UserControls.Misc
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richtextOutput1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richtextOutput1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextOutput1.Location = new System.Drawing.Point(47, 364);
+            this.richtextOutput1.Location = new System.Drawing.Point(50, 357);
             this.richtextOutput1.Name = "richtextOutput1";
             this.richtextOutput1.ReadOnly = true;
             this.richtextOutput1.Size = new System.Drawing.Size(880, 125);
@@ -255,7 +255,7 @@ namespace NetTools.UserControls.Misc
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richtextInput.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richtextInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextInput.Location = new System.Drawing.Point(47, 124);
+            this.richtextInput.Location = new System.Drawing.Point(50, 124);
             this.richtextInput.Name = "richtextInput";
             this.richtextInput.Size = new System.Drawing.Size(883, 100);
             this.richtextInput.TabIndex = 0;
@@ -268,7 +268,7 @@ namespace NetTools.UserControls.Misc
             this.panelInvisibal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelInvisibal.Location = new System.Drawing.Point(0, 644);
             this.panelInvisibal.Name = "panelInvisibal";
-            this.panelInvisibal.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.panelInvisibal.Padding = new System.Windows.Forms.Padding(50, 0, 50, 30);
             this.panelInvisibal.Size = new System.Drawing.Size(980, 185);
             this.panelInvisibal.TabIndex = 8;
             // 

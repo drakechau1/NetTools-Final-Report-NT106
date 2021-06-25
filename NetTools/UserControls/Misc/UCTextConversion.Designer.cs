@@ -79,7 +79,7 @@ namespace NetTools.UserControls.Misc
             // checkboxDigitGrouping
             // 
             this.checkboxDigitGrouping.AutoSize = true;
-            this.checkboxDigitGrouping.Location = new System.Drawing.Point(48, 288);
+            this.checkboxDigitGrouping.Location = new System.Drawing.Point(50, 288);
             this.checkboxDigitGrouping.Name = "checkboxDigitGrouping";
             this.checkboxDigitGrouping.Size = new System.Drawing.Size(135, 24);
             this.checkboxDigitGrouping.TabIndex = 6;
@@ -103,16 +103,16 @@ namespace NetTools.UserControls.Misc
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richtextInput.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richtextInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextInput.Location = new System.Drawing.Point(48, 99);
+            this.richtextInput.Location = new System.Drawing.Point(50, 99);
             this.richtextInput.Name = "richtextInput";
-            this.richtextInput.Size = new System.Drawing.Size(882, 100);
+            this.richtextInput.Size = new System.Drawing.Size(877, 100);
             this.richtextInput.TabIndex = 4;
             this.richtextInput.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 76);
+            this.label2.Location = new System.Drawing.Point(50, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 20);
             this.label2.TabIndex = 3;
@@ -128,7 +128,7 @@ namespace NetTools.UserControls.Misc
             "UTF8",
             "ASCII",
             "Unicode"});
-            this.comboxCharacterEncoding.Location = new System.Drawing.Point(48, 247);
+            this.comboxCharacterEncoding.Location = new System.Drawing.Point(50, 245);
             this.comboxCharacterEncoding.Name = "comboxCharacterEncoding";
             this.comboxCharacterEncoding.Size = new System.Drawing.Size(152, 28);
             this.comboxCharacterEncoding.TabIndex = 2;
@@ -138,7 +138,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 224);
+            this.label1.Location = new System.Drawing.Point(50, 222);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 20);
             this.label1.TabIndex = 1;
@@ -151,7 +151,7 @@ namespace NetTools.UserControls.Misc
             this.buttonReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReset.Image = ((System.Drawing.Image)(resources.GetObject("buttonReset.Image")));
             this.buttonReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReset.Location = new System.Drawing.Point(365, 242);
+            this.buttonReset.Location = new System.Drawing.Point(365, 240);
             this.buttonReset.Name = "buttonReset";
             this.buttonReset.Size = new System.Drawing.Size(106, 37);
             this.buttonReset.TabIndex = 0;
@@ -167,7 +167,7 @@ namespace NetTools.UserControls.Misc
             this.buttonConvert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConvert.Image = ((System.Drawing.Image)(resources.GetObject("buttonConvert.Image")));
             this.buttonConvert.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConvert.Location = new System.Drawing.Point(234, 242);
+            this.buttonConvert.Location = new System.Drawing.Point(234, 240);
             this.buttonConvert.Name = "buttonConvert";
             this.buttonConvert.Size = new System.Drawing.Size(125, 37);
             this.buttonConvert.TabIndex = 0;
@@ -183,9 +183,8 @@ namespace NetTools.UserControls.Misc
             this.buttonOpenFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpenFile.Image")));
             this.buttonOpenFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOpenFile.Location = new System.Drawing.Point(48, 26);
+            this.buttonOpenFile.Location = new System.Drawing.Point(50, 30);
             this.buttonOpenFile.Name = "buttonOpenFile";
-            this.buttonOpenFile.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.buttonOpenFile.Size = new System.Drawing.Size(138, 37);
             this.buttonOpenFile.TabIndex = 0;
             this.buttonOpenFile.Text = "       Open File";
@@ -205,6 +204,7 @@ namespace NetTools.UserControls.Misc
             this.panelOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelOutput.Location = new System.Drawing.Point(0, 318);
             this.panelOutput.Name = "panelOutput";
+            this.panelOutput.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.panelOutput.Size = new System.Drawing.Size(980, 424);
             this.panelOutput.TabIndex = 1;
             // 
@@ -216,7 +216,7 @@ namespace NetTools.UserControls.Misc
             this.comboxBase64Option.Items.AddRange(new object[] {
             "None",
             "Line break"});
-            this.comboxBase64Option.Location = new System.Drawing.Point(187, 281);
+            this.comboxBase64Option.Location = new System.Drawing.Point(179, 281);
             this.comboxBase64Option.Name = "comboxBase64Option";
             this.comboxBase64Option.Size = new System.Drawing.Size(172, 28);
             this.comboxBase64Option.TabIndex = 6;
@@ -228,10 +228,10 @@ namespace NetTools.UserControls.Misc
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richtextBase64.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richtextBase64.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextBase64.Location = new System.Drawing.Point(48, 315);
+            this.richtextBase64.Location = new System.Drawing.Point(50, 315);
             this.richtextBase64.Name = "richtextBase64";
             this.richtextBase64.ReadOnly = true;
-            this.richtextBase64.Size = new System.Drawing.Size(882, 100);
+            this.richtextBase64.Size = new System.Drawing.Size(877, 100);
             this.richtextBase64.TabIndex = 5;
             this.richtextBase64.Text = "";
             // 
@@ -239,7 +239,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 284);
+            this.label5.Location = new System.Drawing.Point(50, 284);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(123, 20);
             this.label5.TabIndex = 1;
@@ -251,10 +251,10 @@ namespace NetTools.UserControls.Misc
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richtextBinary.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richtextBinary.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextBinary.Location = new System.Drawing.Point(48, 165);
+            this.richtextBinary.Location = new System.Drawing.Point(50, 165);
             this.richtextBinary.Name = "richtextBinary";
             this.richtextBinary.ReadOnly = true;
-            this.richtextBinary.Size = new System.Drawing.Size(882, 100);
+            this.richtextBinary.Size = new System.Drawing.Size(877, 100);
             this.richtextBinary.TabIndex = 5;
             this.richtextBinary.Text = "";
             // 
@@ -262,7 +262,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(44, 142);
+            this.label4.Location = new System.Drawing.Point(50, 142);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(114, 20);
             this.label4.TabIndex = 1;
@@ -274,10 +274,10 @@ namespace NetTools.UserControls.Misc
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richtextHex.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richtextHex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextHex.Location = new System.Drawing.Point(48, 26);
+            this.richtextHex.Location = new System.Drawing.Point(50, 26);
             this.richtextHex.Name = "richtextHex";
             this.richtextHex.ReadOnly = true;
-            this.richtextHex.Size = new System.Drawing.Size(882, 100);
+            this.richtextHex.Size = new System.Drawing.Size(877, 100);
             this.richtextHex.TabIndex = 5;
             this.richtextHex.Text = "";
             // 
@@ -285,7 +285,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 3);
+            this.label3.Location = new System.Drawing.Point(50, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 20);
             this.label3.TabIndex = 1;
@@ -296,11 +296,12 @@ namespace NetTools.UserControls.Misc
             this.panelChecksum.Controls.Add(this.richtextChecksum);
             this.panelChecksum.Controls.Add(this.comboxChecksumType);
             this.panelChecksum.Controls.Add(this.label6);
-            this.panelChecksum.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelChecksum.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChecksum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelChecksum.Location = new System.Drawing.Point(0, 742);
             this.panelChecksum.Name = "panelChecksum";
-            this.panelChecksum.Size = new System.Drawing.Size(980, 108);
+            this.panelChecksum.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.panelChecksum.Size = new System.Drawing.Size(980, 87);
             this.panelChecksum.TabIndex = 2;
             // 
             // richtextChecksum
@@ -310,11 +311,11 @@ namespace NetTools.UserControls.Misc
             this.richtextChecksum.BackColor = System.Drawing.Color.WhiteSmoke;
             this.richtextChecksum.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtextChecksum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richtextChecksum.Location = new System.Drawing.Point(285, 26);
+            this.richtextChecksum.Location = new System.Drawing.Point(335, 26);
             this.richtextChecksum.Multiline = false;
             this.richtextChecksum.Name = "richtextChecksum";
             this.richtextChecksum.ReadOnly = true;
-            this.richtextChecksum.Size = new System.Drawing.Size(636, 28);
+            this.richtextChecksum.Size = new System.Drawing.Size(536, 28);
             this.richtextChecksum.TabIndex = 4;
             this.richtextChecksum.Text = "";
             // 
@@ -331,7 +332,7 @@ namespace NetTools.UserControls.Misc
             "SHA-512",
             "2\'s complement",
             "Xor"});
-            this.comboxChecksumType.Location = new System.Drawing.Point(48, 26);
+            this.comboxChecksumType.Location = new System.Drawing.Point(50, 26);
             this.comboxChecksumType.Name = "comboxChecksumType";
             this.comboxChecksumType.Size = new System.Drawing.Size(231, 28);
             this.comboxChecksumType.TabIndex = 2;
@@ -341,7 +342,7 @@ namespace NetTools.UserControls.Misc
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(44, 3);
+            this.label6.Location = new System.Drawing.Point(50, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(88, 20);
             this.label6.TabIndex = 1;

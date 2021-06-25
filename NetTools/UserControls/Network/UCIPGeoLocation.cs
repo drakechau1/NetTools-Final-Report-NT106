@@ -29,7 +29,6 @@ namespace NetTools.UserControls.Network
             webResponse.Close();
             return httpResponse;
         }
-
         private bool CheckQueryReponse(XmlDocument xDoc)
         {
             /* Check the message response from the xDoc */
@@ -38,7 +37,6 @@ namespace NetTools.UserControls.Network
                 return false;
             return true;
         }
-
         private List<string> GetIpGeoLocationInfo(XmlDocument xDoc)
         {
             List<string> listInfoOfIPGeoLocation = new List<string>();
@@ -47,10 +45,6 @@ namespace NetTools.UserControls.Network
                 listInfoOfIPGeoLocation.Add(node.InnerText);
             }
             return listInfoOfIPGeoLocation;
-        }
-        private void ActivateListView()
-        {
-
         }
         private string VerifyDomain(string domain)
         {
@@ -71,7 +65,6 @@ namespace NetTools.UserControls.Network
         }
         #endregion
 
-        #region Events from user
         private void UCIPGeoLocation_Load(object sender, EventArgs e)
         {   
             /* Initialize listview */
@@ -80,7 +73,6 @@ namespace NetTools.UserControls.Network
                 listViewGeoLocationInfo.Items[i].SubItems.Add(string.Empty);
             }
         }
-
         private void buttonGo_Click(object sender, EventArgs e)
         {
             string URL = VerifyDomain(textIPAddress.Text);
@@ -108,6 +100,5 @@ namespace NetTools.UserControls.Network
                 listViewGeoLocationInfo.Items[0].SubItems[1].Text = "Country Unable to resolve IP address, test stopped.";
             }
         }
-        #endregion
     }
 }

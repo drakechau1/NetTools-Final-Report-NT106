@@ -46,11 +46,11 @@ namespace NetTools.UserControls.Network
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(718, 31);
+            this.button1.Location = new System.Drawing.Point(759, 22);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 37);
@@ -61,15 +61,16 @@ namespace NetTools.UserControls.Network
             // 
             // TraceRoute
             // 
+            this.TraceRoute.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TraceRoute.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TraceRoute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TraceRoute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TraceRoute.FormattingEnabled = true;
             this.TraceRoute.ItemHeight = 20;
-            this.TraceRoute.Location = new System.Drawing.Point(10, 0);
+            this.TraceRoute.Location = new System.Drawing.Point(50, 0);
             this.TraceRoute.Margin = new System.Windows.Forms.Padding(4);
             this.TraceRoute.Name = "TraceRoute";
-            this.TraceRoute.Size = new System.Drawing.Size(960, 707);
+            this.TraceRoute.Size = new System.Drawing.Size(880, 700);
             this.TraceRoute.TabIndex = 0;
             this.TraceRoute.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TraceRoute_MouseDown);
             // 
@@ -83,13 +84,15 @@ namespace NetTools.UserControls.Network
             this.panelControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelControl.Location = new System.Drawing.Point(0, 0);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(980, 113);
+            this.panelControl.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
+            this.panelControl.Size = new System.Drawing.Size(980, 100);
             this.panelControl.TabIndex = 0;
             // 
             // txtHostname
             // 
+            this.txtHostname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtHostname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHostname.Location = new System.Drawing.Point(164, 36);
+            this.txtHostname.Location = new System.Drawing.Point(205, 27);
             this.txtHostname.MinimumSize = new System.Drawing.Size(547, 27);
             this.txtHostname.Name = "txtHostname";
             this.txtHostname.Size = new System.Drawing.Size(547, 27);
@@ -99,7 +102,7 @@ namespace NetTools.UserControls.Network
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(161, 66);
+            this.label2.Location = new System.Drawing.Point(202, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(189, 18);
             this.label2.TabIndex = 3;
@@ -109,21 +112,21 @@ namespace NetTools.UserControls.Network
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 39);
+            this.label1.Location = new System.Drawing.Point(50, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.Size = new System.Drawing.Size(149, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Domain";
+            this.label1.Text = "Domain/IPAddress";
             // 
             // panelDesktop
             // 
             this.panelDesktop.Controls.Add(this.TraceRoute);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDesktop.Location = new System.Drawing.Point(0, 113);
+            this.panelDesktop.Location = new System.Drawing.Point(0, 100);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.panelDesktop.Size = new System.Drawing.Size(980, 717);
+            this.panelDesktop.Padding = new System.Windows.Forms.Padding(50, 0, 50, 30);
+            this.panelDesktop.Size = new System.Drawing.Size(980, 730);
             this.panelDesktop.TabIndex = 1;
             // 
             // contextMenuStrip

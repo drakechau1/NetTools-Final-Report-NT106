@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net;
 using System.Net.NetworkInformation;
-using System.Windows;
-using System.Windows.Input;
 using System.Diagnostics;
-
 
 namespace NetTools.UserControls.Network
 {
@@ -40,7 +30,6 @@ namespace NetTools.UserControls.Network
                 return url;
             }
         }
-
         private void WriteListBox(string text)
         {
             //this will make adding things to the listbox easier
@@ -119,7 +108,6 @@ namespace NetTools.UserControls.Network
                 }
             });
         }
-
         private void TraceRoute_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -127,7 +115,6 @@ namespace NetTools.UserControls.Network
                 contextMenuStrip.Show(Cursor.Position);
             }
         }
-
         private void ClearAll_Click(object sender, EventArgs e)
         {
             TraceRoute.Items.Clear();
