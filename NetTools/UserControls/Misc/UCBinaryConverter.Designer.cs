@@ -231,6 +231,7 @@ namespace NetTools.UserControls.Misc
             this.richtextOutput2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtextOutput2.Location = new System.Drawing.Point(47, 515);
             this.richtextOutput2.Name = "richtextOutput2";
+            this.richtextOutput2.ReadOnly = true;
             this.richtextOutput2.Size = new System.Drawing.Size(880, 125);
             this.richtextOutput2.TabIndex = 5;
             this.richtextOutput2.Text = "";
@@ -243,6 +244,7 @@ namespace NetTools.UserControls.Misc
             this.richtextOutput1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtextOutput1.Location = new System.Drawing.Point(47, 364);
             this.richtextOutput1.Name = "richtextOutput1";
+            this.richtextOutput1.ReadOnly = true;
             this.richtextOutput1.Size = new System.Drawing.Size(880, 125);
             this.richtextOutput1.TabIndex = 4;
             this.richtextOutput1.Text = "";
@@ -278,6 +280,7 @@ namespace NetTools.UserControls.Misc
             this.richtextOutput3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtextOutput3.Location = new System.Drawing.Point(47, 25);
             this.richtextOutput3.Name = "richtextOutput3";
+            this.richtextOutput3.ReadOnly = true;
             this.richtextOutput3.Size = new System.Drawing.Size(880, 125);
             this.richtextOutput3.TabIndex = 6;
             this.richtextOutput3.Text = "";

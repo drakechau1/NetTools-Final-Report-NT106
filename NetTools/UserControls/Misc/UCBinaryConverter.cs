@@ -203,11 +203,18 @@ namespace NetTools.UserControls.Misc
         #endregion
 
         #region Base Conversion
-        private string Dec2Bin()
+        private string Dec2Bin(bool signed = false)
         {
             try
             {
                 Int64 value = Convert.ToInt64(inputValue, dec);     /* dec: 10 */
+                if (value < 0)
+                {
+                    if (signed)
+                        return Convert.ToString(value, bin);
+                    else
+                        return $"-{Convert.ToString(-value, bin)}";
+                }
                 return Convert.ToString(value, bin);                /* bin: 2 */
             }
             catch (Exception ex)
@@ -215,24 +222,39 @@ namespace NetTools.UserControls.Misc
                 return ex.Message;
             }
         }
-        private string Dec2Hex()
+        private string Dec2Hex(bool signed = false)
         {
             try
             {
                 Int64 value = Convert.ToInt64(inputValue, dec); /* dec: 10 */
-                return Convert.ToString(value, hex);            /* hex: 16 */
+                if (value < 0)
+                {
+                    if (signed)
+                        return Convert.ToString(value, hex).ToUpper();
+                    else
+                        return $"-{Convert.ToString(-value, hex).ToUpper()}";
+                }
+                return Convert.ToString(value, hex).ToUpper();            /* hex: 16 */
             }
             catch (Exception ex)
             {
                 return ex.Message;
             }
         }
-        private string Bin2Dec()
+        private string Bin2Dec(bool signed = false)
         {
             try
             {
                 Int64 value = Convert.ToInt64(inputValue, bin);     /* bin: 2 */
-                return Convert.ToString(value, dec);                /* dec: 10 */
+
+                if (signed)
+                {
+                    int len = inputValue.Length;
+                    //if (len % 8 != 0)
+                    //    return "N/A";
+                    return Convert.ToString(value - Math.Pow(2, len));
+                }
+                return Convert.ToString(value, dec);
             }
             catch (Exception ex)
             {
@@ -244,7 +266,7 @@ namespace NetTools.UserControls.Misc
             try
             {
                 Int64 value = Convert.ToInt64(inputValue, bin);     /* bin: 2 */
-                return Convert.ToString(value, hex);                /* dec: 10 */
+                return Convert.ToString(value, hex).ToUpper();      /* dec: 10 */
             }
             catch (Exception ex)
             {
@@ -263,11 +285,18 @@ namespace NetTools.UserControls.Misc
                 return ex.Message;
             }
         }
-        private string Hex2Dec()
+        private string Hex2Dec(bool signed = false)
         {
             try
             {
-                Int64 value = Convert.ToInt64(inputValue, hex);     /* bin: 2 */
+                Int64 value = Convert.ToInt64(inputValue, hex);     /* hex: 16 */
+                if (signed)
+                {
+                    int len = inputValue.Length;
+                    //if (len % 2 != 0)
+                    //    return "N/A";
+                    return Convert.ToString(value - Math.Pow(16, len));
+                }
                 return Convert.ToString(value, dec);                /* dec: 10 */
             }
             catch (Exception ex)
@@ -292,7 +321,7 @@ namespace NetTools.UserControls.Misc
                 /* Decimal number */
                 richtextOutput1.Text = Bin2Dec();
                 /* Decimal from signed 2's complement */
-                richtextOutput2.Text = Bin2Dec();
+                richtextOutput2.Text = Bin2Dec(true);
                 /* Hex number */
                 richtextOutput3.Text = Bin2Hex();
                 return;
@@ -305,7 +334,7 @@ namespace NetTools.UserControls.Misc
                 /* Binary number */
                 richtextOutput1.Text = Dec2Bin();
                 /* Binary signed 2's complement */
-                richtextOutput2.Text = Dec2Bin();
+                richtextOutput2.Text = Dec2Bin(true);
                 /* Hex number */
                 richtextOutput3.Text = Dec2Hex();
                 return;
@@ -315,7 +344,7 @@ namespace NetTools.UserControls.Misc
                 /* Hex number */
                 richtextOutput1.Text = Dec2Hex();
                 /* Hex signed 2's complement */
-                richtextOutput2.Text = Dec2Hex();
+                richtextOutput2.Text = Dec2Hex(true);
                 /* Binary number */
                 richtextOutput3.Text = Dec2Bin();
                 return;
@@ -328,7 +357,7 @@ namespace NetTools.UserControls.Misc
                 /* Decimal number */
                 richtextOutput1.Text = Hex2Dec();
                 /* Decimal from signed 2's complement */
-                richtextOutput2.Text = Hex2Dec();
+                richtextOutput2.Text = Hex2Dec(true);
                 /* Binary number */
                 richtextOutput3.Text = Hex2Bin();
                 return;
@@ -343,7 +372,7 @@ namespace NetTools.UserControls.Misc
             }
         }
         #endregion
-        
+
         #region User Interaction
         #region Combox
         private void comboxFrom_SelectedIndexChanged(object sender, EventArgs e)
