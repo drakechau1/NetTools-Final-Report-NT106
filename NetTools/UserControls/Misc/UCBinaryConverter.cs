@@ -64,39 +64,42 @@ namespace NetTools.UserControls.Misc
                     break;
             }
         }
-        private List<string> SplitString(string str, int chunkSize)
+        private string FormatOutput(string iString /*input string*/, int iBase)
         {
-            List<string> listString = new List<string>();
-            string tempString = str;
-            if (str.Length % chunkSize != 0)
-            {
-                int mod = str.Length % chunkSize;
-                listString.Add(str.Substring(0, mod));
-                tempString = str.Remove(0, mod);
-            }
-            for (int i = 0; i < str.Length / chunkSize; i++)
-            {
-                listString.Add(tempString.Substring(i * chunkSize, chunkSize));
-            }
-            return listString;
-        }
-        private string FormatOutput(string str, int baseFormat)
-        {
-            /* Check the condition */
-            if (digitChecked == false || baseFormat == dec)
-                return str;
+            /* Check input string */
+            if (String.IsNullOrEmpty(iString))
+                return null;
 
-            string strFormated = null; /* Return the formated string */
-            List<string> listString = new List<string>();    /* Store the string was splitted */
-            if (baseFormat == hex)
-                listString = SplitString(str, 2);
-            else
-                listString = SplitString(str, 8);
-            foreach (var item in listString)
+            /* Check the digit-checked box */
+            if (!digitChecked)
+                return iString;
+
+            if (iBase != bin && iBase != hex)
+                return iString;
+
+            /* Number of the size of the substring */
+            int chunkSize = (iBase == bin ? 8 : 2);     /* 8: binary format, 2: hex format */
+            /* Length of the input-string */
+            int length = iString.Length;
+            /* The remainder of the input-string */
+            int mod = length % chunkSize;
+            /* Set the space */
+            char space = ' ';
+
+            /* output string */
+            string oString = string.Empty;
+            string tempString = iString;
+            if (mod != 0)
             {
-                strFormated += $"{item} ";
+                oString += iString.Substring(0, mod).PadLeft(chunkSize, '0');
+                tempString = iString.Remove(0, mod);
             }
-            return strFormated;
+            while (tempString.Length != 0)
+            {
+                oString += $"{space}{tempString.Substring(0, chunkSize)}";
+                tempString = tempString.Remove(0, chunkSize);
+            }
+            return oString;
         }
         #endregion
 
@@ -105,15 +108,18 @@ namespace NetTools.UserControls.Misc
         {
             try
             {
+                string result = null;
                 Int64 value = Convert.ToInt64(inputValue, dec);     /* dec: 10 */
                 if (value < 0)
                 {
                     if (signed)
-                        return Convert.ToString(value, bin);
+                        result = Convert.ToString(value, bin);
                     else
-                        return $"-{Convert.ToString(-value, bin)}";
+                        result = $"-{Convert.ToString(-value, bin)}";
+                    return FormatOutput(result, bin);
                 }
-                return Convert.ToString(value, bin);                /* bin: 2 */
+                result = Convert.ToString(value, bin);                /* bin: 2 */
+                return FormatOutput(result, bin);
             }
             catch (Exception ex)
             {
@@ -124,15 +130,18 @@ namespace NetTools.UserControls.Misc
         {
             try
             {
+                string result = null;
                 Int64 value = Convert.ToInt64(inputValue, dec); /* dec: 10 */
                 if (value < 0)
                 {
                     if (signed)
-                        return Convert.ToString(value, hex).ToUpper();
+                        result = Convert.ToString(value, hex).ToUpper();
                     else
-                        return $"-{Convert.ToString(-value, hex).ToUpper()}";
+                        result = $"-{Convert.ToString(-value, hex).ToUpper()}";
+                    return FormatOutput(result, hex);
                 }
-                return Convert.ToString(value, hex).ToUpper();            /* hex: 16 */
+                result = Convert.ToString(value, hex).ToUpper();            /* hex: 16 */
+                return FormatOutput(result, hex);
             }
             catch (Exception ex)
             {
@@ -162,8 +171,8 @@ namespace NetTools.UserControls.Misc
         {
             try
             {
-                Int64 value = Convert.ToInt64(inputValue, bin);     /* bin: 2 */
-                return Convert.ToString(value, hex).ToUpper();      /* dec: 10 */
+                Int64 value = Convert.ToInt64(inputValue, bin);                         /* bin: 2 */
+                return FormatOutput(Convert.ToString(value, hex).ToUpper(), hex);      /* dec: 10 */
             }
             catch (Exception ex)
             {
@@ -175,7 +184,7 @@ namespace NetTools.UserControls.Misc
             try
             {
                 Int64 value = Convert.ToInt64(inputValue, hex);     /* bin: 2 */
-                return Convert.ToString(value, bin);                /* dec: 10 */
+                return FormatOutput(Convert.ToString(value, bin), bin);                /* dec: 10 */
             }
             catch (Exception ex)
             {
@@ -371,9 +380,9 @@ namespace NetTools.UserControls.Misc
             if (comboxFrom.SelectedItem == comboxTo.SelectedItem)
                 return;
             /* Swap selected item */
-            object temp1 = comboxFrom.SelectedItem;
+            object t = comboxFrom.SelectedItem;
             comboxFrom.SelectedItem = comboxTo.SelectedItem;
-            comboxTo.SelectedItem = temp1;
+            comboxTo.SelectedItem = t;
         }
         private void buttonReset_Click(object sender, EventArgs e)
         {
