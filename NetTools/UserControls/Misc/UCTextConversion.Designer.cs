@@ -230,6 +230,7 @@ namespace NetTools.UserControls.Misc
             this.richtextBase64.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtextBase64.Location = new System.Drawing.Point(48, 315);
             this.richtextBase64.Name = "richtextBase64";
+            this.richtextBase64.ReadOnly = true;
             this.richtextBase64.Size = new System.Drawing.Size(882, 100);
             this.richtextBase64.TabIndex = 5;
             this.richtextBase64.Text = "";
@@ -252,6 +253,7 @@ namespace NetTools.UserControls.Misc
             this.richtextBinary.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtextBinary.Location = new System.Drawing.Point(48, 165);
             this.richtextBinary.Name = "richtextBinary";
+            this.richtextBinary.ReadOnly = true;
             this.richtextBinary.Size = new System.Drawing.Size(882, 100);
             this.richtextBinary.TabIndex = 5;
             this.richtextBinary.Text = "";
@@ -274,6 +276,7 @@ namespace NetTools.UserControls.Misc
             this.richtextHex.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richtextHex.Location = new System.Drawing.Point(48, 26);
             this.richtextHex.Name = "richtextHex";
+            this.richtextHex.ReadOnly = true;
             this.richtextHex.Size = new System.Drawing.Size(882, 100);
             this.richtextHex.TabIndex = 5;
             this.richtextHex.Text = "";
@@ -323,6 +326,9 @@ namespace NetTools.UserControls.Misc
             this.comboxChecksumType.FormattingEnabled = true;
             this.comboxChecksumType.Items.AddRange(new object[] {
             "MD5",
+            "SHA-1",
+            "SHA-256",
+            "SHA-512",
             "2\'s complement",
             "Xor"});
             this.comboxChecksumType.Location = new System.Drawing.Point(48, 26);
