@@ -12,42 +12,52 @@ namespace NetTools.UserControls.Misc
 {
     public partial class UCBinaryConverter : UserControl
     {
+        #region Global Variables
         private int hex = 16;
         private int bin = 2;
         private int dec = 10;
-
         private bool digitChecked = false;
+        private string inputValue = null;
+        string currentComboxFrom, currentComboxTo;
+        #endregion
 
-        string currentComboxFromItem, currentComboxToItem;
-
+        private void InitForm()
+        {
+            /* Initialize ComboBox Selected Item */
+            comboxFrom.SelectedItem = comboxFrom.Items[1];  //Decimal
+            comboxTo.SelectedItem = comboxFrom.Items[0];    //Binary
+        }
+        /* Constructor */
         public UCBinaryConverter()
         {
             InitializeComponent();
+            /* Begin */
+            InitForm();
         }
 
         #region Methods
         private void ActivateControls()
         {
-            currentComboxToItem = comboxTo.Text.ToLower();
-            currentComboxFromItem = comboxFrom.Text.ToLower();
+            currentComboxTo = comboxTo.Text.ToLower();
+            currentComboxFrom = comboxFrom.Text.ToLower();
 
-            if (currentComboxFromItem == currentComboxToItem)
+            if (currentComboxFrom == currentComboxTo)
                 return;
 
-            textOutput1.Text = null;
-            textOutput2.Text = null;
-            textOutput3.Text = null;
+            richtextOutput1.Text = null;
+            richtextOutput2.Text = null;
+            richtextOutput3.Text = null;
 
-            switch (currentComboxToItem)
+            switch (currentComboxTo)
             {
                 case "binary":
                     labelOutput1.Text = "Binary number";
-                    if (currentComboxFromItem == "hexadecimal")
+                    if (currentComboxFrom == "hexadecimal")
                     {
                         labelOutput2.Text = "Decimal number";
                         panelInvisibal.Visible = false;
                     }
-                    else if (currentComboxFromItem == "decimal")
+                    else if (currentComboxFrom == "decimal")
                     {
                         labelOutput2.Text = "Binary signed 2's complement";
                         panelInvisibal.Visible = true;
@@ -59,23 +69,23 @@ namespace NetTools.UserControls.Misc
                     labelOutput1.Text = "Decimal number";
                     labelOutput2.Text = "Decimal from signed 2's complement";
 
-                    if (currentComboxFromItem == "hexadecimal")
+                    if (currentComboxFrom == "hexadecimal")
                     {
                         labelOutput3.Text = "Binary number";
                     }
-                    else if (currentComboxFromItem == "binary")
+                    else if (currentComboxFrom == "binary")
                     {
                         labelOutput3.Text = "Hex number";
                     }
                     break;
                 case "hexadecimal":
                     labelOutput1.Text = "Hex number";
-                    if (currentComboxFromItem == "binary")
+                    if (currentComboxFrom == "binary")
                     {
                         labelOutput2.Text = "Decimal number";
                         panelInvisibal.Visible = false;
                     }
-                    else if (currentComboxFromItem == "decimal")
+                    else if (currentComboxFrom == "decimal")
                     {
                         labelOutput2.Text = "Hex signed 2's complement";
                         panelInvisibal.Visible = true;
@@ -86,7 +96,6 @@ namespace NetTools.UserControls.Misc
                     break;
             }
         }
-
         private List<string> SplitString(string str, int chunkSize)
         {
             List<string> listString = new List<string>();
@@ -103,7 +112,6 @@ namespace NetTools.UserControls.Misc
             }
             return listString;
         }
-
         private string Signed2sComplement(string strValue, int fromBase, int toBase)
         {
             try
@@ -138,7 +146,6 @@ namespace NetTools.UserControls.Misc
                 return ex.Message;
             }
         }
-
         private string BinaryConvert(string value, int fromBase, int toBase)
         {
             List<string> listSplitValues = new List<string>();
@@ -175,7 +182,6 @@ namespace NetTools.UserControls.Misc
                 }
             }
         }
-
         private string FormatOutput(string str, int baseFormat)
         {
             /* Check the condition */
@@ -196,29 +202,195 @@ namespace NetTools.UserControls.Misc
         }
         #endregion
 
-        #region User Interaction
-        private void UCBinaryConverter_Load(object sender, EventArgs e)
+        #region Base Conversion
+        private string Dec2Bin()
         {
-            /* Initialize ComboBox Selected Item */
-            comboxFrom.SelectedItem = comboxFrom.Items[1];  //Decimal
-            comboxTo.SelectedItem = comboxFrom.Items[0];    //Binary
+            try
+            {
+                Int64 value = Convert.ToInt64(inputValue, dec);     /* dec: 10 */
+                return Convert.ToString(value, bin);                /* bin: 2 */
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
-
+        private string Dec2Hex()
+        {
+            try
+            {
+                Int64 value = Convert.ToInt64(inputValue, dec); /* dec: 10 */
+                return Convert.ToString(value, hex);            /* hex: 16 */
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        private string Bin2Dec()
+        {
+            try
+            {
+                Int64 value = Convert.ToInt64(inputValue, bin);     /* bin: 2 */
+                return Convert.ToString(value, dec);                /* dec: 10 */
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        private string Bin2Hex()
+        {
+            try
+            {
+                Int64 value = Convert.ToInt64(inputValue, bin);     /* bin: 2 */
+                return Convert.ToString(value, hex);                /* dec: 10 */
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        private string Hex2Bin()
+        {
+            try
+            {
+                Int64 value = Convert.ToInt64(inputValue, hex);     /* bin: 2 */
+                return Convert.ToString(value, bin);                /* dec: 10 */
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        private string Hex2Dec()
+        {
+            try
+            {
+                Int64 value = Convert.ToInt64(inputValue, hex);     /* bin: 2 */
+                return Convert.ToString(value, dec);                /* dec: 10 */
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        #endregion
+        #region Number Conversion
+        private void BinConversion()
+        {
+            if (currentComboxTo == "hexadecimal")
+            {
+                /* Hex number */
+                richtextOutput1.Text = Bin2Hex();
+                /* Decimal number */
+                richtextOutput2.Text = Bin2Dec();
+                return;
+            }
+            if (currentComboxTo == "decimal")
+            {
+                /* Decimal number */
+                richtextOutput1.Text = Bin2Dec();
+                /* Decimal from signed 2's complement */
+                richtextOutput2.Text = Bin2Dec();
+                /* Hex number */
+                richtextOutput3.Text = Bin2Hex();
+                return;
+            }
+        }
+        private void DecConversion()
+        {
+            if (currentComboxTo == "binary")
+            {
+                /* Binary number */
+                richtextOutput1.Text = Dec2Bin();
+                /* Binary signed 2's complement */
+                richtextOutput2.Text = Dec2Bin();
+                /* Hex number */
+                richtextOutput3.Text = Dec2Hex();
+                return;
+            }
+            if (currentComboxTo == "hexadecimal")
+            {
+                /* Hex number */
+                richtextOutput1.Text = Dec2Hex();
+                /* Hex signed 2's complement */
+                richtextOutput2.Text = Dec2Hex();
+                /* Binary number */
+                richtextOutput3.Text = Dec2Bin();
+                return;
+            }
+        }
+        private void HexConversion()
+        {
+            if (currentComboxTo == "decimal")
+            {
+                /* Decimal number */
+                richtextOutput1.Text = Hex2Dec();
+                /* Decimal from signed 2's complement */
+                richtextOutput2.Text = Hex2Dec();
+                /* Binary number */
+                richtextOutput3.Text = Hex2Bin();
+                return;
+            }
+            if (currentComboxTo == "binary")
+            {
+                /* Binary number */
+                richtextOutput1.Text = Hex2Bin();
+                /* Decimal number */
+                richtextOutput2.Text = Hex2Dec();
+                return;
+            }
+        }
+        #endregion
+        
+        #region User Interaction
+        #region Combox
         private void comboxFrom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboxFrom.SelectedItem.ToString().ToLower() == currentComboxFromItem)
+            if (comboxFrom.SelectedItem.ToString().ToLower() == currentComboxFrom)
                 return;
             labelEnterNumber.Text = $"Enter {comboxFrom.SelectedItem.ToString().ToLower()} number";
             ActivateControls();
         }
-
         private void comboxTo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboxTo.SelectedItem.ToString().ToLower() == currentComboxToItem)
+            if (comboxTo.SelectedItem.ToString().ToLower() == currentComboxTo)
                 return;
             ActivateControls();
         }
+        #endregion
+        #region Button
+        private void buttonConvert_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(richtextInput.Text))
+                return;
 
+            currentComboxTo = comboxTo.Text.ToLower();
+            currentComboxFrom = comboxFrom.Text.ToLower();
+
+            if (currentComboxFrom == currentComboxTo)
+                return;
+
+            /* Get global inputValue */
+            inputValue = richtextInput.Text;
+
+            /* Select the type of conversion */
+            switch (currentComboxFrom)
+            {
+                case "binary":
+                    BinConversion();
+                    break;
+                case "decimal":
+                    DecConversion();
+                    break;
+                case "hexadecimal":
+                    HexConversion();
+                    break;
+                default:
+                    break;
+            }
+        }
         private void buttonSwap_Click(object sender, EventArgs e)
         {
             if (comboxFrom.SelectedItem == comboxTo.SelectedItem)
@@ -228,78 +400,22 @@ namespace NetTools.UserControls.Misc
             comboxFrom.SelectedItem = comboxTo.SelectedItem;
             comboxTo.SelectedItem = temp1;
         }
-
-        private void buttonConvert_Click(object sender, EventArgs e)
+        private void buttonReset_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textInput.Text))
-                return;
-
-            currentComboxToItem = comboxTo.Text.ToLower();
-            currentComboxFromItem = comboxFrom.Text.ToLower();
-            if (currentComboxFromItem == currentComboxToItem)
-                return;
-
-            string value = textInput.Text;
-            switch (currentComboxToItem)
-            {
-                case "binary":
-                    if (currentComboxFromItem == "hexadecimal")
-                    {
-                        textOutput1.Text = BinaryConvert(value, hex, bin);
-                        textOutput2.Text = BinaryConvert(value, hex, dec);
-                    }
-                    else if (currentComboxFromItem == "decimal")
-                    {
-                        textOutput1.Text = BinaryConvert(value, dec, bin);
-                        textOutput2.Text = Signed2sComplement(value, dec, bin);
-                        textOutput3.Text = BinaryConvert(value, dec, hex).ToUpper();
-                    }
-                    break;
-                case "decimal":
-                    if (currentComboxFromItem == "hexadecimal")
-                    {
-                        textOutput1.Text = BinaryConvert(value, hex, dec);
-                        textOutput2.Text = Signed2sComplement(value, hex, dec);
-                        textOutput3.Text = BinaryConvert(value, hex, bin);
-                    }
-                    else if (currentComboxFromItem == "binary")
-                    {
-                        textOutput1.Text = BinaryConvert(value, bin, dec);
-                        textOutput2.Text = Signed2sComplement(value, bin, dec);
-                        textOutput3.Text = BinaryConvert(value, bin, hex).ToUpper();
-                    }
-                    break;
-                case "hexadecimal":
-                    if (currentComboxFromItem == "binary")
-                    {
-                        textOutput1.Text = BinaryConvert(value, bin, hex).ToUpper();
-                        textOutput2.Text = BinaryConvert(value, bin, dec).ToUpper();
-                    }
-                    else if (currentComboxFromItem == "decimal")
-                    {
-                        textOutput1.Text = BinaryConvert(value, dec, hex).ToUpper();
-                        textOutput2.Text = BinaryConvert(value, dec, hex).ToUpper();
-                        textOutput3.Text = BinaryConvert(value, dec, bin);
-                    }
-                    break;
-                default:
-                    break;
-            }
+            richtextInput.Text = null;
+            richtextOutput1.Text = null;
+            richtextOutput2.Text = null;
+            richtextOutput3.Text = null;
         }
-
+        #endregion
+        #region Checkbox
         private void checkboxDigitGrouping_CheckedChanged(object sender, EventArgs e)
         {
             digitChecked = checkboxDigitGrouping.Checked;
             this.buttonConvert_Click(sender, e);
         }
+        #endregion
 
-        private void buttonReset_Click(object sender, EventArgs e)
-        {
-            textInput.Text = null;
-            textOutput1.Text = null;
-            textOutput2.Text = null;
-            textOutput3.Text = null;
-        }
         #endregion
     }
 }
