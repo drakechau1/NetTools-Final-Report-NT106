@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace NetTools.UserControls.Misc
 {
@@ -132,6 +133,40 @@ namespace NetTools.UserControls.Misc
             return null;
         }
         #endregion
+        #region Read file-content
+        private bool CheckFileExtension(string path, string extension)
+        {
+            try
+            {
+                string ext = Path.GetExtension(path);
+                if (ext == extension)
+                    return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                return false;
+            }
+            MessageBox.Show($"The file-extention is not {extension}", "Error");
+            return false;
+        }
+        private string ReadTextFile(string path)
+        {
+            /* Check input extention */
+            if (!CheckFileExtension(path, ".txt"))
+                return null;
+            /* The correct input-extention */
+            try
+            {
+                return File.ReadAllText(path);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+                return null;   
+            }
+        }
+        #endregion
 
         #region User Interaction
         #region Button
@@ -141,6 +176,8 @@ namespace NetTools.UserControls.Misc
             if (openFileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             /* OpenFileDialog Result OK */
+            
+            richtextInput.Text = ReadTextFile(openFileDialog.FileName);
         }
 
         private void buttonConvert_Click(object sender, EventArgs e)
