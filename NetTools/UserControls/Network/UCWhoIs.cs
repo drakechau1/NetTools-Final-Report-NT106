@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Net;
@@ -35,46 +28,48 @@ namespace NetTools.UserControls.Network
             webResponse.Close();
             return httpResponse;
         }
-
         private bool CheckQueryReponse(XmlDocument xDoc)
         {
             if (xDoc.SelectSingleNode("//ErrorMessage") != null)
                 return false;
             return true;
         }
-        #endregion
-
-        #region User interaction
-        private void buttonGo_Click(object sender, EventArgs e)
+        private string CrawlData(XmlDocument xDoc)
         {
-            if (textIPAddress.Text != string.Empty)
+            try
             {
-                string xmlRespone = GetHTTPRequest(textIPAddress.Text);
-                XmlDocument xDoc = new XmlDocument();
-                xDoc.LoadXml(xmlRespone);
-                richTextInfomation.Clear();
-                try
+                if (CheckQueryReponse(xDoc))
                 {
-                    if (CheckQueryReponse(xDoc))
-                    {
-                        richTextInfomation.Text = xDoc.SelectSingleNode("./WhoisRecord[1]/rawText[1]").InnerText;
-
-                    }
-                    else
-                    {
-                        string errorCode = $"Error code: {xDoc.SelectSingleNode("//errorCode").InnerText}";
-                        string msg = $"Message: {xDoc.SelectSingleNode("//msg").InnerText}";
-                        richTextInfomation.Text += errorCode;
-                        richTextInfomation.Text += "\n";
-                        richTextInfomation.Text += msg;
-                    }
+                    return xDoc.SelectSingleNode("./WhoisRecord[1]/rawText[1]").InnerText;
                 }
-                catch (Exception ex)
+                else
                 {
-                    richTextInfomation.Text = ex.Message;
+                    string error = string.Empty;
+                    string errorCode = $"Error code: {xDoc.SelectSingleNode("//errorCode").InnerText}";
+                    string msg = $"Message: {xDoc.SelectSingleNode("//msg").InnerText}";
+                    error += errorCode;
+                    error += "\n";
+                    error += msg;
+                    return error;
                 }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
         #endregion
+
+        private void buttonGo_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textIPAddress.Text))
+                return;
+            string xmlRespone = GetHTTPRequest(textIPAddress.Text);
+            XmlDocument xDoc = new XmlDocument();
+            xDoc.LoadXml(xmlRespone);
+
+            richTextInfomation.Clear();
+            richTextInfomation.Text = CrawlData(xDoc);
+        }
     }
 }
