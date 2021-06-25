@@ -18,7 +18,7 @@ namespace NetTools
         UserControls.Network.UCIPHeader ucIPHeader = new UserControls.Network.UCIPHeader();
         UserControls.Network.UCPing ucPing = new UserControls.Network.UCPing();
         UserControls.Network.UCTraceRoute ucTraceRoute = new UserControls.Network.UCTraceRoute();
-        UserControls.Misc.UCBase64 ucBase64 = new UserControls.Misc.UCBase64();
+        UserControls.Misc.UCTextConversion ucTextConversion = new UserControls.Misc.UCTextConversion();
         UserControls.Misc.UCBinaryConverter ucBinaryConverter = new UserControls.Misc.UCBinaryConverter();
         UserControls.Misc.UCSIDConverter ucSIDConverter = new UserControls.Misc.UCSIDConverter();
         UserControls.UCHome ucHome = new UserControls.UCHome();
@@ -174,10 +174,10 @@ namespace NetTools
             labelTitle.Text = "Misc";
         }
 
-        private void buttonBase64_Click(object sender, EventArgs e)
+        private void buttonTextConversion_Click(object sender, EventArgs e)
         {
-            ActivateDesktopPanel(ucBase64);
-            labelTitle.Text = "Base64";
+            ActivateDesktopPanel(ucTextConversion);
+            labelTitle.Text = "Text Conversion";
         }
 
         private void buttonBinaryConverter_Click(object sender, EventArgs e)
