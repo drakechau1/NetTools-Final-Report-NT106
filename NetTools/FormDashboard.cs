@@ -127,38 +127,33 @@ namespace NetTools
             labelTitle.Text = "Setting";
         }
 
-        #region Network functions
+        #region Network
         private void buttonNetwork_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucHome);
             HidePanel(panelNetwork);
             labelTitle.Text = "Network";
         }
-
         private void buttonIPHeader_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucIPHeader);
             labelTitle.Text = "IP Header";
         }
-
         private void buttonIPGeoLocation_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucIPGeoLocation);
             labelTitle.Text = "IP Geo Location";
         }
-
         private void buttonPing_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucPing);
             labelTitle.Text = "Ping";
         }
-
         private void buttonTraceRoute_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucTraceRoute);
             labelTitle.Text = "Trace Route";
         }
-
         private void buttonWhoIs_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucWhoIs);
@@ -166,30 +161,22 @@ namespace NetTools
         }
         #endregion End network
 
-        #region Misc functions
+        #region Misc
         private void buttonMisc_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucHome);
             HidePanel(panelMisc);
             labelTitle.Text = "Misc";
         }
-
         private void buttonTextConversion_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucTextConversion);
             labelTitle.Text = "Text Conversion";
         }
-
         private void buttonBinaryConverter_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucBinaryConverter);
             labelTitle.Text = "Binary Converter";
-        }
-
-        private void buttonSIDConverter_Click(object sender, EventArgs e)
-        {
-            ActivateDesktopPanel(ucSIDConverter);
-            labelTitle.Text = "SID Converter";
         }
         #endregion End misc
 
