@@ -37,10 +37,8 @@ namespace NetTools
             this.buttonTextConversion = new System.Windows.Forms.Button();
             this.buttonMisc = new System.Windows.Forms.Button();
             this.panelNetwork = new System.Windows.Forms.Panel();
-            this.buttonWhoIs = new System.Windows.Forms.Button();
             this.buttonTraceRoute = new System.Windows.Forms.Button();
             this.buttonPing = new System.Windows.Forms.Button();
-            this.buttonIPGeoLocation = new System.Windows.Forms.Button();
             this.buttonIPHeader = new System.Windows.Forms.Button();
             this.buttonNetwork = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -53,6 +51,13 @@ namespace NetTools
             this.buttonMinimizeWindow = new System.Windows.Forms.Button();
             this.buttonMaximizeWindow = new System.Windows.Forms.Button();
             this.buttonExitWindow = new System.Windows.Forms.Button();
+            this.buttonIPAddress = new System.Windows.Forms.Button();
+            this.panelIPAddress = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.buttonIPGeoLocation = new System.Windows.Forms.Button();
+            this.buttonWhoIs = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelMisc.SuspendLayout();
             this.panelNetwork.SuspendLayout();
@@ -60,6 +65,7 @@ namespace NetTools
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogo)).BeginInit();
             this.panelTitle.SuspendLayout();
             this.panelWindowControl.SuspendLayout();
+            this.panelIPAddress.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -68,6 +74,8 @@ namespace NetTools
             this.panelMenu.Controls.Add(this.buttonSetting);
             this.panelMenu.Controls.Add(this.panelMisc);
             this.panelMenu.Controls.Add(this.buttonMisc);
+            this.panelMenu.Controls.Add(this.panelIPAddress);
+            this.panelMenu.Controls.Add(this.buttonIPAddress);
             this.panelMenu.Controls.Add(this.panelNetwork);
             this.panelMenu.Controls.Add(this.buttonNetwork);
             this.panelMenu.Controls.Add(this.panelLogo);
@@ -76,7 +84,7 @@ namespace NetTools
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 900);
+            this.panelMenu.Size = new System.Drawing.Size(240, 900);
             this.panelMenu.TabIndex = 0;
             // 
             // buttonSetting
@@ -86,11 +94,11 @@ namespace NetTools
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetting.Image = ((System.Drawing.Image)(resources.GetObject("buttonSetting.Image")));
             this.buttonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSetting.Location = new System.Drawing.Point(0, 557);
+            this.buttonSetting.Location = new System.Drawing.Point(0, 723);
             this.buttonSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
-            this.buttonSetting.Size = new System.Drawing.Size(220, 46);
+            this.buttonSetting.Size = new System.Drawing.Size(240, 46);
             this.buttonSetting.TabIndex = 6;
             this.buttonSetting.Text = "Setting";
             this.buttonSetting.UseVisualStyleBackColor = true;
@@ -102,10 +110,10 @@ namespace NetTools
             this.panelMisc.Controls.Add(this.buttonBinaryConverter);
             this.panelMisc.Controls.Add(this.buttonTextConversion);
             this.panelMisc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMisc.Location = new System.Drawing.Point(0, 477);
+            this.panelMisc.Location = new System.Drawing.Point(0, 643);
             this.panelMisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMisc.Name = "panelMisc";
-            this.panelMisc.Size = new System.Drawing.Size(220, 80);
+            this.panelMisc.Size = new System.Drawing.Size(240, 80);
             this.panelMisc.TabIndex = 5;
             // 
             // buttonBinaryConverter
@@ -117,7 +125,7 @@ namespace NetTools
             this.buttonBinaryConverter.Location = new System.Drawing.Point(0, 39);
             this.buttonBinaryConverter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBinaryConverter.Name = "buttonBinaryConverter";
-            this.buttonBinaryConverter.Size = new System.Drawing.Size(220, 39);
+            this.buttonBinaryConverter.Size = new System.Drawing.Size(240, 39);
             this.buttonBinaryConverter.TabIndex = 2;
             this.buttonBinaryConverter.Text = "Binary Converter";
             this.buttonBinaryConverter.UseVisualStyleBackColor = true;
@@ -132,7 +140,7 @@ namespace NetTools
             this.buttonTextConversion.Location = new System.Drawing.Point(0, 0);
             this.buttonTextConversion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTextConversion.Name = "buttonTextConversion";
-            this.buttonTextConversion.Size = new System.Drawing.Size(220, 39);
+            this.buttonTextConversion.Size = new System.Drawing.Size(240, 39);
             this.buttonTextConversion.TabIndex = 1;
             this.buttonTextConversion.Text = "Text Conversion";
             this.buttonTextConversion.UseVisualStyleBackColor = true;
@@ -145,11 +153,11 @@ namespace NetTools
             this.buttonMisc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMisc.Image = ((System.Drawing.Image)(resources.GetObject("buttonMisc.Image")));
             this.buttonMisc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonMisc.Location = new System.Drawing.Point(0, 431);
+            this.buttonMisc.Location = new System.Drawing.Point(0, 597);
             this.buttonMisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMisc.Name = "buttonMisc";
             this.buttonMisc.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
-            this.buttonMisc.Size = new System.Drawing.Size(220, 46);
+            this.buttonMisc.Size = new System.Drawing.Size(240, 46);
             this.buttonMisc.TabIndex = 4;
             this.buttonMisc.Text = "Misc";
             this.buttonMisc.UseVisualStyleBackColor = true;
@@ -158,32 +166,15 @@ namespace NetTools
             // panelNetwork
             // 
             this.panelNetwork.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
-            this.panelNetwork.Controls.Add(this.buttonWhoIs);
+            this.panelNetwork.Controls.Add(this.buttonIPHeader);
             this.panelNetwork.Controls.Add(this.buttonTraceRoute);
             this.panelNetwork.Controls.Add(this.buttonPing);
-            this.panelNetwork.Controls.Add(this.buttonIPGeoLocation);
-            this.panelNetwork.Controls.Add(this.buttonIPHeader);
             this.panelNetwork.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelNetwork.Location = new System.Drawing.Point(0, 231);
             this.panelNetwork.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelNetwork.Name = "panelNetwork";
-            this.panelNetwork.Size = new System.Drawing.Size(220, 200);
+            this.panelNetwork.Size = new System.Drawing.Size(240, 120);
             this.panelNetwork.TabIndex = 3;
-            // 
-            // buttonWhoIs
-            // 
-            this.buttonWhoIs.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonWhoIs.FlatAppearance.BorderSize = 0;
-            this.buttonWhoIs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonWhoIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonWhoIs.Location = new System.Drawing.Point(0, 156);
-            this.buttonWhoIs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonWhoIs.Name = "buttonWhoIs";
-            this.buttonWhoIs.Size = new System.Drawing.Size(220, 39);
-            this.buttonWhoIs.TabIndex = 4;
-            this.buttonWhoIs.Text = "WhoIs";
-            this.buttonWhoIs.UseVisualStyleBackColor = true;
-            this.buttonWhoIs.Click += new System.EventHandler(this.buttonWhoIs_Click);
             // 
             // buttonTraceRoute
             // 
@@ -191,10 +182,10 @@ namespace NetTools
             this.buttonTraceRoute.FlatAppearance.BorderSize = 0;
             this.buttonTraceRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTraceRoute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTraceRoute.Location = new System.Drawing.Point(0, 117);
+            this.buttonTraceRoute.Location = new System.Drawing.Point(0, 39);
             this.buttonTraceRoute.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTraceRoute.Name = "buttonTraceRoute";
-            this.buttonTraceRoute.Size = new System.Drawing.Size(220, 39);
+            this.buttonTraceRoute.Size = new System.Drawing.Size(240, 39);
             this.buttonTraceRoute.TabIndex = 3;
             this.buttonTraceRoute.Text = "Trace Route";
             this.buttonTraceRoute.UseVisualStyleBackColor = true;
@@ -206,29 +197,14 @@ namespace NetTools
             this.buttonPing.FlatAppearance.BorderSize = 0;
             this.buttonPing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPing.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPing.Location = new System.Drawing.Point(0, 78);
+            this.buttonPing.Location = new System.Drawing.Point(0, 0);
             this.buttonPing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonPing.Name = "buttonPing";
-            this.buttonPing.Size = new System.Drawing.Size(220, 39);
+            this.buttonPing.Size = new System.Drawing.Size(240, 39);
             this.buttonPing.TabIndex = 2;
             this.buttonPing.Text = "Ping";
             this.buttonPing.UseVisualStyleBackColor = true;
             this.buttonPing.Click += new System.EventHandler(this.buttonPing_Click);
-            // 
-            // buttonIPGeoLocation
-            // 
-            this.buttonIPGeoLocation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonIPGeoLocation.FlatAppearance.BorderSize = 0;
-            this.buttonIPGeoLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonIPGeoLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIPGeoLocation.Location = new System.Drawing.Point(0, 39);
-            this.buttonIPGeoLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonIPGeoLocation.Name = "buttonIPGeoLocation";
-            this.buttonIPGeoLocation.Size = new System.Drawing.Size(220, 39);
-            this.buttonIPGeoLocation.TabIndex = 1;
-            this.buttonIPGeoLocation.Text = "IP Geo Location";
-            this.buttonIPGeoLocation.UseVisualStyleBackColor = true;
-            this.buttonIPGeoLocation.Click += new System.EventHandler(this.buttonIPGeoLocation_Click);
             // 
             // buttonIPHeader
             // 
@@ -236,12 +212,12 @@ namespace NetTools
             this.buttonIPHeader.FlatAppearance.BorderSize = 0;
             this.buttonIPHeader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonIPHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIPHeader.Location = new System.Drawing.Point(0, 0);
+            this.buttonIPHeader.Location = new System.Drawing.Point(0, 78);
             this.buttonIPHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonIPHeader.Name = "buttonIPHeader";
-            this.buttonIPHeader.Size = new System.Drawing.Size(220, 39);
+            this.buttonIPHeader.Size = new System.Drawing.Size(240, 39);
             this.buttonIPHeader.TabIndex = 0;
-            this.buttonIPHeader.Text = "IP Header";
+            this.buttonIPHeader.Text = "HTTP Headers";
             this.buttonIPHeader.UseVisualStyleBackColor = true;
             this.buttonIPHeader.Click += new System.EventHandler(this.buttonIPHeader_Click);
             // 
@@ -256,7 +232,7 @@ namespace NetTools
             this.buttonNetwork.Margin = new System.Windows.Forms.Padding(51, 2, 3, 2);
             this.buttonNetwork.Name = "buttonNetwork";
             this.buttonNetwork.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
-            this.buttonNetwork.Size = new System.Drawing.Size(220, 46);
+            this.buttonNetwork.Size = new System.Drawing.Size(240, 46);
             this.buttonNetwork.TabIndex = 2;
             this.buttonNetwork.Text = "Network";
             this.buttonNetwork.UseVisualStyleBackColor = true;
@@ -271,7 +247,7 @@ namespace NetTools
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(220, 185);
+            this.panelLogo.Size = new System.Drawing.Size(240, 185);
             this.panelLogo.TabIndex = 0;
             // 
             // pictureLogo
@@ -279,7 +255,7 @@ namespace NetTools
             this.pictureLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureLogo.Image")));
             this.pictureLogo.InitialImage = null;
-            this.pictureLogo.Location = new System.Drawing.Point(19, 11);
+            this.pictureLogo.Location = new System.Drawing.Point(29, 11);
             this.pictureLogo.Margin = new System.Windows.Forms.Padding(4);
             this.pictureLogo.Name = "pictureLogo";
             this.pictureLogo.Size = new System.Drawing.Size(184, 119);
@@ -295,7 +271,7 @@ namespace NetTools
             this.labelLogo.Location = new System.Drawing.Point(0, 130);
             this.labelLogo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelLogo.Name = "labelLogo";
-            this.labelLogo.Size = new System.Drawing.Size(220, 55);
+            this.labelLogo.Size = new System.Drawing.Size(240, 55);
             this.labelLogo.TabIndex = 1;
             this.labelLogo.Text = "Nettools";
             this.labelLogo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -305,10 +281,10 @@ namespace NetTools
             this.panelDesktop.BackColor = System.Drawing.Color.White;
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelDesktop.Location = new System.Drawing.Point(220, 71);
+            this.panelDesktop.Location = new System.Drawing.Point(240, 70);
             this.panelDesktop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(980, 829);
+            this.panelDesktop.Size = new System.Drawing.Size(980, 830);
             this.panelDesktop.TabIndex = 2;
             // 
             // labelTitle
@@ -329,10 +305,10 @@ namespace NetTools
             this.panelTitle.Controls.Add(this.labelTitle);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTitle.Location = new System.Drawing.Point(220, 0);
+            this.panelTitle.Location = new System.Drawing.Point(240, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(980, 71);
+            this.panelTitle.Size = new System.Drawing.Size(980, 70);
             this.panelTitle.TabIndex = 1;
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
             // 
@@ -390,12 +366,116 @@ namespace NetTools
             this.buttonExitWindow.UseVisualStyleBackColor = true;
             this.buttonExitWindow.Click += new System.EventHandler(this.buttonExitWindow_Click);
             // 
+            // buttonIPAddress
+            // 
+            this.buttonIPAddress.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonIPAddress.FlatAppearance.BorderSize = 0;
+            this.buttonIPAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIPAddress.Image = ((System.Drawing.Image)(resources.GetObject("buttonIPAddress.Image")));
+            this.buttonIPAddress.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonIPAddress.Location = new System.Drawing.Point(0, 351);
+            this.buttonIPAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIPAddress.Name = "buttonIPAddress";
+            this.buttonIPAddress.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
+            this.buttonIPAddress.Size = new System.Drawing.Size(240, 46);
+            this.buttonIPAddress.TabIndex = 7;
+            this.buttonIPAddress.Text = "IP Address";
+            this.buttonIPAddress.UseVisualStyleBackColor = true;
+            // 
+            // panelIPAddress
+            // 
+            this.panelIPAddress.Controls.Add(this.button3);
+            this.panelIPAddress.Controls.Add(this.buttonIPGeoLocation);
+            this.panelIPAddress.Controls.Add(this.button2);
+            this.panelIPAddress.Controls.Add(this.buttonWhoIs);
+            this.panelIPAddress.Controls.Add(this.button1);
+            this.panelIPAddress.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelIPAddress.Location = new System.Drawing.Point(0, 397);
+            this.panelIPAddress.Name = "panelIPAddress";
+            this.panelIPAddress.Size = new System.Drawing.Size(240, 200);
+            this.panelIPAddress.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(240, 39);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "My IP";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(0, 78);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(240, 39);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "IP Scanner";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(0, 156);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(240, 39);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "IP Subnet Calculator";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // buttonIPGeoLocation
+            // 
+            this.buttonIPGeoLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.buttonIPGeoLocation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonIPGeoLocation.FlatAppearance.BorderSize = 0;
+            this.buttonIPGeoLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIPGeoLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIPGeoLocation.Location = new System.Drawing.Point(0, 117);
+            this.buttonIPGeoLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIPGeoLocation.Name = "buttonIPGeoLocation";
+            this.buttonIPGeoLocation.Size = new System.Drawing.Size(240, 39);
+            this.buttonIPGeoLocation.TabIndex = 5;
+            this.buttonIPGeoLocation.Text = "IP Geo Location";
+            this.buttonIPGeoLocation.UseVisualStyleBackColor = false;
+            // 
+            // buttonWhoIs
+            // 
+            this.buttonWhoIs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.buttonWhoIs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonWhoIs.FlatAppearance.BorderSize = 0;
+            this.buttonWhoIs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonWhoIs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonWhoIs.Location = new System.Drawing.Point(0, 39);
+            this.buttonWhoIs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonWhoIs.Name = "buttonWhoIs";
+            this.buttonWhoIs.Size = new System.Drawing.Size(240, 39);
+            this.buttonWhoIs.TabIndex = 6;
+            this.buttonWhoIs.Text = "WhoIs";
+            this.buttonWhoIs.UseVisualStyleBackColor = false;
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1200, 900);
+            this.ClientSize = new System.Drawing.Size(1220, 900);
             this.Controls.Add(this.panelDesktop);
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelMenu);
@@ -414,6 +494,7 @@ namespace NetTools
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             this.panelWindowControl.ResumeLayout(false);
+            this.panelIPAddress.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -427,7 +508,6 @@ namespace NetTools
         private System.Windows.Forms.Panel panelNetwork;
         private System.Windows.Forms.Button buttonTraceRoute;
         private System.Windows.Forms.Button buttonPing;
-        private System.Windows.Forms.Button buttonIPGeoLocation;
         private System.Windows.Forms.Button buttonIPHeader;
         private System.Windows.Forms.Panel panelMisc;
         private System.Windows.Forms.Button buttonBinaryConverter;
@@ -442,6 +522,12 @@ namespace NetTools
         private System.Windows.Forms.Button buttonMinimizeWindow;
         private System.Windows.Forms.Button buttonMaximizeWindow;
         private System.Windows.Forms.Button buttonExitWindow;
+        private System.Windows.Forms.Button buttonIPAddress;
+        private System.Windows.Forms.Panel panelIPAddress;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonIPGeoLocation;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonWhoIs;
     }
 }
