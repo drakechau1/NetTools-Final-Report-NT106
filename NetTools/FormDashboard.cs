@@ -138,11 +138,6 @@ namespace NetTools
             ActivateDesktopPanel(ucHttpHeaders);
             labelTitle.Text = "IP Header";
         }
-        private void buttonIPGeoLocation_Click(object sender, EventArgs e)
-        {
-            ActivateDesktopPanel(ucIPGeoLocation);
-            labelTitle.Text = "IP Geo Location";
-        }
         private void buttonPing_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucPing);
@@ -153,12 +148,41 @@ namespace NetTools
             ActivateDesktopPanel(ucTraceRoute);
             labelTitle.Text = "Trace Route";
         }
+        #endregion End network
+
+        #region IP Address
+        private void buttonIPAddress_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonMyIP_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonIPScanner_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonIPSubnetCalc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonIPGeoLocation_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucIPGeoLocation);
+            labelTitle.Text = "IP Geo Location";
+        }
+
         private void buttonWhoIs_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucWhoIs);
             labelTitle.Text = "WhoIs";
         }
-        #endregion End network
+        #endregion
 
         #region Misc
         private void buttonMisc_Click(object sender, EventArgs e)

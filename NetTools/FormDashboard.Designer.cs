@@ -37,11 +37,11 @@ namespace NetTools
             this.buttonTextConversion = new System.Windows.Forms.Button();
             this.buttonMisc = new System.Windows.Forms.Button();
             this.panelIPAddress = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.buttonIPGeoLocation = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.buttonWhoIs = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonIPGeoLocation = new System.Windows.Forms.Button();
+            this.buttonIPSubnetCalc = new System.Windows.Forms.Button();
+            this.buttonIPScanner = new System.Windows.Forms.Button();
+            this.buttonMyIP = new System.Windows.Forms.Button();
             this.buttonIPAddress = new System.Windows.Forms.Button();
             this.panelNetwork = new System.Windows.Forms.Panel();
             this.buttonIPHeader = new System.Windows.Forms.Button();
@@ -167,59 +167,14 @@ namespace NetTools
             // 
             this.panelIPAddress.Controls.Add(this.buttonWhoIs);
             this.panelIPAddress.Controls.Add(this.buttonIPGeoLocation);
-            this.panelIPAddress.Controls.Add(this.button3);
-            this.panelIPAddress.Controls.Add(this.button2);
-            this.panelIPAddress.Controls.Add(this.button1);
+            this.panelIPAddress.Controls.Add(this.buttonIPSubnetCalc);
+            this.panelIPAddress.Controls.Add(this.buttonIPScanner);
+            this.panelIPAddress.Controls.Add(this.buttonMyIP);
             this.panelIPAddress.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelIPAddress.Location = new System.Drawing.Point(0, 397);
             this.panelIPAddress.Name = "panelIPAddress";
             this.panelIPAddress.Size = new System.Drawing.Size(240, 200);
             this.panelIPAddress.TabIndex = 8;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(0, 78);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(240, 39);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "IP Subnet Calculator";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // buttonIPGeoLocation
-            // 
-            this.buttonIPGeoLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
-            this.buttonIPGeoLocation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonIPGeoLocation.FlatAppearance.BorderSize = 0;
-            this.buttonIPGeoLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonIPGeoLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonIPGeoLocation.Location = new System.Drawing.Point(0, 117);
-            this.buttonIPGeoLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonIPGeoLocation.Name = "buttonIPGeoLocation";
-            this.buttonIPGeoLocation.Size = new System.Drawing.Size(240, 39);
-            this.buttonIPGeoLocation.TabIndex = 5;
-            this.buttonIPGeoLocation.Text = "IP Geo Location";
-            this.buttonIPGeoLocation.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(0, 39);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(240, 39);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "IP Scanner";
-            this.button2.UseVisualStyleBackColor = false;
             // 
             // buttonWhoIs
             // 
@@ -235,21 +190,71 @@ namespace NetTools
             this.buttonWhoIs.TabIndex = 6;
             this.buttonWhoIs.Text = "WhoIs";
             this.buttonWhoIs.UseVisualStyleBackColor = false;
+            this.buttonWhoIs.Click += new System.EventHandler(this.buttonWhoIs_Click);
             // 
-            // button1
+            // buttonIPGeoLocation
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(240, 39);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "My IP";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonIPGeoLocation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.buttonIPGeoLocation.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonIPGeoLocation.FlatAppearance.BorderSize = 0;
+            this.buttonIPGeoLocation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIPGeoLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIPGeoLocation.Location = new System.Drawing.Point(0, 117);
+            this.buttonIPGeoLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIPGeoLocation.Name = "buttonIPGeoLocation";
+            this.buttonIPGeoLocation.Size = new System.Drawing.Size(240, 39);
+            this.buttonIPGeoLocation.TabIndex = 5;
+            this.buttonIPGeoLocation.Text = "IP Geo Location";
+            this.buttonIPGeoLocation.UseVisualStyleBackColor = false;
+            this.buttonIPGeoLocation.Click += new System.EventHandler(this.buttonIPGeoLocation_Click);
+            // 
+            // buttonIPSubnetCalc
+            // 
+            this.buttonIPSubnetCalc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.buttonIPSubnetCalc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonIPSubnetCalc.FlatAppearance.BorderSize = 0;
+            this.buttonIPSubnetCalc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIPSubnetCalc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIPSubnetCalc.Location = new System.Drawing.Point(0, 78);
+            this.buttonIPSubnetCalc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIPSubnetCalc.Name = "buttonIPSubnetCalc";
+            this.buttonIPSubnetCalc.Size = new System.Drawing.Size(240, 39);
+            this.buttonIPSubnetCalc.TabIndex = 4;
+            this.buttonIPSubnetCalc.Text = "IP Subnet Calculator";
+            this.buttonIPSubnetCalc.UseVisualStyleBackColor = false;
+            this.buttonIPSubnetCalc.Click += new System.EventHandler(this.buttonIPSubnetCalc_Click);
+            // 
+            // buttonIPScanner
+            // 
+            this.buttonIPScanner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.buttonIPScanner.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonIPScanner.FlatAppearance.BorderSize = 0;
+            this.buttonIPScanner.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIPScanner.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonIPScanner.Location = new System.Drawing.Point(0, 39);
+            this.buttonIPScanner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIPScanner.Name = "buttonIPScanner";
+            this.buttonIPScanner.Size = new System.Drawing.Size(240, 39);
+            this.buttonIPScanner.TabIndex = 3;
+            this.buttonIPScanner.Text = "IP Scanner";
+            this.buttonIPScanner.UseVisualStyleBackColor = false;
+            this.buttonIPScanner.Click += new System.EventHandler(this.buttonIPScanner_Click);
+            // 
+            // buttonMyIP
+            // 
+            this.buttonMyIP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
+            this.buttonMyIP.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonMyIP.FlatAppearance.BorderSize = 0;
+            this.buttonMyIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMyIP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMyIP.Location = new System.Drawing.Point(0, 0);
+            this.buttonMyIP.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonMyIP.Name = "buttonMyIP";
+            this.buttonMyIP.Size = new System.Drawing.Size(240, 39);
+            this.buttonMyIP.TabIndex = 2;
+            this.buttonMyIP.Text = "My IP";
+            this.buttonMyIP.UseVisualStyleBackColor = false;
+            this.buttonMyIP.Click += new System.EventHandler(this.buttonMyIP_Click);
             // 
             // buttonIPAddress
             // 
@@ -266,6 +271,7 @@ namespace NetTools
             this.buttonIPAddress.TabIndex = 7;
             this.buttonIPAddress.Text = "IP Address";
             this.buttonIPAddress.UseVisualStyleBackColor = true;
+            this.buttonIPAddress.Click += new System.EventHandler(this.buttonIPAddress_Click);
             // 
             // panelNetwork
             // 
@@ -524,10 +530,10 @@ namespace NetTools
         private System.Windows.Forms.Button buttonExitWindow;
         private System.Windows.Forms.Button buttonIPAddress;
         private System.Windows.Forms.Panel panelIPAddress;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonIPSubnetCalc;
         private System.Windows.Forms.Button buttonIPGeoLocation;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonIPScanner;
+        private System.Windows.Forms.Button buttonMyIP;
         private System.Windows.Forms.Button buttonWhoIs;
     }
 }
