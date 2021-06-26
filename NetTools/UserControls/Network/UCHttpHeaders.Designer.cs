@@ -1,7 +1,7 @@
 ﻿
 namespace NetTools.UserControls.Network
 {
-    partial class UCIPHeader
+    partial class UCHttpHeaders
     {
         /// <summary> 
         /// Required designer variable.

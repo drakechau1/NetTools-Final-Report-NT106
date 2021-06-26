@@ -15,7 +15,7 @@ namespace NetTools
     {
         #region Declare User Controls
         UserControls.Network.UCIPGeoLocation ucIPGeoLocation = new UserControls.Network.UCIPGeoLocation();
-        UserControls.Network.UCIPHeader ucIPHeader = new UserControls.Network.UCIPHeader();
+        UserControls.Network.UCHttpHeaders ucHttpHeaders = new UserControls.Network.UCHttpHeaders();
         UserControls.Network.UCPing ucPing = new UserControls.Network.UCPing();
         UserControls.Network.UCTraceRoute ucTraceRoute = new UserControls.Network.UCTraceRoute();
         UserControls.Misc.UCTextConversion ucTextConversion = new UserControls.Misc.UCTextConversion();
@@ -135,7 +135,7 @@ namespace NetTools
         }
         private void buttonIPHeader_Click(object sender, EventArgs e)
         {
-            ActivateDesktopPanel(ucIPHeader);
+            ActivateDesktopPanel(ucHttpHeaders);
             labelTitle.Text = "IP Header";
         }
         private void buttonIPGeoLocation_Click(object sender, EventArgs e)

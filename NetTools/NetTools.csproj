@@ -72,11 +72,11 @@
     <Compile Include="UserControls\Network\UCIPGeoLocation.Designer.cs">
       <DependentUpon>UCIPGeoLocation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Network\UCIPHeader.cs">
+    <Compile Include="UserControls\Network\UCHttpHeaders.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Network\UCIPHeader.Designer.cs">
-      <DependentUpon>UCIPHeader.cs</DependentUpon>
+    <Compile Include="UserControls\Network\UCHttpHeaders.Designer.cs">
+      <DependentUpon>UCHttpHeaders.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Network\UCPing.cs">
       <SubType>UserControl</SubType>
@@ -129,8 +129,8 @@
     <EmbeddedResource Include="UserControls\Network\UCIPGeoLocation.resx">
       <DependentUpon>UCIPGeoLocation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Network\UCIPHeader.resx">
-      <DependentUpon>UCIPHeader.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Network\UCHttpHeaders.resx">
+      <DependentUpon>UCHttpHeaders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Network\UCPing.resx">
       <DependentUpon>UCPing.cs</DependentUpon>
