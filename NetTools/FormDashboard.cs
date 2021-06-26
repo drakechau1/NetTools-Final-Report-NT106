@@ -38,8 +38,9 @@ namespace NetTools
 
             // Hide list button in menu bar
             labelTitle.Text = "Home";
-            panelNetwork.Visible = false;
-            panelMisc.Visible = false;
+            panelNetwork.Visible = true;
+            panelMisc.Visible = true;
+            panelIPAddress.Visible = true;
 
             // Hide window-control bar
             this.Text = string.Empty;
