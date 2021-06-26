@@ -14,7 +14,6 @@ namespace NetTools
     public partial class FormDashboard : Form
     {
         #region Declare User Controls
-        UserControls.Network.UCIPGeoLocation ucIPGeoLocation = new UserControls.Network.UCIPGeoLocation();
         UserControls.Network.UCHttpHeaders ucHttpHeaders = new UserControls.Network.UCHttpHeaders();
         UserControls.Network.UCPing ucPing = new UserControls.Network.UCPing();
         UserControls.Network.UCTraceRoute ucTraceRoute = new UserControls.Network.UCTraceRoute();
@@ -22,7 +21,6 @@ namespace NetTools
         UserControls.Misc.UCBinaryConverter ucBinaryConverter = new UserControls.Misc.UCBinaryConverter();
         UserControls.UCHome ucHome = new UserControls.UCHome();
         UserControls.UCSetting ucSetting = new UserControls.UCSetting();
-        UserControls.Network.UCWhoIs ucWhoIs = new UserControls.Network.UCWhoIs();
         #endregion
 
         // Constructor

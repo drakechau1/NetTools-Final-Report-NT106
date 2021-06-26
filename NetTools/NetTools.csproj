@@ -84,12 +84,6 @@
     <Compile Include="UserControls\Misc\UCBinaryConverter.Designer.cs">
       <DependentUpon>UCBinaryConverter.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Network\UCIPGeoLocation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Network\UCIPGeoLocation.Designer.cs">
-      <DependentUpon>UCIPGeoLocation.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Network\UCHttpHeaders.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -107,12 +101,6 @@
     </Compile>
     <Compile Include="UserControls\Network\UCTraceRoute.Designer.cs">
       <DependentUpon>UCTraceRoute.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Network\UCWhoIs.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Network\UCWhoIs.Designer.cs">
-      <DependentUpon>UCWhoIs.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UCHome.cs">
       <SubType>UserControl</SubType>
@@ -153,9 +141,6 @@
     <EmbeddedResource Include="UserControls\Misc\UCBinaryConverter.resx">
       <DependentUpon>UCBinaryConverter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Network\UCIPGeoLocation.resx">
-      <DependentUpon>UCIPGeoLocation.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Network\UCHttpHeaders.resx">
       <DependentUpon>UCHttpHeaders.cs</DependentUpon>
     </EmbeddedResource>
@@ -164,9 +149,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Network\UCTraceRoute.resx">
       <DependentUpon>UCTraceRoute.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Network\UCWhoIs.resx">
-      <DependentUpon>UCWhoIs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCHome.resx">
       <DependentUpon>UCHome.cs</DependentUpon>
