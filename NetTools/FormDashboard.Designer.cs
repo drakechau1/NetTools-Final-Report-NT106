@@ -175,6 +175,7 @@ namespace NetTools
             this.panelIPAddress.Name = "panelIPAddress";
             this.panelIPAddress.Size = new System.Drawing.Size(240, 200);
             this.panelIPAddress.TabIndex = 8;
+            this.panelIPAddress.Visible = false;
             // 
             // buttonWhoIs
             // 
