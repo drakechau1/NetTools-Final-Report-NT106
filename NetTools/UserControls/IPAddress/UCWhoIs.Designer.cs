@@ -1,7 +1,6 @@
-﻿
-namespace NetTools.UserControls.IPAddress
+﻿namespace NetTools.UserControls.IPAddress
 {
-    partial class UCMyIP
+    partial class UCWhoIs
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,11 +30,11 @@ namespace NetTools.UserControls.IPAddress
         {
             this.SuspendLayout();
             // 
-            // UCMyIP
+            // UCWhoIs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.Name = "UCMyIP";
+            this.Name = "UCWhoIs";
             this.Size = new System.Drawing.Size(980, 830);
             this.ResumeLayout(false);
 

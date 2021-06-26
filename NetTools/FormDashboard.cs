@@ -17,8 +17,16 @@ namespace NetTools
         UserControls.Network.UCHttpHeaders ucHttpHeaders = new UserControls.Network.UCHttpHeaders();
         UserControls.Network.UCPing ucPing = new UserControls.Network.UCPing();
         UserControls.Network.UCTraceRoute ucTraceRoute = new UserControls.Network.UCTraceRoute();
+
+        UserControls.IPAddress.UCIPGeoLocation ucIPGeoLocation = new UserControls.IPAddress.UCIPGeoLocation();
+        UserControls.IPAddress.UCWhoIs ucWhoIs = new UserControls.IPAddress.UCWhoIs();
+        UserControls.IPAddress.UCMyIP ucMyIP = new UserControls.IPAddress.UCMyIP();
+        UserControls.IPAddress.UCIPScanner ucIPScanner = new UserControls.IPAddress.UCIPScanner();
+        UserControls.IPAddress.UCSubnetCalculator ucSubnetCalc = new UserControls.IPAddress.UCSubnetCalculator();
+
         UserControls.Misc.UCTextConversion ucTextConversion = new UserControls.Misc.UCTextConversion();
         UserControls.Misc.UCBinaryConverter ucBinaryConverter = new UserControls.Misc.UCBinaryConverter();
+        
         UserControls.UCHome ucHome = new UserControls.UCHome();
         UserControls.UCSetting ucSetting = new UserControls.UCSetting();
         #endregion
@@ -151,30 +159,30 @@ namespace NetTools
         #region IP Address
         private void buttonIPAddress_Click(object sender, EventArgs e)
         {
-
+            ActivateDesktopPanel(ucHome);
+            HidePanel(panelIPAddress);
+            labelTitle.Text = "IP Address";
         }
-
         private void buttonMyIP_Click(object sender, EventArgs e)
         {
-
+            ActivateDesktopPanel(ucMyIP);
+            labelTitle.Text = "My IP";
         }
-
         private void buttonIPScanner_Click(object sender, EventArgs e)
         {
-
+            ActivateDesktopPanel(ucIPScanner);
+            labelTitle.Text = "IP Scanner";
         }
-
         private void buttonIPSubnetCalc_Click(object sender, EventArgs e)
         {
-
+            ActivateDesktopPanel(ucSubnetCalc);
+            labelTitle.Text = "IP Subnet Calculator";
         }
-
         private void buttonIPGeoLocation_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucIPGeoLocation);
             labelTitle.Text = "IP Geo Location";
         }
-
         private void buttonWhoIs_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucWhoIs);
