@@ -66,12 +66,6 @@
     <Compile Include="UserControls\Misc\UCBinaryConverter.Designer.cs">
       <DependentUpon>UCBinaryConverter.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Misc\UCSIDConverter.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Misc\UCSIDConverter.Designer.cs">
-      <DependentUpon>UCSIDConverter.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Network\UCIPGeoLocation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -131,9 +125,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Misc\UCBinaryConverter.resx">
       <DependentUpon>UCBinaryConverter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Misc\UCSIDConverter.resx">
-      <DependentUpon>UCSIDConverter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Network\UCIPGeoLocation.resx">
       <DependentUpon>UCIPGeoLocation.cs</DependentUpon>

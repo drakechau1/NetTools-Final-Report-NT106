@@ -33,7 +33,6 @@ namespace NetTools
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonSetting = new System.Windows.Forms.Button();
             this.panelMisc = new System.Windows.Forms.Panel();
-            this.buttonSIDConverter = new System.Windows.Forms.Button();
             this.buttonBinaryConverter = new System.Windows.Forms.Button();
             this.buttonTextConversion = new System.Windows.Forms.Button();
             this.buttonMisc = new System.Windows.Forms.Button();
@@ -87,7 +86,7 @@ namespace NetTools
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetting.Image = ((System.Drawing.Image)(resources.GetObject("buttonSetting.Image")));
             this.buttonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSetting.Location = new System.Drawing.Point(0, 598);
+            this.buttonSetting.Location = new System.Drawing.Point(0, 557);
             this.buttonSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
@@ -100,30 +99,14 @@ namespace NetTools
             // panelMisc
             // 
             this.panelMisc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(231)))), ((int)(((byte)(231)))));
-            this.panelMisc.Controls.Add(this.buttonSIDConverter);
             this.panelMisc.Controls.Add(this.buttonBinaryConverter);
             this.panelMisc.Controls.Add(this.buttonTextConversion);
             this.panelMisc.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMisc.Location = new System.Drawing.Point(0, 477);
             this.panelMisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMisc.Name = "panelMisc";
-            this.panelMisc.Size = new System.Drawing.Size(220, 121);
+            this.panelMisc.Size = new System.Drawing.Size(220, 80);
             this.panelMisc.TabIndex = 5;
-            // 
-            // buttonSIDConverter
-            // 
-            this.buttonSIDConverter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonSIDConverter.FlatAppearance.BorderSize = 0;
-            this.buttonSIDConverter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSIDConverter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSIDConverter.Location = new System.Drawing.Point(0, 78);
-            this.buttonSIDConverter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSIDConverter.Name = "buttonSIDConverter";
-            this.buttonSIDConverter.Size = new System.Drawing.Size(220, 39);
-            this.buttonSIDConverter.TabIndex = 3;
-            this.buttonSIDConverter.Text = "SID Converter";
-            this.buttonSIDConverter.UseVisualStyleBackColor = true;
-            this.buttonSIDConverter.Click += new System.EventHandler(this.buttonSIDConverter_Click);
             // 
             // buttonBinaryConverter
             // 
@@ -447,7 +430,6 @@ namespace NetTools
         private System.Windows.Forms.Button buttonIPGeoLocation;
         private System.Windows.Forms.Button buttonIPHeader;
         private System.Windows.Forms.Panel panelMisc;
-        private System.Windows.Forms.Button buttonSIDConverter;
         private System.Windows.Forms.Button buttonBinaryConverter;
         private System.Windows.Forms.Button buttonTextConversion;
         private System.Windows.Forms.Button buttonMisc;
