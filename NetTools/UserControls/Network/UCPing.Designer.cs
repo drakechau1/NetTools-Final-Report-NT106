@@ -29,6 +29,7 @@ namespace NetTools.UserControls.Network
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,8 +37,11 @@ namespace NetTools.UserControls.Network
             this.buttonGo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listboxPingInfo = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,6 +100,7 @@ namespace NetTools.UserControls.Network
             this.buttonGo.TabIndex = 2;
             this.buttonGo.Text = "Go";
             this.buttonGo.UseVisualStyleBackColor = false;
+            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
             // 
             // label2
             // 
@@ -111,6 +116,7 @@ namespace NetTools.UserControls.Network
             // 
             this.listboxPingInfo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listboxPingInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listboxPingInfo.ContextMenuStrip = this.contextMenuStrip1;
             this.listboxPingInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listboxPingInfo.FormattingEnabled = true;
             this.listboxPingInfo.ItemHeight = 20;
@@ -118,6 +124,21 @@ namespace NetTools.UserControls.Network
             this.listboxPingInfo.Name = "listboxPingInfo";
             this.listboxPingInfo.Size = new System.Drawing.Size(880, 699);
             this.listboxPingInfo.TabIndex = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clearAllToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            // 
+            // clearAllToolStripMenuItem
+            // 
+            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.clearAllToolStripMenuItem.Text = "Clear All";
+            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
             // UCPing
             // 
@@ -131,6 +152,7 @@ namespace NetTools.UserControls.Network
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -144,5 +166,7 @@ namespace NetTools.UserControls.Network
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listboxPingInfo;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
     }
 }
