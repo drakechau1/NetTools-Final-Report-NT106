@@ -62,7 +62,7 @@ namespace NetTools.UserControls.Network
             // TraceRoute
             // 
             this.TraceRoute.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.TraceRoute.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TraceRoute.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TraceRoute.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TraceRoute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TraceRoute.FormattingEnabled = true;
