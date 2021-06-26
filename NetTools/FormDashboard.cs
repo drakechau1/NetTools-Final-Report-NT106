@@ -14,16 +14,21 @@ namespace NetTools
     public partial class FormDashboard : Form
     {
         #region Declare User Controls
-        UserControls.Network.UCIPGeoLocation ucIPGeoLocation = new UserControls.Network.UCIPGeoLocation();
-        UserControls.Network.UCIPHeader ucIPHeader = new UserControls.Network.UCIPHeader();
+        UserControls.Network.UCHttpHeaders ucHttpHeaders = new UserControls.Network.UCHttpHeaders();
         UserControls.Network.UCPing ucPing = new UserControls.Network.UCPing();
         UserControls.Network.UCTraceRoute ucTraceRoute = new UserControls.Network.UCTraceRoute();
+
+        UserControls.IPAddress.UCIPGeoLocation ucIPGeoLocation = new UserControls.IPAddress.UCIPGeoLocation();
+        UserControls.IPAddress.UCWhoIs ucWhoIs = new UserControls.IPAddress.UCWhoIs();
+        UserControls.IPAddress.UCMyIP ucMyIP = new UserControls.IPAddress.UCMyIP();
+        UserControls.IPAddress.UCIPScanner ucIPScanner = new UserControls.IPAddress.UCIPScanner();
+        UserControls.IPAddress.UCSubnetCalculator ucSubnetCalc = new UserControls.IPAddress.UCSubnetCalculator();
+
         UserControls.Misc.UCTextConversion ucTextConversion = new UserControls.Misc.UCTextConversion();
         UserControls.Misc.UCBinaryConverter ucBinaryConverter = new UserControls.Misc.UCBinaryConverter();
-        UserControls.Misc.UCSIDConverter ucSIDConverter = new UserControls.Misc.UCSIDConverter();
+        
         UserControls.UCHome ucHome = new UserControls.UCHome();
         UserControls.UCSetting ucSetting = new UserControls.UCSetting();
-        UserControls.Network.UCWhoIs ucWhoIs = new UserControls.Network.UCWhoIs();
         #endregion
 
         // Constructor
@@ -33,8 +38,9 @@ namespace NetTools
 
             // Hide list button in menu bar
             labelTitle.Text = "Home";
-            panelNetwork.Visible = false;
-            panelMisc.Visible = false;
+            panelNetwork.Visible = true;
+            panelMisc.Visible = true;
+            panelIPAddress.Visible = true;
 
             // Hide window-control bar
             this.Text = string.Empty;
@@ -127,69 +133,80 @@ namespace NetTools
             labelTitle.Text = "Setting";
         }
 
-        #region Network functions
+        #region Network
         private void buttonNetwork_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucHome);
             HidePanel(panelNetwork);
             labelTitle.Text = "Network";
         }
-
         private void buttonIPHeader_Click(object sender, EventArgs e)
         {
-            ActivateDesktopPanel(ucIPHeader);
+            ActivateDesktopPanel(ucHttpHeaders);
             labelTitle.Text = "IP Header";
         }
-
-        private void buttonIPGeoLocation_Click(object sender, EventArgs e)
-        {
-            ActivateDesktopPanel(ucIPGeoLocation);
-            labelTitle.Text = "IP Geo Location";
-        }
-
         private void buttonPing_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucPing);
             labelTitle.Text = "Ping";
         }
-
         private void buttonTraceRoute_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucTraceRoute);
             labelTitle.Text = "Trace Route";
         }
+        #endregion End network
 
+        #region IP Address
+        private void buttonIPAddress_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucHome);
+            HidePanel(panelIPAddress);
+            labelTitle.Text = "IP Address";
+        }
+        private void buttonMyIP_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucMyIP);
+            labelTitle.Text = "My IP";
+        }
+        private void buttonIPScanner_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucIPScanner);
+            labelTitle.Text = "IP Scanner";
+        }
+        private void buttonIPSubnetCalc_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucSubnetCalc);
+            labelTitle.Text = "IP Subnet Calculator";
+        }
+        private void buttonIPGeoLocation_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucIPGeoLocation);
+            labelTitle.Text = "IP Geo Location";
+        }
         private void buttonWhoIs_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucWhoIs);
             labelTitle.Text = "WhoIs";
         }
-        #endregion End network
+        #endregion
 
-        #region Misc functions
+        #region Misc
         private void buttonMisc_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucHome);
             HidePanel(panelMisc);
             labelTitle.Text = "Misc";
         }
-
         private void buttonTextConversion_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucTextConversion);
             labelTitle.Text = "Text Conversion";
         }
-
         private void buttonBinaryConverter_Click(object sender, EventArgs e)
         {
             ActivateDesktopPanel(ucBinaryConverter);
             labelTitle.Text = "Binary Converter";
-        }
-
-        private void buttonSIDConverter_Click(object sender, EventArgs e)
-        {
-            ActivateDesktopPanel(ucSIDConverter);
-            labelTitle.Text = "SID Converter";
         }
         #endregion End misc
 

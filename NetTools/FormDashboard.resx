@@ -145,6 +145,21 @@
         2uAp6FQrc1XzSWi81MmoTbyEf06XofFSZ/xfTxR9AYitZPnIVZC0AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="buttonIPAddress.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAAIUAAACFAeLs/8EAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
+        AAAB2UlEQVRIS6WWzUtVQRiHTwmZSTtNcCG1UhDKyDJoFbiSQCSNorBFqyiDMhIRFArzo8StgiEIuhCi
+        KEzJvjZ90c6W9cf0/Oad4R5v99zzcR94uL8Z7rlzZuad4UYZOIDXcAvfed/iINbMQXyBE3hYHZ4GnMQl
+        1AsU5gHetliRe3jXYn7q8COGN7yBp3AZ76gDNEN9R5+56cRnFh1adw1yC9exA8UitlvMx2mcsugIA3z3
+        WfsgnqBmlptG3LDoCANcda0Sm3jUYn7e4BGL0UU8gcddy9APv7ZYjCF8ZLEij/GyxWKoOrax2bX204qf
+        sKZz0IPd+NK1SuhH1deF59VRhDkcsRiN47BFhw7gqMXoPk5bzE4/zlp0aKmOoTa5F9cwzgL2WUxH0/+A
+        8btHHMIdb6isgNrvLaZzBp9a/A+VZVLNP8eTFpN5iJ/xJ2qgOCrZr94BdcRQMfxAPas9SWQVm/Am7uFu
+        zL+oirmAf3xf8DdexxZcwUTGUG/xC1Weca7gN2/54dLAeuYLahWqchZzlx3o5k3dA6GSVBXVu1Y2dLNq
+        qTKfam3ijMVM6BxcspgdPVS1Ijxa8/ihzIymq03XnVO+4eIcvsLUTU1D9/88hr8sQd1VbViFKPoHeCdM
+        d4t8gLoAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="buttonNetwork.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAddJREFUSEvd

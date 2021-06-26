@@ -31,11 +31,11 @@ namespace NetTools.UserControls.Network
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textDomain = new System.Windows.Forms.TextBox();
-            this.buttonGo = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonGo = new System.Windows.Forms.Button();
+            this.textDomain = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.listboxPingInfo = new System.Windows.Forms.ListBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,16 +58,37 @@ namespace NetTools.UserControls.Network
             this.panel1.Size = new System.Drawing.Size(980, 100);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // label2
             // 
-            this.panel2.Controls.Add(this.listboxPingInfo);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 100);
-            this.panel2.Name = "panel2";
-            this.panel2.Padding = new System.Windows.Forms.Padding(50, 0, 50, 30);
-            this.panel2.Size = new System.Drawing.Size(980, 729);
-            this.panel2.TabIndex = 1;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(202, 57);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(297, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Example: www.google.com, 172.217.23.206";
+            // 
+            // buttonGo
+            // 
+            this.buttonGo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.buttonGo.FlatAppearance.BorderSize = 0;
+            this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGo.Location = new System.Drawing.Point(758, 22);
+            this.buttonGo.Name = "buttonGo";
+            this.buttonGo.Size = new System.Drawing.Size(75, 37);
+            this.buttonGo.TabIndex = 2;
+            this.buttonGo.Text = "Go";
+            this.buttonGo.UseVisualStyleBackColor = false;
+            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
+            // 
+            // textDomain
+            // 
+            this.textDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textDomain.Location = new System.Drawing.Point(205, 27);
+            this.textDomain.Name = "textDomain";
+            this.textDomain.Size = new System.Drawing.Size(547, 27);
+            this.textDomain.TabIndex = 1;
             // 
             // label1
             // 
@@ -79,38 +100,16 @@ namespace NetTools.UserControls.Network
             this.label1.TabIndex = 0;
             this.label1.Text = "Domain/IPAddress";
             // 
-            // textDomain
+            // panel2
             // 
-            this.textDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textDomain.Location = new System.Drawing.Point(205, 27);
-            this.textDomain.MinimumSize = new System.Drawing.Size(541, 27);
-            this.textDomain.Name = "textDomain";
-            this.textDomain.Size = new System.Drawing.Size(541, 27);
-            this.textDomain.TabIndex = 1;
-            // 
-            // buttonGo
-            // 
-            this.buttonGo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonGo.FlatAppearance.BorderSize = 0;
-            this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGo.Location = new System.Drawing.Point(752, 22);
-            this.buttonGo.Name = "buttonGo";
-            this.buttonGo.Size = new System.Drawing.Size(75, 37);
-            this.buttonGo.TabIndex = 2;
-            this.buttonGo.Text = "Go";
-            this.buttonGo.UseVisualStyleBackColor = false;
-            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Example: www.google.com";
+            this.panel2.Controls.Add(this.listboxPingInfo);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(0, 100);
+            this.panel2.Name = "panel2";
+            this.panel2.Padding = new System.Windows.Forms.Padding(50, 0, 50, 30);
+            this.panel2.Size = new System.Drawing.Size(980, 729);
+            this.panel2.TabIndex = 1;
             // 
             // listboxPingInfo
             // 
@@ -131,12 +130,12 @@ namespace NetTools.UserControls.Network
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clearAllToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 28);
             // 
             // clearAllToolStripMenuItem
             // 
             this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
             this.clearAllToolStripMenuItem.Text = "Clear All";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 

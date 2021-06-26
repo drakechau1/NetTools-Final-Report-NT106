@@ -1,7 +1,7 @@
 ﻿
 namespace NetTools.UserControls.Network
 {
-    partial class UCIPHeader
+    partial class UCHttpHeaders
     {
         /// <summary> 
         /// Required designer variable.
@@ -58,7 +58,7 @@ namespace NetTools.UserControls.Network
             // 
             this.checkboxAllowRedirects.AutoSize = true;
             this.checkboxAllowRedirects.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkboxAllowRedirects.Location = new System.Drawing.Point(162, 60);
+            this.checkboxAllowRedirects.Location = new System.Drawing.Point(205, 60);
             this.checkboxAllowRedirects.Name = "checkboxAllowRedirects";
             this.checkboxAllowRedirects.Size = new System.Drawing.Size(142, 24);
             this.checkboxAllowRedirects.TabIndex = 2;
@@ -71,9 +71,9 @@ namespace NetTools.UserControls.Network
             this.buttonGo.FlatAppearance.BorderSize = 0;
             this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGo.Location = new System.Drawing.Point(709, 23);
+            this.buttonGo.Location = new System.Drawing.Point(758, 22);
             this.buttonGo.Name = "buttonGo";
-            this.buttonGo.Size = new System.Drawing.Size(75, 35);
+            this.buttonGo.Size = new System.Drawing.Size(75, 37);
             this.buttonGo.TabIndex = 3;
             this.buttonGo.Text = "Go";
             this.buttonGo.UseVisualStyleBackColor = false;
@@ -83,10 +83,9 @@ namespace NetTools.UserControls.Network
             // 
             this.txtDomain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDomain.Location = new System.Drawing.Point(162, 27);
-            this.txtDomain.MinimumSize = new System.Drawing.Size(528, 27);
+            this.txtDomain.Location = new System.Drawing.Point(205, 27);
             this.txtDomain.Name = "txtDomain";
-            this.txtDomain.Size = new System.Drawing.Size(541, 27);
+            this.txtDomain.Size = new System.Drawing.Size(547, 27);
             this.txtDomain.TabIndex = 1;
             // 
             // label1
@@ -95,9 +94,9 @@ namespace NetTools.UserControls.Network
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(50, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 20);
+            this.label1.Size = new System.Drawing.Size(149, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "URL/Domain";
+            this.label1.Text = "Domain/IPAddress";
             // 
             // panelDesktop
             // 

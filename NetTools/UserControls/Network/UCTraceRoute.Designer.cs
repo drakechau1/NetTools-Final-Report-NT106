@@ -50,8 +50,7 @@ namespace NetTools.UserControls.Network
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(759, 22);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(758, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 37);
             this.button1.TabIndex = 2;
@@ -92,8 +91,7 @@ namespace NetTools.UserControls.Network
             // 
             this.txtHostname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtHostname.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHostname.Location = new System.Drawing.Point(205, 27);
-            this.txtHostname.MinimumSize = new System.Drawing.Size(547, 27);
+            this.txtHostname.Location = new System.Drawing.Point(205, 28);
             this.txtHostname.Name = "txtHostname";
             this.txtHostname.Size = new System.Drawing.Size(547, 27);
             this.txtHostname.TabIndex = 1;
@@ -104,9 +102,9 @@ namespace NetTools.UserControls.Network
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(202, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 18);
+            this.label2.Size = new System.Drawing.Size(297, 18);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Example: www.google.com";
+            this.label2.Text = "Example: www.google.com, 172.217.23.206";
             // 
             // label1
             // 

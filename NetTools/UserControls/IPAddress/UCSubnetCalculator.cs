@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NetTools.UserControls.Misc
+namespace NetTools.UserControls.IPAddress
 {
-    public partial class UCSIDConverter : UserControl
+    public partial class UCSubnetCalculator : UserControl
     {
-        public UCSIDConverter()
+        public UCSubnetCalculator()
         {
             InitializeComponent();
         }

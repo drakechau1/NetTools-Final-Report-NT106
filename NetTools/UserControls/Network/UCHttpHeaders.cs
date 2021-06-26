@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace NetTools.UserControls.Network
 {
-    public partial class UCIPHeader : UserControl
+    public partial class UCHttpHeaders : UserControl
     {
         private string domain = null;
         /* Constructor */
-        public UCIPHeader()
+        public UCHttpHeaders()
         {
             InitializeComponent();
         }

@@ -1,7 +1,7 @@
 ﻿
-namespace NetTools.UserControls.Misc
+namespace NetTools.UserControls.IPAddress
 {
-    partial class UCSIDConverter
+    partial class UCMyIP
     {
         /// <summary> 
         /// Required designer variable.
@@ -31,13 +31,12 @@ namespace NetTools.UserControls.Misc
         {
             this.SuspendLayout();
             // 
-            // UCSIDConverter
+            // UCMyIP
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "UCSIDConverter";
-            this.Size = new System.Drawing.Size(980, 829);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Name = "UCMyIP";
+            this.Size = new System.Drawing.Size(980, 830);
             this.ResumeLayout(false);
 
         }
