@@ -61,7 +61,7 @@ namespace NetTools.UserControls.Network
             this.buttonGo.FlatAppearance.BorderSize = 0;
             this.buttonGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGo.Location = new System.Drawing.Point(739, 22);
+            this.buttonGo.Location = new System.Drawing.Point(758, 22);
             this.buttonGo.Name = "buttonGo";
             this.buttonGo.Size = new System.Drawing.Size(75, 37);
             this.buttonGo.TabIndex = 2;
@@ -75,9 +75,8 @@ namespace NetTools.UserControls.Network
             this.textIPAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.textIPAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textIPAddress.Location = new System.Drawing.Point(205, 27);
-            this.textIPAddress.MinimumSize = new System.Drawing.Size(528, 27);
             this.textIPAddress.Name = "textIPAddress";
-            this.textIPAddress.Size = new System.Drawing.Size(528, 27);
+            this.textIPAddress.Size = new System.Drawing.Size(547, 27);
             this.textIPAddress.TabIndex = 1;
             // 
             // label2
