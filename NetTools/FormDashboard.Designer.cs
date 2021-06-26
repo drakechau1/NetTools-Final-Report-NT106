@@ -94,7 +94,7 @@ namespace NetTools
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetting.Image = ((System.Drawing.Image)(resources.GetObject("buttonSetting.Image")));
             this.buttonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSetting.Location = new System.Drawing.Point(0, 723);
+            this.buttonSetting.Location = new System.Drawing.Point(0, 713);
             this.buttonSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
@@ -110,10 +110,10 @@ namespace NetTools
             this.panelMisc.Controls.Add(this.buttonBinaryConverter);
             this.panelMisc.Controls.Add(this.buttonTextConversion);
             this.panelMisc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMisc.Location = new System.Drawing.Point(0, 643);
+            this.panelMisc.Location = new System.Drawing.Point(0, 635);
             this.panelMisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMisc.Name = "panelMisc";
-            this.panelMisc.Size = new System.Drawing.Size(240, 80);
+            this.panelMisc.Size = new System.Drawing.Size(240, 78);
             this.panelMisc.TabIndex = 5;
             // 
             // buttonBinaryConverter
@@ -153,7 +153,7 @@ namespace NetTools
             this.buttonMisc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMisc.Image = ((System.Drawing.Image)(resources.GetObject("buttonMisc.Image")));
             this.buttonMisc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonMisc.Location = new System.Drawing.Point(0, 597);
+            this.buttonMisc.Location = new System.Drawing.Point(0, 589);
             this.buttonMisc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonMisc.Name = "buttonMisc";
             this.buttonMisc.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
@@ -171,9 +171,9 @@ namespace NetTools
             this.panelIPAddress.Controls.Add(this.buttonIPScanner);
             this.panelIPAddress.Controls.Add(this.buttonMyIP);
             this.panelIPAddress.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelIPAddress.Location = new System.Drawing.Point(0, 397);
+            this.panelIPAddress.Location = new System.Drawing.Point(0, 394);
             this.panelIPAddress.Name = "panelIPAddress";
-            this.panelIPAddress.Size = new System.Drawing.Size(240, 200);
+            this.panelIPAddress.Size = new System.Drawing.Size(240, 195);
             this.panelIPAddress.TabIndex = 8;
             this.panelIPAddress.Visible = false;
             // 
@@ -264,7 +264,7 @@ namespace NetTools
             this.buttonIPAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonIPAddress.Image = ((System.Drawing.Image)(resources.GetObject("buttonIPAddress.Image")));
             this.buttonIPAddress.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonIPAddress.Location = new System.Drawing.Point(0, 351);
+            this.buttonIPAddress.Location = new System.Drawing.Point(0, 348);
             this.buttonIPAddress.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonIPAddress.Name = "buttonIPAddress";
             this.buttonIPAddress.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
@@ -284,7 +284,7 @@ namespace NetTools
             this.panelNetwork.Location = new System.Drawing.Point(0, 231);
             this.panelNetwork.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelNetwork.Name = "panelNetwork";
-            this.panelNetwork.Size = new System.Drawing.Size(240, 120);
+            this.panelNetwork.Size = new System.Drawing.Size(240, 117);
             this.panelNetwork.TabIndex = 3;
             // 
             // buttonIPHeader
