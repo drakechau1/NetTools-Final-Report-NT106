@@ -15,15 +15,23 @@ namespace NetTools.UserControls.IPAddress
 {
     public partial class UCWhoIs : UserControl
     {
+        XmlDocument xDoc;
+
         public UCWhoIs()
         {
             InitializeComponent();
+            comboxFields.SelectedItem = comboxFields.Items[0];
         }
 
         #region Methods
         private void ResetRichText()
         {
             richTextInformation.Clear();
+        }
+        private void SetRichText(string text)
+        {
+            ResetRichText();
+            richTextInformation.Text = text;
         }
         private string VerifyDomain(string url)
         {
@@ -182,10 +190,58 @@ namespace NetTools.UserControls.IPAddress
             if (textDomain.Text != string.Empty)
             {
                 string xmlRespone = GetHTTPRequest(textDomain.Text);
-                XmlDocument xDoc = new XmlDocument();
+                xDoc = new XmlDocument();
                 xDoc.LoadXml(xmlRespone);
                 ResetRichText();
-                richTextInformation.Text = GetWhoIsInformation(xDoc);
+                /* Call  comboxFields_SelectedIndexChanged() event*/
+                this.comboxFields_SelectedIndexChanged(sender, e);
+            }
+        }
+
+        private void textDomain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                this.buttonGo_Click(sender, e);
+        }
+
+        private void comboxFields_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(comboxFields.SelectedIndex.ToString());
+
+            switch (comboxFields.SelectedIndex)
+            {
+                /*
+                    0: All
+                    1: Registrant
+                    2: Administrative Contact
+                    3: Technical Contact
+                    4: Record update dates
+                    5: Name Servers
+                    6: Registry Data
+                 */
+                case 0:
+                    SetRichText(GetWhoIsInformation(xDoc));
+                    break;
+                case 1:
+                    SetRichText(GetRegistrant(xDoc));
+                    break;
+                case 2:
+                    SetRichText(GetAdministrativeContact(xDoc));
+                    break;
+                case 3:
+                    SetRichText(GetTechnicalContact(xDoc));
+                    break;
+                case 4:
+                    SetRichText(GetRecordUpdate(xDoc));
+                    break;
+                case 5:
+                    SetRichText(GetNameServers(xDoc));
+                    break;
+                case 6:
+                    SetRichText(GetRegistryData(xDoc));
+                    break;
+                default:
+                    break;
             }
         }
     }
