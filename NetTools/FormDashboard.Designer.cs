@@ -58,6 +58,7 @@ namespace NetTools
             this.buttonMinimizeWindow = new System.Windows.Forms.Button();
             this.buttonMaximizeWindow = new System.Windows.Forms.Button();
             this.buttonExitWindow = new System.Windows.Forms.Button();
+            this.buttonFTPClient = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelMisc.SuspendLayout();
             this.panelIPAddress.SuspendLayout();
@@ -72,6 +73,7 @@ namespace NetTools
             // 
             this.panelMenu.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panelMenu.Controls.Add(this.buttonSetting);
+            this.panelMenu.Controls.Add(this.buttonFTPClient);
             this.panelMenu.Controls.Add(this.panelMisc);
             this.panelMenu.Controls.Add(this.buttonMisc);
             this.panelMenu.Controls.Add(this.panelIPAddress);
@@ -94,7 +96,7 @@ namespace NetTools
             this.buttonSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSetting.Image = ((System.Drawing.Image)(resources.GetObject("buttonSetting.Image")));
             this.buttonSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSetting.Location = new System.Drawing.Point(0, 713);
+            this.buttonSetting.Location = new System.Drawing.Point(0, 759);
             this.buttonSetting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSetting.Name = "buttonSetting";
             this.buttonSetting.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
@@ -477,6 +479,23 @@ namespace NetTools
             this.buttonExitWindow.UseVisualStyleBackColor = true;
             this.buttonExitWindow.Click += new System.EventHandler(this.buttonExitWindow_Click);
             // 
+            // buttonFTPClient
+            // 
+            this.buttonFTPClient.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonFTPClient.FlatAppearance.BorderSize = 0;
+            this.buttonFTPClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFTPClient.Image = ((System.Drawing.Image)(resources.GetObject("buttonFTPClient.Image")));
+            this.buttonFTPClient.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonFTPClient.Location = new System.Drawing.Point(0, 713);
+            this.buttonFTPClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonFTPClient.Name = "buttonFTPClient";
+            this.buttonFTPClient.Padding = new System.Windows.Forms.Padding(11, 0, 11, 0);
+            this.buttonFTPClient.Size = new System.Drawing.Size(240, 46);
+            this.buttonFTPClient.TabIndex = 9;
+            this.buttonFTPClient.Text = "FTP Client";
+            this.buttonFTPClient.UseVisualStyleBackColor = true;
+            this.buttonFTPClient.Click += new System.EventHandler(this.buttonFTPClient_Click);
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -536,6 +555,7 @@ namespace NetTools
         private System.Windows.Forms.Button buttonIPScanner;
         private System.Windows.Forms.Button buttonMyIP;
         private System.Windows.Forms.Button buttonWhoIs;
+        private System.Windows.Forms.Button buttonFTPClient;
     }
 }
 
