@@ -206,8 +206,6 @@ namespace NetTools.UserControls.IPAddress
 
         private void comboxFields_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(comboxFields.SelectedIndex.ToString());
-
             switch (comboxFields.SelectedIndex)
             {
                 /*
