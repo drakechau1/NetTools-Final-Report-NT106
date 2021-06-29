@@ -55,7 +55,14 @@ namespace NetTools.UserControls
         #endregion
 
         #region FTP Functions
-
+        private void RefreshFileBrowser(string path)
+        {
+            foreach (string item in ftp.DirectoryListSimple(path))
+            {
+                comboxDirectory.Items.Add(item);
+            }
+            comboxDirectory.SelectedIndex = 0;
+        }
         #endregion
 
         #region Button
@@ -70,6 +77,7 @@ namespace NetTools.UserControls
             }
             /* FTP Connection Success */
             ActivateConnected();
+            RefreshFileBrowser("/");
         }
         private void buttonDisconnect_Click(object sender, EventArgs e)
         {
