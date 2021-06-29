@@ -50,7 +50,7 @@ namespace NetTools.Libraries
             Console.WriteLine("FTP was disconnected");
         }
         /* List Directory Contents File/Folder Name Only */
-        public string[] DirectoryListSimple(string directory)
+        public string[] ListDirectory(string directory)
         {
             try
             {
@@ -93,6 +93,92 @@ namespace NetTools.Libraries
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
             /* Return an Empty string Array if an Exception Occurs */
             return new string[] { "" };
+        }
+        /* Get the Date/Time a File was Created */
+        public string DateTimestamp(string fileName)
+        {
+            try
+            {
+                /* Create an FTP Request */
+                ftpRequest = (FtpWebRequest)FtpWebRequest.Create(host + "/" + fileName);
+                /* Log in to the FTP Server with the User Name and Password Provided */
+                ftpRequest.Credentials = new NetworkCredential(user, pass);
+                /* When in doubt, use these options */
+                ftpRequest.UseBinary = true;
+                ftpRequest.UsePassive = true;
+                ftpRequest.KeepAlive = true;
+                /* Specify the Type of FTP Request */
+                ftpRequest.Method = WebRequestMethods.Ftp.GetDateTimestamp;
+                /* Establish Return Communication with the FTP Server */
+                ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                string fileInfo = ftpResponse.LastModified.ToString();
+
+                ftpResponse.Close();
+                ftpRequest = null;
+                /* Return File Created Date Time */
+                return fileInfo;
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            /* Return an Empty string Array if an Exception Occurs */
+            return "";
+        }
+        /* Get the Size of a File */
+        public string FileSize(string fileName)
+        {
+            /* Reference source: https://stackoverflow.com/questions/4175874/get-file-size-on-an-ftp-in-c-sharp */
+            try
+            {
+                /* Create an FTP Request */
+                ftpRequest = (FtpWebRequest)FtpWebRequest.Create(host + "/" + fileName);
+                /* Log in to the FTP Server with the User Name and Password Provided */
+                ftpRequest.Credentials = new NetworkCredential(user, pass);
+                ///* When in doubt, use these options */
+                ftpRequest.UseBinary = true;
+                ftpRequest.UsePassive = true;
+                ftpRequest.KeepAlive = true;
+                /* Specify the Type of FTP Request */
+                ftpRequest.Method = WebRequestMethods.Ftp.GetFileSize;
+                /* Establish Return Communication with the FTP Server */
+                ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                /* Get the length of the data received from the FTP server */
+                string fileInfo = ftpResponse.ContentLength.ToString();
+
+                ftpResponse.Close();
+                ftpRequest = null;
+                /* Return File Size */
+                return fileInfo;
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            /* Return an Empty string Array if an Exception Occurs */
+            return "0";
+        }
+        // Check a directory is exist.
+        public bool IsDirectoryExist(string directory)
+        {
+            bool isexist = false;
+
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(host + "/" + directory);
+                request.Credentials = new NetworkCredential(user, pass);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+                {
+                    isexist = true;
+                }
+            }
+            catch (WebException ex)
+            {
+                if (ex.Response != null)
+                {
+                    FtpWebResponse response = (FtpWebResponse)ex.Response;
+                    if (response.StatusCode == FtpStatusCode.ActionNotTakenFileUnavailable)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return isexist;
         }
     }
 }

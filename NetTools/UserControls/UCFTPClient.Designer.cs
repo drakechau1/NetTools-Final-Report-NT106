@@ -44,11 +44,14 @@ namespace NetTools.UserControls
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelControls = new System.Windows.Forms.Panel();
-            this.comboxDirectory = new System.Windows.Forms.ComboBox();
             this.buttonDisconnect = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonDownload = new System.Windows.Forms.Button();
             this.buttonUpload = new System.Windows.Forms.Button();
+            this.textCurrentDirectory = new System.Windows.Forms.TextBox();
+            this.buttonGo = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonForward = new System.Windows.Forms.Button();
             this.panelQuickConnect.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             this.menustripListview.SuspendLayout();
@@ -159,12 +162,14 @@ namespace NetTools.UserControls
             this.listviewFileInformation.BackColor = System.Drawing.Color.WhiteSmoke;
             this.listviewFileInformation.ContextMenuStrip = this.menustripListview;
             this.listviewFileInformation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listviewFileInformation.FullRowSelect = true;
             this.listviewFileInformation.HideSelection = false;
             this.listviewFileInformation.Location = new System.Drawing.Point(50, 100);
             this.listviewFileInformation.Name = "listviewFileInformation";
             this.listviewFileInformation.Size = new System.Drawing.Size(880, 630);
             this.listviewFileInformation.TabIndex = 1;
             this.listviewFileInformation.UseCompatibleStateImageBehavior = false;
+            this.listviewFileInformation.DoubleClick += new System.EventHandler(this.listviewFileInformation_DoubleClick);
             // 
             // menustripListview
             // 
@@ -189,7 +194,10 @@ namespace NetTools.UserControls
             // 
             // panelControls
             // 
-            this.panelControls.Controls.Add(this.comboxDirectory);
+            this.panelControls.Controls.Add(this.buttonForward);
+            this.panelControls.Controls.Add(this.buttonBack);
+            this.panelControls.Controls.Add(this.buttonGo);
+            this.panelControls.Controls.Add(this.textCurrentDirectory);
             this.panelControls.Controls.Add(this.buttonDisconnect);
             this.panelControls.Controls.Add(this.buttonRefresh);
             this.panelControls.Controls.Add(this.buttonDownload);
@@ -199,16 +207,6 @@ namespace NetTools.UserControls
             this.panelControls.Name = "panelControls";
             this.panelControls.Size = new System.Drawing.Size(880, 100);
             this.panelControls.TabIndex = 0;
-            // 
-            // comboxDirectory
-            // 
-            this.comboxDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboxDirectory.FormattingEnabled = true;
-            this.comboxDirectory.Location = new System.Drawing.Point(46, 55);
-            this.comboxDirectory.Name = "comboxDirectory";
-            this.comboxDirectory.Size = new System.Drawing.Size(788, 24);
-            this.comboxDirectory.TabIndex = 4;
             // 
             // buttonDisconnect
             // 
@@ -252,6 +250,57 @@ namespace NetTools.UserControls
             this.buttonUpload.Text = "Upload";
             this.buttonUpload.UseVisualStyleBackColor = true;
             // 
+            // textCurrentDirectory
+            // 
+            this.textCurrentDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textCurrentDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCurrentDirectory.Location = new System.Drawing.Point(46, 56);
+            this.textCurrentDirectory.Name = "textCurrentDirectory";
+            this.textCurrentDirectory.Size = new System.Drawing.Size(627, 27);
+            this.textCurrentDirectory.TabIndex = 4;
+            this.textCurrentDirectory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textCurrentDirectory_KeyDown);
+            // 
+            // buttonGo
+            // 
+            this.buttonGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGo.Location = new System.Drawing.Point(759, 51);
+            this.buttonGo.Name = "buttonGo";
+            this.buttonGo.Size = new System.Drawing.Size(75, 37);
+            this.buttonGo.TabIndex = 5;
+            this.buttonGo.Text = "Go";
+            this.buttonGo.UseVisualStyleBackColor = true;
+            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBack.FlatAppearance.BorderSize = 0;
+            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBack.Location = new System.Drawing.Point(679, 51);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(37, 37);
+            this.buttonBack.TabIndex = 6;
+            this.buttonBack.Text = "<";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            // 
+            // buttonForward
+            // 
+            this.buttonForward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonForward.FlatAppearance.BorderSize = 0;
+            this.buttonForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonForward.Location = new System.Drawing.Point(716, 51);
+            this.buttonForward.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.buttonForward.Name = "buttonForward";
+            this.buttonForward.Size = new System.Drawing.Size(37, 37);
+            this.buttonForward.TabIndex = 6;
+            this.buttonForward.Text = ">";
+            this.buttonForward.UseVisualStyleBackColor = true;
+            // 
             // UCFTPClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -265,6 +314,7 @@ namespace NetTools.UserControls
             this.panelDesktop.ResumeLayout(false);
             this.menustripListview.ResumeLayout(false);
             this.panelControls.ResumeLayout(false);
+            this.panelControls.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -282,7 +332,6 @@ namespace NetTools.UserControls
         private System.Windows.Forms.Panel panelDesktop;
         private System.Windows.Forms.ListView listviewFileInformation;
         private System.Windows.Forms.Panel panelControls;
-        private System.Windows.Forms.ComboBox comboxDirectory;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonDownload;
         private System.Windows.Forms.Button buttonUpload;
@@ -290,5 +339,9 @@ namespace NetTools.UserControls
         private System.Windows.Forms.ContextMenuStrip menustripListview;
         private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newFolderToolStripMenuItem;
+        private System.Windows.Forms.TextBox textCurrentDirectory;
+        private System.Windows.Forms.Button buttonGo;
+        private System.Windows.Forms.Button buttonForward;
+        private System.Windows.Forms.Button buttonBack;
     }
 }

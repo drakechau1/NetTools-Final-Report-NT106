@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace NetTools.UserControls
     public partial class UCFTPClient : UserControl
     {
         private FTP ftp;
+        private string currentDirectory = "/"; /* / is the root directory path */
 
         /* Constructor */
         public UCFTPClient()
@@ -31,7 +33,7 @@ namespace NetTools.UserControls
         private void ActivateConnected()
         {
             /* Create listview-columns */
-            listviewFileInformation.Columns.Add("Name", 300);
+            listviewFileInformation.Columns.Add("Name", 250);
             listviewFileInformation.Columns.Add("Date modified", 200);
             listviewFileInformation.Columns.Add("Type", 100);
             listviewFileInformation.Columns.Add("Size", 100);
@@ -41,27 +43,56 @@ namespace NetTools.UserControls
             panelDesktop.Enabled = true;
             panelQuickConnect.Visible = false;
         }
-
         private void ActivateDisconnected()
         {
             /* Reset text */
-            comboxDirectory.ResetText();
             listviewFileInformation.Clear();
-
+            textCurrentDirectory.ResetText();
             /* --- */
             panelDesktop.Enabled = false;
             panelQuickConnect.Visible = true;
         }
+        private bool IsFolder(string folder)
+        {
+            if (System.IO.Path.GetExtension(folder) == string.Empty)
+                return true;
+            return false;
+        }
+        private void ListviewAddItem(ListViewItem listviewItem)
+        {
+            listviewFileInformation.Items.Add(listviewItem);
+        }
+        private void SetCurrentDirectory(string directory)
+        {
+            textCurrentDirectory.Text = directory;
+            currentDirectory = directory;
+        }
         #endregion
 
         #region FTP Functions
-        private void RefreshFileBrowser(string path)
+        private void RefreshFileBrowser(string directory)
         {
-            foreach (string item in ftp.DirectoryListSimple(path))
+            Console.WriteLine(ftp.IsDirectoryExist(directory));
+            /* Clear the Listview */
+            listviewFileInformation.Items.Clear();
+
+            /* Total size of current directory */
+            long totalSize = 0;
+            foreach (var item in ftp.ListDirectory(directory))
             {
-                comboxDirectory.Items.Add(item);
+                string fileName = Path.GetFileNameWithoutExtension(item);
+                string fileExtension = Path.GetExtension(item);
+                string fileSize = ftp.FileSize(item);
+                string fileModifiedDay = ftp.DateTimestamp(item);
+                totalSize += long.Parse(fileSize);
+
+                /* Create Listview Item */
+                ListViewItem listviewItem = new ListViewItem(new string[] { fileName, fileModifiedDay, fileExtension, fileSize });
+                /* Create Listview Item */
+                ListviewAddItem(listviewItem);
             }
-            comboxDirectory.SelectedIndex = 0;
+            /* Set current directory */
+            SetCurrentDirectory(directory);
         }
         #endregion
 
@@ -77,6 +108,7 @@ namespace NetTools.UserControls
             }
             /* FTP Connection Success */
             ActivateConnected();
+            /* Get all files of the root directory */
             RefreshFileBrowser("/");
         }
         private void buttonDisconnect_Click(object sender, EventArgs e)
@@ -84,6 +116,34 @@ namespace NetTools.UserControls
             ftp.Disconnect();
             ActivateDisconnected();
         }
+        private void buttonGo_Click(object sender, EventArgs e)
+        {
+            currentDirectory = textCurrentDirectory.Text;
+            RefreshFileBrowser(currentDirectory);
+        }
         #endregion
+
+        #region Enter events
+        private void textCurrentDirectory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && currentDirectory != textCurrentDirectory.Text)
+            {
+                this.buttonGo_Click(sender, e);
+            }
+        }
+        #endregion
+
+        private void listviewFileInformation_DoubleClick(object sender, EventArgs e)
+        {
+            string fileName = listviewFileInformation.SelectedItems[0].Text;
+            if (!String.IsNullOrEmpty(listviewFileInformation.SelectedItems[0].SubItems[2].Text))
+                return;
+            if (currentDirectory.Last() == '/')
+                SetCurrentDirectory(currentDirectory + fileName);
+            else
+                SetCurrentDirectory(currentDirectory + "/" + fileName);
+
+            RefreshFileBrowser(currentDirectory);
+        }
     }
 }
