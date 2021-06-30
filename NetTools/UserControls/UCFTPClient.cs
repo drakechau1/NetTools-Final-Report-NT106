@@ -30,6 +30,7 @@ namespace NetTools.UserControls
         }
 
         #region Methods
+        /* Active the state-connection display */
         private void ActivateConnected()
         {
             /* Create listview-columns */
@@ -43,6 +44,7 @@ namespace NetTools.UserControls
             panelDesktop.Enabled = true;
             panelQuickConnect.Visible = false;
         }
+        /* Active the state-disconnection display */
         private void ActivateDisconnected()
         {
             /* Reset text */
@@ -52,27 +54,48 @@ namespace NetTools.UserControls
             panelDesktop.Enabled = false;
             panelQuickConnect.Visible = true;
         }
+        /* Check the name is a folder? */
         private bool IsFolder(string folder)
         {
-            if (System.IO.Path.GetExtension(folder) == string.Empty)
+            if (Path.GetExtension(folder) == string.Empty)
                 return true;
             return false;
         }
-        private void ListviewAddItem(ListViewItem listviewItem)
+        /* Add the file-information into the listview */
+        private void AddListviewItem(ListViewItem listviewItem)
         {
             listviewFileInformation.Items.Add(listviewItem);
         }
+        /* Store the current-directory */
         private void SetCurrentDirectory(string directory)
         {
             textCurrentDirectory.Text = directory;
             currentDirectory = directory;
         }
+        /* Get the savepath from the local */
+        private string GetSavePath()
+        {
+            string fileName = GetFullFileName();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = $"|*{Path.GetExtension(fileName)}";
+            sfd.FileName = fileName;
+            if (sfd.ShowDialog() == DialogResult.OK)
+                return sfd.FileName;
+            return null;
+        }
+        /* Get the full-path of the Listview-SelectedItem */
+        private string GetFullFileName()
+        {
+            string fileName = listviewFileInformation.SelectedItems[0].Text;
+            string fileExt = listviewFileInformation.SelectedItems[0].SubItems[2].Text;
+            return fileName + fileExt;
+        }
         #endregion
 
         #region FTP Functions
+        /* Load the directory-information */
         private void RefreshFileBrowser(string directory)
         {
-            Console.WriteLine(ftp.IsDirectoryExist(directory));
             /* Clear the Listview */
             listviewFileInformation.Items.Clear();
 
@@ -89,14 +112,26 @@ namespace NetTools.UserControls
                 /* Create Listview Item */
                 ListViewItem listviewItem = new ListViewItem(new string[] { fileName, fileModifiedDay, fileExtension, fileSize });
                 /* Create Listview Item */
-                ListviewAddItem(listviewItem);
+                AddListviewItem(listviewItem);
             }
             /* Set current directory */
             SetCurrentDirectory(directory);
         }
+        /* Download a file from FTP Server */
+        private void FTPDownloadFile(string remoteFile, string localFile)
+        { 
+            ftp.Download(remoteFile, localFile);
+            Console.WriteLine("Download file completed");
+        }
+        /* Upload a file from the local to FTP Server */
+        private void FTPUploadFile(string remoteFile, string localFile)
+        {
+
+        }
         #endregion
 
         #region Button
+        /* Connect to FTP Server */
         private void buttonQuickConnect_Click(object sender, EventArgs e)
         {
             ftp = new FTP(textHost.Text, textUsername.Text, textPassword.Text);
@@ -111,37 +146,56 @@ namespace NetTools.UserControls
             /* Get all files of the root directory */
             RefreshFileBrowser("/");
         }
+        /* Disconnect with FTP Server */
         private void buttonDisconnect_Click(object sender, EventArgs e)
         {
             ftp.Disconnect();
             ActivateDisconnected();
         }
+        /* Get the directory-information */
         private void buttonGo_Click(object sender, EventArgs e)
         {
+            if (textCurrentDirectory.Text == currentDirectory)
+                return;
+            if (!ftp.IsDirectoryExist(textCurrentDirectory.Text))
+                return;
+
             currentDirectory = textCurrentDirectory.Text;
             RefreshFileBrowser(currentDirectory);
         }
+        /* Download a file from the specific directory in FTP Server */
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+            if (listviewFileInformation.SelectedItems.Count <= 0)
+                return;
+            string savePath = GetSavePath();
+            if (String.IsNullOrEmpty(savePath))
+                return;
+            string remoteFile = currentDirectory + "/" + GetFullFileName();
+            FTPDownloadFile(remoteFile, savePath);
+        }
         #endregion
 
-        #region Enter events
+        /* Enter-textbox event */
         private void textCurrentDirectory_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && currentDirectory != textCurrentDirectory.Text)
+            if (e.KeyCode == Keys.Enter)
             {
                 this.buttonGo_Click(sender, e);
             }
         }
-        #endregion
-
+        /* DoubleClick_listview event */
         private void listviewFileInformation_DoubleClick(object sender, EventArgs e)
         {
-            string fileName = listviewFileInformation.SelectedItems[0].Text;
-            if (!String.IsNullOrEmpty(listviewFileInformation.SelectedItems[0].SubItems[2].Text))
+            if (!IsFolder(GetFullFileName()))
                 return;
+
+            string fileName = listviewFileInformation.SelectedItems[0].Text;
+
             if (currentDirectory.Last() == '/')
-                SetCurrentDirectory(currentDirectory + fileName);
+                currentDirectory += fileName;
             else
-                SetCurrentDirectory(currentDirectory + "/" + fileName);
+                currentDirectory += ("/" + fileName);
 
             RefreshFileBrowser(currentDirectory);
         }

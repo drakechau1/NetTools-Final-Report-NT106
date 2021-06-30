@@ -15,6 +15,8 @@ namespace NetTools.Libraries
         FtpWebRequest ftpRequest;
         FtpWebResponse ftpResponse;
         Stream ftpStream;
+        private int bufferSize = 2048;
+
 
         public FTP(string host = null, string user = null, string pass = null)
         {
@@ -179,6 +181,94 @@ namespace NetTools.Libraries
                 }
             }
             return isexist;
+        }
+        /* Download File */
+        public void Download(string remoteFile, string localFile)
+        {
+            try
+            {
+                /* Create an FTP Request */
+                ftpRequest = (FtpWebRequest)FtpWebRequest.Create(host + "/" + remoteFile);
+                /* Log in to the FTP Server with the User Name and Password Provided */
+                ftpRequest.Credentials = new NetworkCredential(user, pass);
+                /* When in doubt, use these options */
+                ftpRequest.UseBinary = true;
+                ftpRequest.UsePassive = true;
+                ftpRequest.KeepAlive = true;
+                /* Specify the Type of FTP Request */
+                ftpRequest.Method = WebRequestMethods.Ftp.DownloadFile;
+                /* Establish Return Communication with the FTP Server */
+                ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                /* Get the FTP Server's Response Stream */
+                ftpStream = ftpResponse.GetResponseStream();
+                /* Open a File Stream to Write the Downloaded File */
+                FileStream localFileStream = new FileStream(localFile, FileMode.Create);
+                /* Buffer for the Downloaded Data */
+                byte[] byteBuffer = new byte[bufferSize];
+                int bytesRead = ftpStream.Read(byteBuffer, 0, bufferSize);
+                /* Download the File by Writing the Buffered Data Until the Transfer is Complete */
+                try
+                {
+                    while (bytesRead > 0)
+                    {
+                        localFileStream.Write(byteBuffer, 0, bytesRead);
+                        bytesRead = ftpStream.Read(byteBuffer, 0, bufferSize);
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+                /* Inform the status decription */
+                using (FtpWebResponse response = (FtpWebResponse)ftpRequest.GetResponse())
+                {
+                    Console.WriteLine($"Download File Complete, status {response.StatusDescription}");
+                }
+                /* Resource Cleanup */
+                localFileStream.Close();
+                ftpStream.Close();
+                ftpResponse.Close();
+                ftpRequest = null;
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            return;
+        }
+        /* Upload File */
+        public void upload(string remoteFile, string localFile)
+        {
+            try
+            {
+                /* Create an FTP Request */
+                ftpRequest = (FtpWebRequest)FtpWebRequest.Create(host + "/" + remoteFile);
+                /* Log in to the FTP Server with the User Name and Password Provided */
+                ftpRequest.Credentials = new NetworkCredential(user, pass);
+                /* When in doubt, use these options */
+                ftpRequest.UseBinary = true;
+                ftpRequest.UsePassive = true;
+                ftpRequest.KeepAlive = true;
+                /* Specify the Type of FTP Request */
+                ftpRequest.Method = WebRequestMethods.Ftp.UploadFile;
+
+                /* Copy the contents of the file to the request stream. */
+                byte[] fileContents;
+                using (StreamReader sourceStream = new StreamReader(localFile))
+                {
+                    fileContents = Encoding.UTF8.GetBytes(sourceStream.ReadToEnd());
+                }
+                /* Write the contents of the file to the request stream. */
+                ftpRequest.ContentLength = fileContents.Length;
+
+                using (Stream requestStream = ftpRequest.GetRequestStream())
+                {
+                    requestStream.Write(fileContents, 0, fileContents.Length);
+                }
+                /* Inform the status decription */
+                using (FtpWebResponse response = (FtpWebResponse)ftpRequest.GetResponse())
+                {
+                    Console.WriteLine($"Upload File Complete, status {response.StatusDescription}");
+                }
+                ftpStream.Close();
+                ftpRequest = null;
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            return;
         }
     }
 }
