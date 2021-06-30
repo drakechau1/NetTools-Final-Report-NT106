@@ -26,7 +26,9 @@ namespace NetTools
 
         UserControls.Misc.UCTextConversion ucTextConversion = new UserControls.Misc.UCTextConversion();
         UserControls.Misc.UCBinaryConverter ucBinaryConverter = new UserControls.Misc.UCBinaryConverter();
-        
+
+        UserControls.UCFTPClient ucFTPClient = new UserControls.UCFTPClient();
+
         UserControls.UCHome ucHome = new UserControls.UCHome();
         UserControls.UCSetting ucSetting = new UserControls.UCSetting();
         #endregion
@@ -209,6 +211,14 @@ namespace NetTools
             labelTitle.Text = "Binary Converter";
         }
         #endregion End misc
+
+        #region FTP Client
+        private void buttonFTPClient_Click(object sender, EventArgs e)
+        {
+            ActivateDesktopPanel(ucFTPClient);
+            labelTitle.Text = "FTP Client";
+        }
+        #endregion
 
         #endregion End user interaction
     }
