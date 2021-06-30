@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NetTools.UserControls.Misc
+namespace NetTools.UserControls.IPAddress
 {
-    public partial class UCBase64 : UserControl
+    public partial class UCIPScanner : UserControl
     {
-        public UCBase64()
+        public UCIPScanner()
         {
             InitializeComponent();
         }

@@ -1,7 +1,6 @@
-﻿
-namespace NetTools.UserControls.Network
+﻿namespace NetTools.UserControls.IPAddress
 {
-    partial class UCPing
+    partial class UCWhoIs
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,44 +28,42 @@ namespace NetTools.UserControls.Network
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.buttonGo = new System.Windows.Forms.Button();
             this.textDomain = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelDomain = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listboxPingInfo = new System.Windows.Forms.ListBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextInformation = new System.Windows.Forms.RichTextBox();
+            this.comboxFields = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.comboxFields);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.buttonGo);
             this.panel1.Controls.Add(this.textDomain);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.labelDomain);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
-            this.panel1.Size = new System.Drawing.Size(980, 100);
+            this.panel1.Size = new System.Drawing.Size(980, 116);
             this.panel1.TabIndex = 0;
             // 
-            // label2
+            // label1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 57);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Example: www.google.com, 172.217.23.206";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(201, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(333, 18);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "The information provided by whois.whoisxml.com";
             // 
             // buttonGo
             // 
@@ -84,74 +81,76 @@ namespace NetTools.UserControls.Network
             // 
             // textDomain
             // 
+            this.textDomain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textDomain.Location = new System.Drawing.Point(205, 27);
             this.textDomain.Name = "textDomain";
             this.textDomain.Size = new System.Drawing.Size(547, 27);
             this.textDomain.TabIndex = 1;
+            this.textDomain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textDomain_KeyDown);
             // 
-            // label1
+            // labelDomain
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Domain/IPAddress";
+            this.labelDomain.AutoSize = true;
+            this.labelDomain.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDomain.Location = new System.Drawing.Point(50, 30);
+            this.labelDomain.Name = "labelDomain";
+            this.labelDomain.Size = new System.Drawing.Size(149, 20);
+            this.labelDomain.TabIndex = 0;
+            this.labelDomain.Text = "Domain/IPAddress";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.listboxPingInfo);
+            this.panel2.Controls.Add(this.richTextInformation);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 100);
+            this.panel2.Location = new System.Drawing.Point(0, 116);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(50, 0, 50, 30);
-            this.panel2.Size = new System.Drawing.Size(980, 729);
+            this.panel2.Size = new System.Drawing.Size(980, 714);
             this.panel2.TabIndex = 1;
             // 
-            // listboxPingInfo
+            // richTextInformation
             // 
-            this.listboxPingInfo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listboxPingInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listboxPingInfo.ContextMenuStrip = this.contextMenuStrip1;
-            this.listboxPingInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listboxPingInfo.FormattingEnabled = true;
-            this.listboxPingInfo.ItemHeight = 20;
-            this.listboxPingInfo.Location = new System.Drawing.Point(50, 0);
-            this.listboxPingInfo.Name = "listboxPingInfo";
-            this.listboxPingInfo.Size = new System.Drawing.Size(880, 699);
-            this.listboxPingInfo.TabIndex = 0;
+            this.richTextInformation.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.richTextInformation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextInformation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextInformation.Location = new System.Drawing.Point(50, 0);
+            this.richTextInformation.Name = "richTextInformation";
+            this.richTextInformation.Size = new System.Drawing.Size(880, 684);
+            this.richTextInformation.TabIndex = 0;
+            this.richTextInformation.Text = "";
             // 
-            // contextMenuStrip1
+            // comboxFields
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.clearAllToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 28);
+            this.comboxFields.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboxFields.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboxFields.FormattingEnabled = true;
+            this.comboxFields.Items.AddRange(new object[] {
+            "All",
+            "Registrant",
+            "Administrative Contact",
+            "Technical Contact",
+            "Record update dates",
+            "Name Servers",
+            "Registry Data"});
+            this.comboxFields.Location = new System.Drawing.Point(50, 82);
+            this.comboxFields.Name = "comboxFields";
+            this.comboxFields.Size = new System.Drawing.Size(251, 28);
+            this.comboxFields.TabIndex = 3;
+            this.comboxFields.SelectedIndexChanged += new System.EventHandler(this.comboxFields_SelectedIndexChanged);
             // 
-            // clearAllToolStripMenuItem
-            // 
-            this.clearAllToolStripMenuItem.Name = "clearAllToolStripMenuItem";
-            this.clearAllToolStripMenuItem.Size = new System.Drawing.Size(134, 24);
-            this.clearAllToolStripMenuItem.Text = "Clear All";
-            this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
-            // 
-            // UCPing
+            // UCWhoIs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "UCPing";
-            this.Size = new System.Drawing.Size(980, 829);
+            this.Name = "UCWhoIs";
+            this.Size = new System.Drawing.Size(980, 830);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -162,10 +161,9 @@ namespace NetTools.UserControls.Network
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.TextBox textDomain;
+        private System.Windows.Forms.Label labelDomain;
+        private System.Windows.Forms.RichTextBox richTextInformation;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listboxPingInfo;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem clearAllToolStripMenuItem;
+        private System.Windows.Forms.ComboBox comboxFields;
     }
 }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NetTools.UserControls.Network
+namespace NetTools.UserControls.IPAddress
 {
-    public partial class UCIPGeoLocation : UserControl
+    public partial class UCMyIP : UserControl
     {
-        public UCIPGeoLocation()
+        public UCMyIP()
         {
             InitializeComponent();
         }

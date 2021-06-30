@@ -52,13 +52,44 @@
     <Compile Include="FormDashboard.Designer.cs">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Libraries\FTP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControls\Misc\UCBase64.cs">
+    <Compile Include="UserControls\IPAddress\UCIPGeoLocation.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Misc\UCBase64.Designer.cs">
-      <DependentUpon>UCBase64.cs</DependentUpon>
+    <Compile Include="UserControls\IPAddress\UCIPGeoLocation.Designer.cs">
+      <DependentUpon>UCIPGeoLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\IPAddress\UCIPScanner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\IPAddress\UCIPScanner.Designer.cs">
+      <DependentUpon>UCIPScanner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\IPAddress\UCMyIP.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\IPAddress\UCMyIP.Designer.cs">
+      <DependentUpon>UCMyIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\IPAddress\UCSubnetCalculator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\IPAddress\UCSubnetCalculator.Designer.cs">
+      <DependentUpon>UCSubnetCalculator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\IPAddress\UCWhoIs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\IPAddress\UCWhoIs.Designer.cs">
+      <DependentUpon>UCWhoIs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Misc\UCTextConversion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Misc\UCTextConversion.Designer.cs">
+      <DependentUpon>UCTextConversion.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Misc\UCBinaryConverter.cs">
       <SubType>UserControl</SubType>
@@ -66,23 +97,11 @@
     <Compile Include="UserControls\Misc\UCBinaryConverter.Designer.cs">
       <DependentUpon>UCBinaryConverter.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Misc\UCSIDConverter.cs">
+    <Compile Include="UserControls\Network\UCHttpHeaders.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\Misc\UCSIDConverter.Designer.cs">
-      <DependentUpon>UCSIDConverter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Network\UCIPGeoLocation.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Network\UCIPGeoLocation.Designer.cs">
-      <DependentUpon>UCIPGeoLocation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Network\UCIPHeader.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\Network\UCIPHeader.Designer.cs">
-      <DependentUpon>UCIPHeader.cs</DependentUpon>
+    <Compile Include="UserControls\Network\UCHttpHeaders.Designer.cs">
+      <DependentUpon>UCHttpHeaders.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\Network\UCPing.cs">
       <SubType>UserControl</SubType>
@@ -95,6 +114,12 @@
     </Compile>
     <Compile Include="UserControls\Network\UCTraceRoute.Designer.cs">
       <DependentUpon>UCTraceRoute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCFTPClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCFTPClient.Designer.cs">
+      <DependentUpon>UCFTPClient.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UCHome.cs">
       <SubType>UserControl</SubType>
@@ -120,26 +145,38 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UserControls\Misc\UCBase64.resx">
-      <DependentUpon>UCBase64.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\IPAddress\UCIPGeoLocation.resx">
+      <DependentUpon>UCIPGeoLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\IPAddress\UCIPScanner.resx">
+      <DependentUpon>UCIPScanner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\IPAddress\UCMyIP.resx">
+      <DependentUpon>UCMyIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\IPAddress\UCSubnetCalculator.resx">
+      <DependentUpon>UCSubnetCalculator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\IPAddress\UCWhoIs.resx">
+      <DependentUpon>UCWhoIs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Misc\UCTextConversion.resx">
+      <DependentUpon>UCTextConversion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Misc\UCBinaryConverter.resx">
       <DependentUpon>UCBinaryConverter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Misc\UCSIDConverter.resx">
-      <DependentUpon>UCSIDConverter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Network\UCIPGeoLocation.resx">
-      <DependentUpon>UCIPGeoLocation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\Network\UCIPHeader.resx">
-      <DependentUpon>UCIPHeader.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\Network\UCHttpHeaders.resx">
+      <DependentUpon>UCHttpHeaders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Network\UCPing.resx">
       <DependentUpon>UCPing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Network\UCTraceRoute.resx">
       <DependentUpon>UCTraceRoute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCFTPClient.resx">
+      <DependentUpon>UCFTPClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UCHome.resx">
       <DependentUpon>UCHome.cs</DependentUpon>
