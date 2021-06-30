@@ -119,5 +119,10 @@ namespace NetTools.UserControls.Network
         {
             TraceRoute.Items.Clear();
         }
+
+        private void txtHostname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
