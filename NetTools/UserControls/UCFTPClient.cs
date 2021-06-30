@@ -83,9 +83,20 @@ namespace NetTools.UserControls
                 return sfd.FileName;
             return null;
         }
+        /* Get the open file dialog path */
+        private string GetOpenFileDialog()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+                return ofd.FileName;
+            return null;
+        }
         /* Get the full-path of the Listview-SelectedItem */
         private string GetFullFileName()
         {
+            /* Check the item has been selected? */
+            if (listviewFileInformation.SelectedItems.Count <= 0)
+                return null;
             string fileName = listviewFileInformation.SelectedItems[0].Text;
             string fileExt = listviewFileInformation.SelectedItems[0].SubItems[2].Text;
             return fileName + fileExt;
@@ -119,12 +130,34 @@ namespace NetTools.UserControls
         }
         /* Download a file from FTP Server */
         private void FTPDownloadFile(string remoteFile, string localFile)
-        { 
-            ftp.Download(remoteFile, localFile);
-            Console.WriteLine("Download file completed");
+        {
+            try
+            {
+                ftp.Download(remoteFile, localFile);
+                Console.WriteLine("Download file completed");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
         /* Upload a file from the local to FTP Server */
-        private void FTPUploadFile(string remoteFile, string localFile)
+        private void FTPUploadFile(string filePath)
+        {
+            try
+            {
+                string remoteFile = currentDirectory + "/" + Path.GetFileName(filePath);
+                ftp.Upload(remoteFile, filePath);
+                MessageBox.Show("Upload file completed");
+                RefreshFileBrowser(currentDirectory);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+        /* Delete a file in the FTP Server */
+        private void FTPDeleteFile(string fileName)
         {
 
         }
@@ -155,8 +188,13 @@ namespace NetTools.UserControls
         /* Get the directory-information */
         private void buttonGo_Click(object sender, EventArgs e)
         {
+            /* Check the textbox is a null or empty? */
+            if (String.IsNullOrEmpty(textCurrentDirectory.Text))
+                return;
+            /* Check the textbox has been changed */
             if (textCurrentDirectory.Text == currentDirectory)
                 return;
+            /* Check the current directory is exist in the FTP Server? */
             if (!ftp.IsDirectoryExist(textCurrentDirectory.Text))
                 return;
 
@@ -173,6 +211,18 @@ namespace NetTools.UserControls
                 return;
             string remoteFile = currentDirectory + "/" + GetFullFileName();
             FTPDownloadFile(remoteFile, savePath);
+        }
+        /* Upload a file from the local to the FTP Server */
+        private void buttonUpload_Click(object sender, EventArgs e)
+        {
+            string localFile = GetOpenFileDialog();
+            if (localFile != null)
+                FTPUploadFile(localFile);
+        }
+        /* Refresh listview */
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
+            RefreshFileBrowser(currentDirectory);
         }
         #endregion
 
@@ -199,5 +249,22 @@ namespace NetTools.UserControls
 
             RefreshFileBrowser(currentDirectory);
         }
+
+        #region Tool Strip Menu Item
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fileName = GetFullFileName();
+            /* Check the remoteFile is a null or empty string? */
+            if (string.IsNullOrEmpty(fileName))
+                return;
+            string remoteFile = currentDirectory + "/" + GetFullFileName();
+            /* Check the remottFile is exist in the FTP Server? */
+            if (!ftp.IsDirectoryExist(remoteFile))
+                return;
+            /* If it is exist */
+            ftp.Delete(remoteFile);
+            RefreshFileBrowser(currentDirectory);
+        }
+        #endregion
     }
 }

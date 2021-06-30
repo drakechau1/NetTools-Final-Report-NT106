@@ -52,6 +52,8 @@ namespace NetTools.UserControls
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonDownload = new System.Windows.Forms.Button();
             this.buttonUpload = new System.Windows.Forms.Button();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelQuickConnect.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             this.menustripListview.SuspendLayout();
@@ -176,9 +178,11 @@ namespace NetTools.UserControls
             this.menustripListview.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menustripListview.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newFileToolStripMenuItem,
-            this.newFolderToolStripMenuItem});
+            this.newFolderToolStripMenuItem,
+            this.renameToolStripMenuItem,
+            this.deleteToolStripMenuItem});
             this.menustripListview.Name = "menustripListview";
-            this.menustripListview.Size = new System.Drawing.Size(155, 52);
+            this.menustripListview.Size = new System.Drawing.Size(211, 128);
             // 
             // newFileToolStripMenuItem
             // 
@@ -280,6 +284,7 @@ namespace NetTools.UserControls
             this.buttonRefresh.TabIndex = 3;
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonDownload
             // 
@@ -301,6 +306,20 @@ namespace NetTools.UserControls
             this.buttonUpload.TabIndex = 1;
             this.buttonUpload.Text = "Upload";
             this.buttonUpload.UseVisualStyleBackColor = true;
+            this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
+            // 
+            // renameToolStripMenuItem
+            // 
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.renameToolStripMenuItem.Text = "Rename";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // UCFTPClient
             // 
@@ -344,5 +363,7 @@ namespace NetTools.UserControls
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.Button buttonForward;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }

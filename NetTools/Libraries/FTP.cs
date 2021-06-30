@@ -33,11 +33,14 @@ namespace NetTools.Libraries
                 ftpRequest.Credentials = new NetworkCredential(user, pass);
                 ftpRequest.Method = WebRequestMethods.Ftp.ListDirectory;
                 FtpWebResponse ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                if (host.Last() != '/')
+                    host += "/";        /* Format the host value: fpt://domain/ */
                 isConnected = true;
+                
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex.Message);
+                host = user = pass = null;
                 isConnected = false;
             }
             return isConnected;
@@ -231,7 +234,7 @@ namespace NetTools.Libraries
             return;
         }
         /* Upload File */
-        public void upload(string remoteFile, string localFile)
+        public void Upload(string remoteFile, string localFile)
         {
             try
             {
@@ -265,6 +268,30 @@ namespace NetTools.Libraries
                     Console.WriteLine($"Upload File Complete, status {response.StatusDescription}");
                 }
                 ftpStream.Close();
+                ftpRequest = null;
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            return;
+        }
+        /* Delete File */
+        public void Delete(string deleteFile)
+        {
+            try
+            {
+                /* Create an FTP Request */
+                ftpRequest = (FtpWebRequest)WebRequest.Create(host + "/" + deleteFile);
+                /* Log in to the FTP Server with the User Name and Password Provided */
+                ftpRequest.Credentials = new NetworkCredential(user, pass);
+                /* When in doubt, use these options */
+                ftpRequest.UseBinary = true;
+                ftpRequest.UsePassive = true;
+                ftpRequest.KeepAlive = true;
+                /* Specify the Type of FTP Request */
+                ftpRequest.Method = WebRequestMethods.Ftp.DeleteFile;
+                /* Establish Return Communication with the FTP Server */
+                ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                /* Resource Cleanup */
+                ftpResponse.Close();
                 ftpRequest = null;
             }
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
