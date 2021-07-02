@@ -16,6 +16,8 @@ namespace NetTools.UserControls
     {
         private FTP ftp;
         private string currentDirectory = "/"; /* / is the root directory path */
+        private List<string> historyDirectorys = new List<string>();
+        private int indexDirectory = 0;
 
         /* Constructor */
         public UCFTPClient()
@@ -101,6 +103,12 @@ namespace NetTools.UserControls
             string fileExt = listviewFileInformation.SelectedItems[0].SubItems[2].Text;
             return fileName + fileExt;
         }
+        /* Add history directory */
+        private void AddHistoryDirectory(string directory)
+        {
+            historyDirectorys.Add(directory);
+            indexDirectory += 1;
+        }
         #endregion
 
         #region FTP Functions
@@ -159,7 +167,16 @@ namespace NetTools.UserControls
         /* Delete a file in the FTP Server */
         private void FTPDeleteFile(string fileName)
         {
-
+            /* Check the remoteFile is a null or empty string? */
+            if (string.IsNullOrEmpty(fileName))
+                return;
+            string remoteFile = currentDirectory + "/" + GetFullFileName();
+            /* Check the remottFile is exist in the FTP Server? */
+            if (!ftp.IsDirectoryExist(remoteFile))
+                return;
+            /* If it is exist */
+            ftp.Delete(remoteFile);
+            RefreshFileBrowser(currentDirectory);
         }
         #endregion
 
@@ -254,16 +271,7 @@ namespace NetTools.UserControls
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string fileName = GetFullFileName();
-            /* Check the remoteFile is a null or empty string? */
-            if (string.IsNullOrEmpty(fileName))
-                return;
-            string remoteFile = currentDirectory + "/" + GetFullFileName();
-            /* Check the remottFile is exist in the FTP Server? */
-            if (!ftp.IsDirectoryExist(remoteFile))
-                return;
-            /* If it is exist */
-            ftp.Delete(remoteFile);
-            RefreshFileBrowser(currentDirectory);
+            FTPDeleteFile(fileName);
         }
         #endregion
     }
