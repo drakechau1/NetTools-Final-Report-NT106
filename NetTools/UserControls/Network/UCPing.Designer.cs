@@ -89,6 +89,7 @@ namespace NetTools.UserControls.Network
             this.textDomain.Name = "textDomain";
             this.textDomain.Size = new System.Drawing.Size(547, 27);
             this.textDomain.TabIndex = 1;
+            this.textDomain.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textDomain_KeyDown);
             // 
             // label1
             // 
