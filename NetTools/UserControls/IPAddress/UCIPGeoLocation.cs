@@ -14,7 +14,7 @@ namespace NetTools.UserControls.IPAddress
         }
 
         #region Methods
-        private string GetIPAddress(string url)
+        private string VerifyDomain(string url)
         {
             /* Check url is valid? */
             if (!url.Contains("http"))
@@ -32,7 +32,7 @@ namespace NetTools.UserControls.IPAddress
         }
         private string GetHTTPRequest(string ipAddress)
         {
-            string URL = $"http://ip-api.com/xml/{GetIPAddress(textDomain.Text)}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query";
+            string URL = $"http://ip-api.com/xml/{VerifyDomain(textDomain.Text)}?fields=status,message,continent,continentCode,country,countryCode,region,regionName,city,district,zip,lat,lon,timezone,offset,currency,isp,org,as,asname,reverse,mobile,proxy,hosting,query";
             WebRequest webRequest = WebRequest.Create(URL);
             webRequest.Credentials = CredentialCache.DefaultCredentials;
             WebResponse webResponse = webRequest.GetResponse();

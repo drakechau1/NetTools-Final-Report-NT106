@@ -51,10 +51,8 @@ namespace NetTools.UserControls.IPAddress
         }
         private string GetHTTPRequest(string domain)
         {
-            /* Verified domain */
-            domain = VerifyDomain(domain);
             /* Get api */
-            string URL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_aVzDK57jaecAL81LDLNTpFpZobX4B&domainName={domain}";
+            string URL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_aVzDK57jaecAL81LDLNTpFpZobX4B&domainName={VerifyDomain(domain)}";
             WebRequest webRequest = WebRequest.Create(URL);
             webRequest.Credentials = CredentialCache.DefaultCredentials;
             WebResponse webResponse = webRequest.GetResponse();
