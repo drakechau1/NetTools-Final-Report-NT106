@@ -16,6 +16,8 @@ namespace NetTools.UserControls
     {
         private FTP ftp;
         private string currentDirectory = "/"; /* / is the root directory path */
+        private List<string> historyDirectorys = new List<string>();
+        private int indexDirectory = 0;
 
         /* Constructor */
         public UCFTPClient()
@@ -30,6 +32,7 @@ namespace NetTools.UserControls
         }
 
         #region Methods
+        /* Active the state-connection display */
         private void ActivateConnected()
         {
             /* Create listview-columns */
@@ -43,6 +46,7 @@ namespace NetTools.UserControls
             panelDesktop.Enabled = true;
             panelQuickConnect.Visible = false;
         }
+        /* Active the state-disconnection display */
         private void ActivateDisconnected()
         {
             /* Reset text */
@@ -52,27 +56,65 @@ namespace NetTools.UserControls
             panelDesktop.Enabled = false;
             panelQuickConnect.Visible = true;
         }
+        /* Check the name is a folder? */
         private bool IsFolder(string folder)
         {
-            if (System.IO.Path.GetExtension(folder) == string.Empty)
+            if (Path.GetExtension(folder) == string.Empty)
                 return true;
             return false;
         }
-        private void ListviewAddItem(ListViewItem listviewItem)
+        /* Add the file-information into the listview */
+        private void AddListviewItem(ListViewItem listviewItem)
         {
             listviewFileInformation.Items.Add(listviewItem);
         }
+        /* Store the current-directory */
         private void SetCurrentDirectory(string directory)
         {
             textCurrentDirectory.Text = directory;
             currentDirectory = directory;
         }
+        /* Get the savepath from the local */
+        private string GetSavePath()
+        {
+            string fileName = GetFullFileName();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = $"|*{Path.GetExtension(fileName)}";
+            sfd.FileName = fileName;
+            if (sfd.ShowDialog() == DialogResult.OK)
+                return sfd.FileName;
+            return null;
+        }
+        /* Get the open file dialog path */
+        private string GetOpenFileDialog()
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+                return ofd.FileName;
+            return null;
+        }
+        /* Get the full-path of the Listview-SelectedItem */
+        private string GetFullFileName()
+        {
+            /* Check the item has been selected? */
+            if (listviewFileInformation.SelectedItems.Count <= 0)
+                return null;
+            string fileName = listviewFileInformation.SelectedItems[0].Text;
+            string fileExt = listviewFileInformation.SelectedItems[0].SubItems[2].Text;
+            return fileName + fileExt;
+        }
+        /* Add history directory */
+        private void AddHistoryDirectory(string directory)
+        {
+            historyDirectorys.Add(directory);
+            indexDirectory += 1;
+        }
         #endregion
 
         #region FTP Functions
+        /* Load the directory-information */
         private void RefreshFileBrowser(string directory)
         {
-            Console.WriteLine(ftp.IsDirectoryExist(directory));
             /* Clear the Listview */
             listviewFileInformation.Items.Clear();
 
@@ -89,14 +131,57 @@ namespace NetTools.UserControls
                 /* Create Listview Item */
                 ListViewItem listviewItem = new ListViewItem(new string[] { fileName, fileModifiedDay, fileExtension, fileSize });
                 /* Create Listview Item */
-                ListviewAddItem(listviewItem);
+                AddListviewItem(listviewItem);
             }
             /* Set current directory */
             SetCurrentDirectory(directory);
         }
+        /* Download a file from FTP Server */
+        private void FTPDownloadFile(string remoteFile, string localFile)
+        {
+            try
+            {
+                ftp.Download(remoteFile, localFile);
+                Console.WriteLine("Download file completed");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+        /* Upload a file from the local to FTP Server */
+        private void FTPUploadFile(string filePath)
+        {
+            try
+            {
+                string remoteFile = currentDirectory + "/" + Path.GetFileName(filePath);
+                ftp.Upload(remoteFile, filePath);
+                MessageBox.Show("Upload file completed");
+                RefreshFileBrowser(currentDirectory);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+        /* Delete a file in the FTP Server */
+        private void FTPDeleteFile(string fileName)
+        {
+            /* Check the remoteFile is a null or empty string? */
+            if (string.IsNullOrEmpty(fileName))
+                return;
+            string remoteFile = currentDirectory + "/" + GetFullFileName();
+            /* Check the remottFile is exist in the FTP Server? */
+            if (!ftp.IsDirectoryExist(remoteFile))
+                return;
+            /* If it is exist */
+            ftp.Delete(remoteFile);
+            RefreshFileBrowser(currentDirectory);
+        }
         #endregion
 
         #region Button
+        /* Connect to FTP Server */
         private void buttonQuickConnect_Click(object sender, EventArgs e)
         {
             ftp = new FTP(textHost.Text, textUsername.Text, textPassword.Text);
@@ -111,39 +196,83 @@ namespace NetTools.UserControls
             /* Get all files of the root directory */
             RefreshFileBrowser("/");
         }
+        /* Disconnect with FTP Server */
         private void buttonDisconnect_Click(object sender, EventArgs e)
         {
             ftp.Disconnect();
             ActivateDisconnected();
         }
+        /* Get the directory-information */
         private void buttonGo_Click(object sender, EventArgs e)
         {
+            /* Check the textbox is a null or empty? */
+            if (String.IsNullOrEmpty(textCurrentDirectory.Text))
+                return;
+            /* Check the textbox has been changed */
+            if (textCurrentDirectory.Text == currentDirectory)
+                return;
+            /* Check the current directory is exist in the FTP Server? */
+            if (!ftp.IsDirectoryExist(textCurrentDirectory.Text))
+                return;
+
             currentDirectory = textCurrentDirectory.Text;
+            RefreshFileBrowser(currentDirectory);
+        }
+        /* Download a file from the specific directory in FTP Server */
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+            if (listviewFileInformation.SelectedItems.Count <= 0)
+                return;
+            string savePath = GetSavePath();
+            if (String.IsNullOrEmpty(savePath))
+                return;
+            string remoteFile = currentDirectory + "/" + GetFullFileName();
+            FTPDownloadFile(remoteFile, savePath);
+        }
+        /* Upload a file from the local to the FTP Server */
+        private void buttonUpload_Click(object sender, EventArgs e)
+        {
+            string localFile = GetOpenFileDialog();
+            if (localFile != null)
+                FTPUploadFile(localFile);
+        }
+        /* Refresh listview */
+        private void buttonRefresh_Click(object sender, EventArgs e)
+        {
             RefreshFileBrowser(currentDirectory);
         }
         #endregion
 
-        #region Enter events
+        /* Enter-textbox event */
         private void textCurrentDirectory_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && currentDirectory != textCurrentDirectory.Text)
+            if (e.KeyCode == Keys.Enter)
             {
                 this.buttonGo_Click(sender, e);
             }
         }
-        #endregion
-
+        /* DoubleClick_listview event */
         private void listviewFileInformation_DoubleClick(object sender, EventArgs e)
         {
-            string fileName = listviewFileInformation.SelectedItems[0].Text;
-            if (!String.IsNullOrEmpty(listviewFileInformation.SelectedItems[0].SubItems[2].Text))
+            if (!IsFolder(GetFullFileName()))
                 return;
+
+            string fileName = listviewFileInformation.SelectedItems[0].Text;
+
             if (currentDirectory.Last() == '/')
-                SetCurrentDirectory(currentDirectory + fileName);
+                currentDirectory += fileName;
             else
-                SetCurrentDirectory(currentDirectory + "/" + fileName);
+                currentDirectory += ("/" + fileName);
 
             RefreshFileBrowser(currentDirectory);
         }
+
+        #region Tool Strip Menu Item
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fileName = GetFullFileName();
+            FTPDeleteFile(fileName);
+        }
+        #endregion
     }
 }

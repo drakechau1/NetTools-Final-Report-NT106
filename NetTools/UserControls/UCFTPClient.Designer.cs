@@ -42,16 +42,17 @@ namespace NetTools.UserControls
             this.listviewFileInformation = new System.Windows.Forms.ListView();
             this.menustripListview = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelControls = new System.Windows.Forms.Panel();
+            this.buttonForward = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonGo = new System.Windows.Forms.Button();
+            this.textCurrentDirectory = new System.Windows.Forms.TextBox();
             this.buttonDisconnect = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonDownload = new System.Windows.Forms.Button();
             this.buttonUpload = new System.Windows.Forms.Button();
-            this.textCurrentDirectory = new System.Windows.Forms.TextBox();
-            this.buttonGo = new System.Windows.Forms.Button();
-            this.buttonBack = new System.Windows.Forms.Button();
-            this.buttonForward = new System.Windows.Forms.Button();
             this.panelQuickConnect.SuspendLayout();
             this.panelDesktop.SuspendLayout();
             this.menustripListview.SuspendLayout();
@@ -116,6 +117,7 @@ namespace NetTools.UserControls
             this.textPassword.Name = "textPassword";
             this.textPassword.Size = new System.Drawing.Size(125, 27);
             this.textPassword.TabIndex = 3;
+            this.textPassword.UseSystemPasswordChar = true;
             // 
             // textUsername
             // 
@@ -176,9 +178,10 @@ namespace NetTools.UserControls
             this.menustripListview.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menustripListview.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newFileToolStripMenuItem,
-            this.newFolderToolStripMenuItem});
+            this.renameToolStripMenuItem,
+            this.deleteToolStripMenuItem});
             this.menustripListview.Name = "menustripListview";
-            this.menustripListview.Size = new System.Drawing.Size(155, 52);
+            this.menustripListview.Size = new System.Drawing.Size(211, 104);
             // 
             // newFileToolStripMenuItem
             // 
@@ -186,11 +189,18 @@ namespace NetTools.UserControls
             this.newFileToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
             this.newFileToolStripMenuItem.Text = "New File";
             // 
-            // newFolderToolStripMenuItem
+            // renameToolStripMenuItem
             // 
-            this.newFolderToolStripMenuItem.Name = "newFolderToolStripMenuItem";
-            this.newFolderToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
-            this.newFolderToolStripMenuItem.Text = "New Folder";
+            this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.renameToolStripMenuItem.Text = "Rename";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // panelControls
             // 
@@ -207,6 +217,57 @@ namespace NetTools.UserControls
             this.panelControls.Name = "panelControls";
             this.panelControls.Size = new System.Drawing.Size(880, 100);
             this.panelControls.TabIndex = 0;
+            // 
+            // buttonForward
+            // 
+            this.buttonForward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonForward.FlatAppearance.BorderSize = 0;
+            this.buttonForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonForward.Location = new System.Drawing.Point(716, 51);
+            this.buttonForward.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.buttonForward.Name = "buttonForward";
+            this.buttonForward.Size = new System.Drawing.Size(37, 37);
+            this.buttonForward.TabIndex = 6;
+            this.buttonForward.Text = ">";
+            this.buttonForward.UseVisualStyleBackColor = true;
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonBack.FlatAppearance.BorderSize = 0;
+            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonBack.Location = new System.Drawing.Point(679, 51);
+            this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(37, 37);
+            this.buttonBack.TabIndex = 6;
+            this.buttonBack.Text = "<";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            // 
+            // buttonGo
+            // 
+            this.buttonGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGo.Location = new System.Drawing.Point(759, 51);
+            this.buttonGo.Name = "buttonGo";
+            this.buttonGo.Size = new System.Drawing.Size(75, 37);
+            this.buttonGo.TabIndex = 5;
+            this.buttonGo.Text = "Go";
+            this.buttonGo.UseVisualStyleBackColor = true;
+            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
+            // 
+            // textCurrentDirectory
+            // 
+            this.textCurrentDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textCurrentDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCurrentDirectory.Location = new System.Drawing.Point(46, 56);
+            this.textCurrentDirectory.Name = "textCurrentDirectory";
+            this.textCurrentDirectory.Size = new System.Drawing.Size(627, 27);
+            this.textCurrentDirectory.TabIndex = 4;
+            this.textCurrentDirectory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textCurrentDirectory_KeyDown);
             // 
             // buttonDisconnect
             // 
@@ -229,6 +290,7 @@ namespace NetTools.UserControls
             this.buttonRefresh.TabIndex = 3;
             this.buttonRefresh.Text = "Refresh";
             this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
             // 
             // buttonDownload
             // 
@@ -239,6 +301,7 @@ namespace NetTools.UserControls
             this.buttonDownload.TabIndex = 2;
             this.buttonDownload.Text = "Download";
             this.buttonDownload.UseVisualStyleBackColor = true;
+            this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
             // 
             // buttonUpload
             // 
@@ -249,57 +312,7 @@ namespace NetTools.UserControls
             this.buttonUpload.TabIndex = 1;
             this.buttonUpload.Text = "Upload";
             this.buttonUpload.UseVisualStyleBackColor = true;
-            // 
-            // textCurrentDirectory
-            // 
-            this.textCurrentDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textCurrentDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCurrentDirectory.Location = new System.Drawing.Point(46, 56);
-            this.textCurrentDirectory.Name = "textCurrentDirectory";
-            this.textCurrentDirectory.Size = new System.Drawing.Size(627, 27);
-            this.textCurrentDirectory.TabIndex = 4;
-            this.textCurrentDirectory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textCurrentDirectory_KeyDown);
-            // 
-            // buttonGo
-            // 
-            this.buttonGo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGo.Location = new System.Drawing.Point(759, 51);
-            this.buttonGo.Name = "buttonGo";
-            this.buttonGo.Size = new System.Drawing.Size(75, 37);
-            this.buttonGo.TabIndex = 5;
-            this.buttonGo.Text = "Go";
-            this.buttonGo.UseVisualStyleBackColor = true;
-            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
-            // 
-            // buttonBack
-            // 
-            this.buttonBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBack.FlatAppearance.BorderSize = 0;
-            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBack.Location = new System.Drawing.Point(679, 51);
-            this.buttonBack.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(37, 37);
-            this.buttonBack.TabIndex = 6;
-            this.buttonBack.Text = "<";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            // 
-            // buttonForward
-            // 
-            this.buttonForward.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonForward.FlatAppearance.BorderSize = 0;
-            this.buttonForward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonForward.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonForward.Location = new System.Drawing.Point(716, 51);
-            this.buttonForward.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.buttonForward.Name = "buttonForward";
-            this.buttonForward.Size = new System.Drawing.Size(37, 37);
-            this.buttonForward.TabIndex = 6;
-            this.buttonForward.Text = ">";
-            this.buttonForward.UseVisualStyleBackColor = true;
+            this.buttonUpload.Click += new System.EventHandler(this.buttonUpload_Click);
             // 
             // UCFTPClient
             // 
@@ -338,10 +351,11 @@ namespace NetTools.UserControls
         private System.Windows.Forms.Button buttonDisconnect;
         private System.Windows.Forms.ContextMenuStrip menustripListview;
         private System.Windows.Forms.ToolStripMenuItem newFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newFolderToolStripMenuItem;
         private System.Windows.Forms.TextBox textCurrentDirectory;
         private System.Windows.Forms.Button buttonGo;
         private System.Windows.Forms.Button buttonForward;
         private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
