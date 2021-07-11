@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetTools.Libraries;
 
@@ -23,11 +18,7 @@ namespace NetTools.UserControls
         public UCFTPClient()
         {
             InitializeComponent();
-            /* Begin */
-            textHost.Text = "ftp://127.0.0.1/";
-            textUsername.Text = "user1";
-            textPassword.Text = "user1";
-
+            /* Show disconnected display */
             ActivateDisconnected();
         }
 

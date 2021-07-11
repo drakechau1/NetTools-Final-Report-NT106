@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
 using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +10,6 @@ namespace NetTools.UserControls.Network
     {
         int timeout = 3000;     /* 3000ms or 3 second */
         int max_ttl = 30;       /* max number of servers allowed to be found */
-        int current_ttl = 0;    /* used for tracking how many servers have been found */
         const int bufferSize = 32;
 
         public UCPing()
@@ -25,7 +18,8 @@ namespace NetTools.UserControls.Network
         }
 
         #region Methods
-        private string GetIPAddress(string url)
+        /* Verify domain */
+        private string VerifyDomain(string url)
         {
             /* Check url is valid? */
             if (!url.Contains("http"))
@@ -41,6 +35,7 @@ namespace NetTools.UserControls.Network
                 return url;
             }
         }
+        /* Write text to listview */
         private void WriteListBox(string text)
         {
             //this will make adding things to the listbox easier
@@ -51,16 +46,16 @@ namespace NetTools.UserControls.Network
                 listboxPingInfo.Items.Add(text);
             }));
         }
-        async Task UseDelay()
-        {
-            await Task.Delay(1000); // wait for 1 second
-        }
         private void PingProcess(string hostname)
         {
+            long max_time = -1;
+            long min_time = timeout;    // 3000ms
+            long average_time = 0;
+            int packet_sent = 0;
+            int packet_received = 0;
             Stopwatch eachTime = new Stopwatch();
             Stopwatch totalTime = new Stopwatch();
             byte[] buffer = new byte[bufferSize];
-            //new Random.NextBytes(buffer);
             Ping pinger = new Ping();
 
             Task.Factory.StartNew(() =>
@@ -71,13 +66,13 @@ namespace NetTools.UserControls.Network
                 totalTime.Start();
                 for (int ttl = 1; ttl <= 4; ttl++)
                 {
-                    current_ttl++;
                     eachTime.Start();
                     PingOptions options = new PingOptions(max_ttl, true);
                     PingReply reply = null;
                     try
                     {
                         reply = pinger.Send(hostname, timeout, buffer, options);
+                        packet_sent += 1;
                     }
                     catch (Exception ex)
                     {
@@ -89,8 +84,12 @@ namespace NetTools.UserControls.Network
                     {
                         if (reply.Status == IPStatus.Success)
                         {
-                            WriteListBox($"Reply from {reply.Address} Time: {eachTime.ElapsedMilliseconds} ms \t TTL: {ttl}");
+                            long time = eachTime.ElapsedMilliseconds;
+                            WriteListBox($"Reply from {reply.Address} Time: {time} ms");
                             eachTime.Stop();
+                            min_time = (time < min_time ? time:min_time);
+                            max_time = (time > max_time ? time:max_time);
+                            packet_received += 1;
                         }
                         else if (reply.Status == IPStatus.TtlExpired)
                         {
@@ -101,23 +100,35 @@ namespace NetTools.UserControls.Network
                             WriteListBox($"Timeout on {hostname}. Continuing.");
                         }
                     }
-                    Task.Delay(1000);
                 }
+                average_time = totalTime.ElapsedMilliseconds / 4;
+                WriteListBox("");
+                WriteListBox($"Ping statistics for {hostname}:");
+                WriteListBox($"\tPackets: Sent = {packet_sent}, Received = {packet_received}, Lost = {packet_sent - packet_received},");
+                WriteListBox("Approximate round trip times in milli-seconds:");
+                WriteListBox($"\tMinimum = {min_time}ms, Maximum = {max_time}ms, Average = {average_time}ms");
             });
         }
         #endregion
-
-        #region Button       
+  
+        /* Click-button event */
         private void buttonGo_Click(object sender, EventArgs e)
         {
-            string hostname = GetIPAddress(textDomain.Text);
+            string hostname = VerifyDomain(textDomain.Text);
             PingProcess(hostname);
         }
-        #endregion
-
+        /* Clear listview */
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listboxPingInfo.Items.Clear();
+        }
+        /* Enter-button event */
+        private void textDomain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (String.IsNullOrEmpty(textDomain.Text))
+                return;
+            if (e.KeyCode == Keys.Enter)
+                buttonGo_Click(sender, e);
         }
     }
 }

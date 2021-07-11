@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -51,10 +44,8 @@ namespace NetTools.UserControls.IPAddress
         }
         private string GetHTTPRequest(string domain)
         {
-            /* Verified domain */
-            domain = VerifyDomain(domain);
             /* Get api */
-            string URL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_aVzDK57jaecAL81LDLNTpFpZobX4B&domainName={domain}";
+            string URL = $"https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_aVzDK57jaecAL81LDLNTpFpZobX4B&domainName={VerifyDomain(domain)}";
             WebRequest webRequest = WebRequest.Create(URL);
             webRequest.Credentials = CredentialCache.DefaultCredentials;
             WebResponse webResponse = webRequest.GetResponse();
