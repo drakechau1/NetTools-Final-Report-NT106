@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetTools.UserControls.IPAddress
@@ -19,7 +12,6 @@ namespace NetTools.UserControls.IPAddress
             outputbox.Text = "Welcome to Group 1's Subnet Calculator!\n\n";
             outputbox.Text += "Enter your values above and related information will be automatically generated here.";
             outputbox.Text += "\n\n\n\nIf you encounter any bugs, please send a report to orphamiel@yahoo.com";
-
         }
 
         private void bit1_TextChanged(object sender, EventArgs e)
@@ -33,7 +25,7 @@ namespace NetTools.UserControls.IPAddress
             {
                 bit1int = int.Parse(bit1.Text);
             }
-            catch (System.Exception excep)
+            catch
             {
                 bit1.Text = "";
                 bit1.Select(bit1.Text.Length, 0);
@@ -57,7 +49,7 @@ namespace NetTools.UserControls.IPAddress
             {
                 bit2int = int.Parse(bit2.Text);
             }
-            catch (System.Exception excep)
+            catch
             {
                 bit2.Text = "";
             }
@@ -80,7 +72,7 @@ namespace NetTools.UserControls.IPAddress
             {
                 bit3int = int.Parse(bit3.Text);
             }
-            catch (System.Exception excep)
+            catch
             {
                 bit3.Text = "";
             }
@@ -103,7 +95,7 @@ namespace NetTools.UserControls.IPAddress
             {
                 bit4int = int.Parse(bit4.Text);
             }
-            catch (System.Exception excep)
+            catch
             {
                 bit4.Text = "";
             }
@@ -122,7 +114,7 @@ namespace NetTools.UserControls.IPAddress
             {
                 subint = int.Parse(subnetbit.Text);
             }
-            catch (System.Exception excep)
+            catch
             {
                 subnetbit.Text = "";
             }
