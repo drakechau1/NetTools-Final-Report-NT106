@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetTools.UserControls.Misc
@@ -399,6 +392,6 @@ namespace NetTools.UserControls.Misc
             this.buttonConvert_Click(sender, e);
         }
         #endregion
-        #endregion
+        #endregion User Interaction
     }
 }
